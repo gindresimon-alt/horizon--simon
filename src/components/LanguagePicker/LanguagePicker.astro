@@ -1,0 +1,48 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const { lang = 'fr' } = Astro.params;
+
+// Get current path to redirect to the same page in another language
+const pathname = Astro.url.pathname;
+
+const languages = [
+  { code: 'fr', label: 'FR' },
+  { code: 'en', label: 'EN' },
+];
+
+// Helper to get the correct URL for the language switch
+function getLangUrl(code: string) {
+  // If we are at root, or root-ish
+  let segments = pathname.split('/').filter(Boolean);
+  
+  if (code === 'fr') {
+    // If we're already in another language, remove the prefix
+    if (segments[0] === 'en' || segments[0] === 'fr') {
+      segments.shift();
+    }
+    return '/' + segments.join('/');
+  } else {
+    // Adding prefix
+    if (segments[0] === 'en' || segments[0] === 'fr') {
+      segments.shift();
+    }
+    return '/en/' + segments.join('/');
+  }
+}
+---
+
+<div class="flex items-center gap-2 px-2 text-sm font-medium">
+  {languages.map((l) => (
+    <a
+      href={getLangUrl(l.code)}
+      class:list={[
+        "transition-colors hover:text-primary-500",
+        Astro.url.pathname.startsWith(`/${l.code}`) || (l.code === 'fr' && !Astro.url.pathname.startsWith('/en'))
+          ? "text-primary-600 font-bold underline underline-offset-4"
+          : "text-base-600 opacity-70"
+      ]}
+    >
+      {l.label}
+    </a>
+  ))}
+</div>

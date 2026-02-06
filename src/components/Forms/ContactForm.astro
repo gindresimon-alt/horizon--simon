@@ -1,0 +1,40 @@
+---
+import Button from "@components/Button/Button.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<form id="contact-form" name="contact form" class="flex h-full flex-col justify-between gap-4">
+	<input type="hidden" name="form-name" value="contact" />
+	<div>
+		<label for="contact-name" class="font-heading-1 text-lg uppercase">{t('form.name')}</label>
+		<input type="text" class="form__input" name="name" id="contact-name" placeholder="" required />
+	</div>
+	<div class="flex flex-col gap-1">
+		<label for="contact-email" class="font-heading-1 text-lg uppercase">{t('form.email')}</label>
+		<input
+			type="email"
+			class="form__input"
+			name="email"
+			id="contact-email"
+			inputmode="email"
+			placeholder=""
+			required
+		/>
+	</div>
+	<div>
+		<label for="contact-message" class="font-heading-1 text-lg uppercase">{t('form.message')}</label>
+		<textarea
+			name="message"
+			class="form__input"
+			id="contact-message"
+			rows="6"
+			placeholder=""
+			required></textarea>
+	</div>
+	<div class="flex justify-start">
+		<Button variant="primary" type="submit" class="w-full px-10 md:w-fit">{t('form.submit')}</Button>
+	</div>
+</form>

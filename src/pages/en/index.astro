@@ -1,0 +1,59 @@
+---
+import About from "@components/About/About.astro";
+import Contact from "@components/Contact/Contact.astro";
+import SideSection from "@components/Feature/SideSection.astro";
+import Hero from "@components/Hero/Hero.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import siteData from "@config/siteData.json";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// images for sections
+import photographyImage from "@assets/images/couple-1-min.jpg";
+import therapyImage from "@assets/images/hero-bg-min.jpg";
+import articlesImage from "@assets/images/couple-6-min.jpg";
+---
+
+<BaseLayout title={t('site.title')} description={siteData.description} navStartStyle="white">
+	<Hero />
+	<About />
+
+	<SideSection
+		id="photography"
+		title={t('home.photo.title')}
+		subtitle={t('home.photo.subtitle')}
+		content={t('home.photo.content')}
+		imageSrc={photographyImage}
+		imageAlt="Photography"
+		buttonText={t('home.photo.title')}
+		buttonHref="/en/photographie/"
+		reversed={true}
+	/>
+
+	<SideSection
+		id="therapy"
+		title={t('home.therapy.title')}
+		subtitle={t('home.therapy.subtitle')}
+		content={t('home.therapy.content')}
+		imageSrc={therapyImage}
+		imageAlt="Holistic Therapy"
+		buttonText={t('home.therapy.title')}
+		buttonHref="/en/therapie-holistique/"
+	/>
+
+	<SideSection
+		id="articles"
+		title={t('home.articles.title')}
+		subtitle={t('home.articles.subtitle')}
+		content={t('home.articles.content')}
+		imageSrc={articlesImage}
+		imageAlt="Articles"
+		buttonText={t('home.articles.title')}
+		buttonHref="/en/articles/"
+		reversed={true}
+	/>
+
+	<Contact />
+</BaseLayout>

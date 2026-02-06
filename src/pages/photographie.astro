@@ -1,0 +1,133 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button/Button.astro";
+import PortfolioGrid from "@components/Portfolio/PortfolioGrid.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// images
+import heroImage from "@assets/images/portfolio-header-crop-min.jpg";
+import visionImage from "@assets/images/photographer-min.jpg";
+import coupleImage from "@assets/images/couple-1-square.jpg";
+import portraitImage from "@assets/images/couple-3-square.jpg";
+import artisanImage from "@assets/images/couple-9-square.jpg";
+
+const portfolios = await getCollection("portfolios", ({ data }) => {
+	return data.draft !== true;
+});
+
+const title = t('photo.hero.title') + " | Simon Gindre";
+const description = t('photo.hero.desc');
+---
+
+<BaseLayout {title} {description} navStartStyle="white">
+	{/* 1. Hero Section */}
+	<section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-base-900">
+		<Image
+			src={heroImage}
+			alt="Photographie Atmosphere"
+			class="absolute inset-0 h-full w-full object-cover opacity-60"
+		/>
+		<div class="site-container relative flex h-full items-center justify-center text-center">
+			<div class="max-w-4xl">
+				<h1 class="h1 mb-4 text-white uppercase tracking-widest">{t('photo.hero.title')}</h1>
+				<p class="h2 mb-8 text-white font-light italic">{t('photo.hero.subtitle')}</p>
+				<p class="mx-auto mb-10 max-w-2xl text-lg text-white/90 md:text-xl">
+					{t('photo.hero.desc')}
+				</p>
+				<Button variant="primary" href="#vision">{t('photo.hero.cta')}</Button>
+			</div>
+		</div>
+	</section>
+
+	{/* 2. Ma Vision de la Photo */}
+	<section id="vision" class="site-container py-20 md:py-32">
+		<div class="grid items-center gap-16 md:grid-cols-2">
+			<div class="order-2 md:order-1 overflow-hidden shadow-2xl">
+				<Image src={visionImage} alt="Simon Gindre" class="h-full w-full object-cover" />
+			</div>
+			<div class="order-1 md:order-2">
+				<h2 class="h2 mb-8 uppercase tracking-tight">{t('photo.vision.title')}</h2>
+				<p class="mb-6 text-lg leading-relaxed">
+					{t('photo.vision.p1')}
+				</p>
+				<p class="mb-6 text-lg leading-relaxed italic">
+					"{t('photo.vision.quote')}"
+				</p>
+				<p class="text-lg leading-relaxed">
+					{t('photo.vision.p2')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 3. Pour Qui */}
+	<section class="bg-base-100 py-20 md:py-32">
+		<div class="site-container">
+			<h2 class="h2 mb-16 text-center uppercase tracking-tight">{t('photo.who.title')}</h2>
+			<div class="grid gap-12 md:grid-cols-3">
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg">
+						<Image src={coupleImage} alt="Couples" class="h-full w-full object-cover" />
+					</div>
+					<h3 class="h4 mb-4 uppercase">{t('photo.who.couples.title')}</h3>
+					<p class="text-base-600">{t('photo.who.couples.desc')}</p>
+				</div>
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg">
+						<Image src={portraitImage} alt="Portraits" class="h-full w-full object-cover" />
+					</div>
+					<h3 class="h4 mb-4 uppercase">{t('photo.who.portraits.title')}</h3>
+					<p class="text-base-600">{t('photo.who.portraits.desc')}</p>
+				</div>
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg">
+						<Image src={artisanImage} alt="Artisans" class="h-full w-full object-cover" />
+					</div>
+					<h3 class="h4 mb-4 uppercase">{t('photo.who.artisans.title')}</h3>
+					<p class="text-base-600">{t('photo.who.artisans.desc')}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 4. Format & Collaborations */}
+	<section class="site-container py-20 md:py-32">
+		<div class="mx-auto max-w-4xl text-center">
+			<h2 class="h2 mb-12 uppercase tracking-tight">{t('photo.format.title')}</h2>
+			<p class="mb-12 text-lg leading-relaxed">
+				{t('photo.format.p1')}
+			</p>
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="bg-white p-8 border border-base-200 text-left shadow-sm">
+					<h3 class="h5 mb-4 text-primary-600 font-bold uppercase underline decoration-primary-200 underline-offset-8">{t('photo.format.private.title')}</h3>
+					<ul class="space-y-3 font-light">
+						<li>{t('photo.format.private.item1')}</li>
+						<li>{t('photo.format.private.item2')}</li>
+						<li>{t('photo.format.private.item3')}</li>
+						<li>{t('photo.format.private.item4')}</li>
+					</ul>
+				</div>
+				<div class="bg-white p-8 border border-base-200 text-left shadow-sm">
+					<h3 class="h5 mb-4 text-primary-600 font-bold uppercase underline decoration-primary-200 underline-offset-8">{t('photo.format.collab.title')}</h3>
+					<p class="font-light italic">
+						{t('photo.format.collab.desc')}
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 5. Galerie */}
+	<section class="bg-primary-50 py-20 md:py-32">
+		<div class="site-container">
+			<h2 class="h2 mb-8 text-center uppercase tracking-tight">{t('photo.gallery.title')}</h2>
+			<p class="mb-12 text-center text-lg italic text-base-600">{t('photo.gallery.subtitle')}</p>
+			<PortfolioGrid portfolios={portfolios} />
+		</div>
+	</section>
+</BaseLayout>

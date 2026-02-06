@@ -1,0 +1,82 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+
+export async function getStaticPaths() {
+	const articles = await getCollection("articles");
+	return articles.map((article) => ({
+		params: { slug: article.id },
+		props: { article },
+	}));
+}
+
+const { article } = Astro.props;
+const { title, description, heroImage, pubDate, category, author } = article.data;
+const { Content } = await render(article);
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const formattedDate = pubDate.toLocaleDateString("en-US", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+});
+---
+
+<BaseLayout title={title} description={description}>
+	<article class="site-container py-16 md:py-24">
+		<header class="mx-auto max-w-3xl text-center mb-12">
+			<div class="mb-6 flex justify-center gap-4">
+				<span class="rounded-full bg-primary-100 px-4 py-1 text-sm font-medium text-primary-700 dark:bg-primary-900 dark:text-primary-300">
+					{category}
+				</span>
+				<time datetime={pubDate.toISOString()} class="text-sm text-neutral-500 flex items-center">
+					{formattedDate}
+				</time>
+			</div>
+			<h1 class="h1 mb-8">{title}</h1>
+			<p class="text-xl text-neutral-600 dark:text-neutral-400 italic">
+				{description}
+			</p>
+		</header>
+
+		<div class="mx-auto max-w-5xl mb-16 overflow-hidden rounded-2xl shadow-lg">
+			<Image
+				src={heroImage}
+				alt={title}
+				width={1200}
+				class="h-full w-full object-cover"
+			/>
+		</div>
+
+		<div class="prose prose-lg prose-neutral mx-auto dark:prose-invert">
+			<Content />
+		</div>
+		
+		<footer class="mx-auto max-w-3xl mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+			<div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+				<div class="flex items-center gap-4">
+					<div class="h-12 w-12 overflow-hidden rounded-full bg-neutral-200">
+						<!-- Placeholder for author image or icon -->
+						<div class="flex h-full w-full items-center justify-center bg-primary-500 text-white font-bold">
+							{author.charAt(0)}
+						</div>
+					</div>
+					<div>
+						<p class="text-sm font-medium text-neutral-900 dark:text-white">Written by</p>
+						<p class="text-base text-neutral-600 dark:text-neutral-400">{author}</p>
+					</div>
+				</div>
+				<a href="/en/articles/" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 rotate-180" viewBox="0 0 20 20" fill="currentColor">
+						<path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+					</svg>
+					Back to Articles
+				</a>
+			</div>
+		</footer>
+	</article>
+</BaseLayout>

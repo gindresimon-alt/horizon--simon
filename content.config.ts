@@ -1,6 +1,7 @@
 import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
+// Forced reload
 // Type-check frontmatter using a schema
 // portfolios
 const portfolios = defineCollection({
@@ -49,7 +50,6 @@ const testimonials = defineCollection({
 
 // other pages
 const otherPages = defineCollection({
-	// type: "content",
 	loader: glob({
 		pattern: "**/[^_]*.{md,mdx}",
 		base: "./src/data/otherPages",
@@ -62,8 +62,27 @@ const otherPages = defineCollection({
 		}),
 });
 
+// articles
+const articles = defineCollection({
+	loader: glob({
+		pattern: "**/[^_]*.{md,mdx}",
+		base: "./src/data/articles",
+	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			pubDate: z.coerce.date(),
+			category: z.string(),
+			heroImage: image(),
+			author: z.string().default("Simon Gindre"),
+			draft: z.boolean().optional(),
+		}),
+});
+
 export const collections = {
 	portfolios,
 	testimonials,
 	otherPages,
+	articles,
 };

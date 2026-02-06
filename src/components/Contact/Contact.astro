@@ -1,0 +1,32 @@
+---
+/**
+ * * Contact section for the website
+ */
+
+import ContactForm from "@components/Forms/ContactForm.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props as Props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+	id="contact"
+	class="mx-auto max-w-2xl scroll-mt-10 px-4 py-8 md:py-12"
+	class:list={[className]}
+>
+	<h2 class="h2 mb-4 text-center md:px-12 lg:text-6xl">{t('contact.title')}</h2>
+	<div class="mb-10 text-center">
+		<p class="description text-lg">
+			{t('contact.subtitle')}
+		</p>
+	</div>
+	<div class="w-full">
+		<ContactForm />
+	</div>
+</section>

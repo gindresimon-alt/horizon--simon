@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BlogCard from "@components/BlogCard/BlogCard.astro";
+
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const articles = await getCollection("articles", ({ data }) => {
+	return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+// Sort by date descending
+const sortedArticles = articles.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const title = t('home.articles.title');
+const description = t('home.articles.content');
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="site-container py-16 md:py-24">
+		<div class="mx-auto max-w-4xl text-center mb-16">
+			<h1 class="h1 mb-6">{title}</h1>
+			<p class="text-lg text-neutral-600 dark:text-neutral-400">
+				{t('home.articles.subtitle')}
+			</p>
+		</div>
+
+		<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			{sortedArticles.map((article) => (
+				<BlogCard article={article} />
+			))}
+		</div>
+		
+		{sortedArticles.length === 0 && (
+			<div class="text-center py-20">
+				<p class="text-xl text-neutral-500">Aucun article pour le moment. Revenez bientôt !</p>
+			</div>
+		)}
+	</section>
+</BaseLayout>

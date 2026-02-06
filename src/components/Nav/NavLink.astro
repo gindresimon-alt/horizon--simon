@@ -1,0 +1,49 @@
+---
+import { type navLinkItem } from "@config/navData.json";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+interface Props {
+	navItem: navLinkItem;
+	class?: string;
+}
+
+const { navItem, class: className } = Astro.props as Props;
+const { text, link, newTab = false } = navItem;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Localize link
+let localizedLink = link;
+if (lang === 'en' && link.startsWith('/') && !link.startsWith('/#')) {
+    if (link === '/') {
+        localizedLink = '/en/';
+    } else {
+        localizedLink = `/en${link}`;
+    }
+}
+// Handle hash links for about page when on other pages
+if (link.startsWith('/#') && lang === 'en') {
+    localizedLink = `/en${link}`;
+}
+
+// Check for active state
+const isActive = Astro.url.pathname === localizedLink || (link !== '/' && Astro.url.pathname.startsWith(localizedLink));
+---
+
+<li>
+	<a
+		class:list={[
+			`nav__link--base flex w-full items-center ${className}`,
+			{
+				// styling for current active page link
+				"text-primary-600 font-bold": isActive,
+			},
+		]}
+		href={localizedLink}
+		target={newTab ? "_blank" : ""}
+		rel={newTab ? "noopener noreferrer" : ""}
+	>
+		{t(text as any)}
+	</a>
+</li>

@@ -1,0 +1,177 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button/Button.astro";
+import SideSection from "@components/Feature/SideSection.astro";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// images
+import heroImage from "@assets/images/hero-bg-min.jpg";
+import visionImage from "@assets/images/couple-5-min.jpg";
+import breathworkImage from "@assets/images/couple-4-min.jpg";
+import accompanimentImage from "@assets/images/couple-2-crop.jpg";
+
+const title = t('therapie.hero.title') + " | Simon Gindre";
+const description = t('therapie.hero.desc');
+---
+
+<BaseLayout {title} {description} navStartStyle="white">
+	{/* 1. Header & Atmosphere */}
+	<section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-base-900">
+		<Image
+			src={heroImage}
+			alt="Thérapie Holistique"
+			class="absolute inset-0 h-full w-full object-cover opacity-50"
+		/>
+		<div class="site-container relative flex h-full items-center justify-center text-center">
+			<div class="max-w-4xl">
+				<h1 class="h1 mb-4 text-white uppercase tracking-wider">{t('therapie.hero.title')}</h1>
+				<p class="h2 mb-8 text-white font-light italic">{t('therapie.hero.subtitle')}</p>
+				<p class="mx-auto mb-10 max-w-2xl text-lg text-white/90 md:text-xl">
+					{t('therapie.hero.desc')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 2. Ma Vision */}
+	<section id="vision" class="site-container py-20 md:py-32">
+		<div class="mx-auto max-w-3xl text-center">
+			<h2 class="h2 mb-12 uppercase tracking-tight">{t('therapie.vision.title')}</h2>
+			<div class="space-y-6 text-lg leading-relaxed lg:text-xl">
+				<p>
+					{t('therapie.vision.p1')}
+				</p>
+				<p>
+					{t('therapie.vision.p2')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 3. Le Breathwork */}
+	<SideSection
+		title={t('therapie.breathwork.title')}
+		subtitle={t('therapie.breathwork.subtitle')}
+		content={t('therapie.breathwork.content')}
+		imageSrc={breathworkImage}
+		imageAlt="Breathwork"
+		reversed={true}
+	/>
+
+	{/* 4. Mon Accompagnement Global */}
+	<section class="bg-base-100 py-20 md:py-32">
+		<div class="site-container">
+			<div class="grid items-center gap-16 md:grid-cols-2">
+				<div>
+					<h2 class="h2 mb-8 uppercase tracking-tight">{t('therapie.accomp.title')}</h2>
+					<p class="mb-6 text-lg leading-relaxed">
+						{t('therapie.accomp.p1')}
+					</p>
+					<p class="text-lg leading-relaxed">
+						{t('therapie.accomp.p2')}
+					</p>
+				</div>
+				<div class="overflow-hidden shadow-2xl">
+					<Image src={accompanimentImage} alt="Accompagnement" class="h-full w-full object-cover" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 5. Le Bain Glacé */}
+	<SideSection
+		title="Le Bain Glacé"
+		subtitle="Le Froid qui Réveille"
+		content="L'immersion en eau glacée est un puissant catalyseur de vitalité. Elle renforce le système immunitaire, améliore la circulation et offre un espace unique pour dompter son mental par le souffle."
+		imageSrc={breathworkImage} 
+		imageAlt="Bain Glacé"
+		reversed={true}
+	/>
+
+	{/* 6. Pour Qui */}
+	<section class="bg-base-100 py-20 md:py-32">
+		<div class="site-container">
+			<h2 class="h2 mb-16 text-center uppercase tracking-tight">Pour Qui ?</h2>
+			<div class="grid gap-12 md:grid-cols-3">
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg flex items-center justify-center bg-primary-50">
+						<span class="text-4xl">🌱</span>
+					</div>
+					<h3 class="h4 mb-4 uppercase">En Quête de Sens</h3>
+					<p class="text-base-600">Vous ressentez le besoin de vous reconnecter à votre essence et de trouver un alignement plus juste dans votre vie.</p>
+				</div>
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg flex items-center justify-center bg-primary-50">
+						<span class="text-4xl">🌊</span>
+					</div>
+					<h3 class="h4 mb-4 uppercase">Gestion du Stress</h3>
+					<p class="text-base-600">Vous souhaitez acquérir des outils concrets pour apaiser votre mental et gérer vos émotions au quotidien.</p>
+				</div>
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg flex items-center justify-center bg-primary-50">
+						<span class="text-4xl">✨</span>
+					</div>
+					<h3 class="h4 mb-4 uppercase">Exploration de Soi</h3>
+					<p class="text-base-600">Curieux de découvrir la puissance du souffle et du froid pour repousser vos limites et libérer votre potentiel.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 7. Ma Posture de Thérapeute */}
+	<section class="site-container py-20 md:py-32">
+		<div class="mx-auto max-w-4xl">
+			<h2 class="h2 mb-12 text-center uppercase tracking-tight">{t('therapie.posture.title')}</h2>
+			<div class="grid gap-12 md:grid-cols-2">
+				<div class="border-l-4 border-primary-500 pl-8">
+					<h3 class="h4 mb-4">{t('therapie.posture.p1.title')}</h3>
+					<p>{t('therapie.posture.p1.desc')}</p>
+				</div>
+				<div class="border-l-4 border-primary-500 pl-8">
+					<h3 class="h4 mb-4">{t('therapie.posture.p2.title')}</h3>
+					<p>{t('therapie.posture.p2.desc')}</p>
+				</div>
+				<div class="border-l-4 border-primary-500 pl-8">
+					<h3 class="h4 mb-4">{t('therapie.posture.p3.title')}</h3>
+					<p>{t('therapie.posture.p3.desc')}</p>
+				</div>
+				<div class="border-l-4 border-primary-500 pl-8">
+					<h3 class="h4 mb-4">{t('therapie.posture.p4.title')}</h3>
+					<p>{t('therapie.posture.p4.desc')}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 8. Prestations */}
+	<section class="bg-primary-50 py-20 md:py-32">
+		<div class="site-container">
+			<h2 class="h2 mb-16 text-center uppercase tracking-tight">Mes Prestations</h2>
+			<div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
+				<div class="bg-white p-10 text-center shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-400">
+					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">Breathwork Plage</h3>
+					<p class="mb-6 font-light text-sm italic">Groupe</p>
+					<p class="mb-6 text-base-600">Une séance collective puissante face à l'océan, connectée aux éléments pour une libération profonde.</p>
+					<div class="text-xl font-bold">150 MXN</div>
+				</div>
+				<div class="bg-white p-10 text-center shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-600 relative md:-mt-4 z-10">
+					<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-full">Populaire</div>
+					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">Breathwork 1:1</h3>
+					<p class="mb-6 font-light text-sm italic">Individuel</p>
+					<p class="mb-6 text-base-600">Un voyage intérieur guidé sur-mesure pour explorer vos blocages et activer votre guérison.</p>
+					<div class="text-xl font-bold">800 MXN</div>
+				</div>
+				<div class="bg-white p-10 text-center shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-400">
+					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">Accompagnement Thérapeutique</h3>
+					<p class="mb-6 font-light text-sm italic">Individuel</p>
+					<p class="mb-6 text-base-600">Un suivi régulier mêlant parole, corps et souffle pour une transformation durable.</p>
+					<div class="text-xl font-bold">700 MXN</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
