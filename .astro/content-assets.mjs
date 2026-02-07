@@ -1,1 +1,11 @@
-export default new Map();
+
+import __ASTRO_IMAGE_IMPORT_ZIr2P3 from "../../assets/images/couple-1-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fart-de-capturer-invisible.md";
+import __ASTRO_IMAGE_IMPORT_bTQFz from "../../assets/images/couple-5-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fecouter-corps.md";
+import __ASTRO_IMAGE_IMPORT_2l2Jel from "../../assets/images/hero-bg-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fla-respiration.md";
+import __ASTRO_IMAGE_IMPORT_Z12BUaf from "../../assets/images/couple-1-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fla-photographie.md";
+import __ASTRO_IMAGE_IMPORT_fxEj from "../../assets/images/photographer-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fphotographie-therapeutique.md";
+import __ASTRO_IMAGE_IMPORT_Djl7f from "../../assets/images/couple-5-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fle-pranayama.md";
+import __ASTRO_IMAGE_IMPORT_1MNuE from "../../assets/images/couple-7-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fles-therapies-holistiques.md";
+import __ASTRO_IMAGE_IMPORT_Z1e8e5N from "../../assets/images/couple-4-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fle-breathwork.md";
+export default new Map([["../../assets/images/couple-1-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fart-de-capturer-invisible.md", __ASTRO_IMAGE_IMPORT_ZIr2P3], ["../../assets/images/couple-5-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fecouter-corps.md", __ASTRO_IMAGE_IMPORT_bTQFz], ["../../assets/images/hero-bg-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fla-respiration.md", __ASTRO_IMAGE_IMPORT_2l2Jel], ["../../assets/images/couple-1-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fla-photographie.md", __ASTRO_IMAGE_IMPORT_Z12BUaf], ["../../assets/images/photographer-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fphotographie-therapeutique.md", __ASTRO_IMAGE_IMPORT_fxEj], ["../../assets/images/couple-5-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fle-pranayama.md", __ASTRO_IMAGE_IMPORT_Djl7f], ["../../assets/images/couple-7-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fles-therapies-holistiques.md", __ASTRO_IMAGE_IMPORT_1MNuE], ["../../assets/images/couple-4-min.jpg?astroContentImageFlag=&importer=src%2Fcontent%2Farticles%2Fle-breathwork.md", __ASTRO_IMAGE_IMPORT_Z1e8e5N]]);
+		
