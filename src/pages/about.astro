@@ -1,72 +1,34 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import SideSection from "@components/Feature/SideSection.astro";
-import Button from "@components/Button/Button.astro";
-import { Image } from "astro:assets";
-
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-// images
-import profileImage from "@assets/images/photographer-min.jpg";
-import photographyImage from "@assets/images/couple-1-min.jpg";
-import therapyImage from "@assets/images/hero-bg-min.jpg";
 
 const title = t('about.page.title') + " | Simon Gindre";
 const description = t('about.page.desc');
 ---
 
 <BaseLayout {title} {description} navStartStyle="white">
-	{/* Hero Section */}
-	<section class="relative h-[60vh] min-h-[400px] w-full overflow-hidden bg-base-900">
-		<Image
-			src={profileImage}
-			alt="Simon Gindre"
-			class="absolute inset-0 h-full w-full object-cover opacity-60"
-		/>
-		<div class="site-container relative flex h-full items-center justify-center text-center">
-			<div class="max-w-3xl">
-				<h1 class="h1 mb-6 text-white">{t('about.hero.title')}</h1>
-				<p class="text-lg text-white/90 md:text-xl">
-					{t('about.hero.subtitle')}
-				</p>
-			</div>
+	{/* Hero Section - Simple Text Only */}
+	<section class="site-container py-24 md:py-32">
+		<div class="mx-auto max-w-4xl text-center">
+			<h1 class="h1 mb-8">{t('about.hero.title')}</h1>
+			<p class="text-xl text-neutral-600 dark:text-neutral-400 md:text-2xl">
+				{t('about.hero.subtitle')}
+			</p>
 		</div>
 	</section>
 
 	{/* Intro Text */}
-	<section class="site-container py-16 md:py-24">
-		<div class="mx-auto max-w-4xl text-center">
+	<section class="site-container pb-16 md:pb-24">
+		<div class="mx-auto max-w-3xl text-center">
 			<h2 class="h2 mb-8">{t('about.vision.title')}</h2>
 			<p class="text-lg leading-relaxed lg:text-xl">
 				{t('about.vision.content')}
 			</p>
 		</div>
 	</section>
-
-	{/* The Two Pillars */}
-	<SideSection
-		title={t('about.photo.title')}
-		subtitle={t('about.photo.subtitle')}
-		content={t('about.photo.content')}
-		imageSrc={photographyImage}
-		imageAlt="Photographie"
-		buttonText={t('about.photo.cta')}
-		buttonHref={lang === 'fr' ? "/photographie/" : "/en/photographie/"}
-	/>
-
-	<SideSection
-		title={t('about.therapy.title')}
-		subtitle={t('about.therapy.subtitle')}
-		content={t('about.therapy.content')}
-		imageSrc={therapyImage}
-		imageAlt="Thérapie"
-		buttonText={t('about.therapy.cta')}
-		buttonHref={lang === 'fr' ? "/therapie-holistique/" : "/en/therapie-holistique/"}
-		reversed={true}
-	/>
 
 	{/* Values Section */}
 	<section class="bg-base-200 py-16 md:py-24">
