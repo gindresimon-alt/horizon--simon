@@ -1,0 +1,25 @@
+---
+// layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+// components
+import Contact from "@components/Contact/Contact.astro";
+
+// utils
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// data
+import siteData from "@config/siteData.json";
+---
+
+<BaseLayout 
+	title={`${t('contact.title')} - Simon Gindre`} 
+	description={t('about.page.desc')}
+>
+	<div class="py-20 md:py-32">
+		<Contact />
+	</div>
+</BaseLayout>

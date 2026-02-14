@@ -14,16 +14,12 @@ export type navItem = navLinkItem | navDropdownItem;
 // note: 1 level of dropdown is supported
 const navConfig: navItem[] = [
 	{
-		text: "nav.home",
-		link: "/",
-	},
-	{
 		text: "nav.photographie",
 		link: "/photographie/",
 	},
 	{
 		text: "nav.therapie",
-		link: "/therapie-holistique/",
+		link: "/therapie/",
 	},
 	{
 		text: "nav.articles",
@@ -32,6 +28,10 @@ const navConfig: navItem[] = [
 	{
 		text: "nav.about",
 		link: "/about/", // Changed from /#about
+	},
+	{
+		text: "nav.contact",
+		link: "/contact/",
 	},
 ];
 

@@ -24,6 +24,29 @@ const t = useTranslations(lang);
 			required
 		/>
 	</div>
+	<div class="flex flex-col gap-1">
+		<label for="contact-whatsapp" class="font-heading-1 text-lg uppercase">{t('form.whatsapp')}</label>
+		<div class="flex gap-2">
+			<select name="country-code" class="form__input w-32 shrink-0 cursor-pointer" aria-label="Code pays">
+				<option value="+33" selected>+33 (FR)</option>
+				<option value="+52">+52 (MX)</option>
+				<option value="+1">+1 (US/CA)</option>
+				<option value="+34">+34 (ES)</option>
+				<option value="+41">+41 (CH)</option>
+				<option value="+32">+32 (BE)</option>
+				<option value="+44">+44 (UK)</option>
+			</select>
+			<input
+				type="tel"
+				class="form__input"
+				name="whatsapp"
+				id="contact-whatsapp"
+				inputmode="tel"
+				placeholder=""
+				required
+			/>
+		</div>
+	</div>
 	<div>
 		<label for="contact-message" class="font-heading-1 text-lg uppercase">{t('form.message')}</label>
 		<textarea

@@ -1,0 +1,181 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button/Button.astro";
+import SideSection from "@components/Feature/SideSection.astro";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// images
+import heroImage from "@assets/images/hero-bg-min.jpg";
+import visionImage from "@assets/images/couple-5-min.jpg";
+import breathworkImage from "@assets/images/couple-4-min.jpg";
+import accompanimentImage from "@assets/images/couple-2-crop.jpg";
+
+const title = t('therapie.hero.title') + " | Simon Gindre";
+const description = t('therapie.hero.desc');
+---
+
+<BaseLayout {title} {description} navStartStyle="white">
+	{/* 1. Header & Atmosphere */}
+	<section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-base-900">
+		<Image
+			src={heroImage}
+			alt="Thérapie Holistique"
+			class="absolute inset-0 h-full w-full object-cover opacity-50"
+		/>
+		<div class="site-container relative flex h-full items-center justify-center text-center">
+			<div class="max-w-4xl">
+				<h1 class="h1 mb-4 text-white uppercase tracking-wider">{t('therapie.hero.title')}</h1>
+				<p class="h2 mb-8 text-white font-light italic">{t('therapie.hero.subtitle')}</p>
+				<p class="mx-auto mb-10 max-w-2xl text-lg text-white/90 md:text-xl">
+					{t('therapie.hero.desc')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 2. Ma Vision */}
+	<section id="vision" class="site-container py-20 md:py-32">
+		<div class="mx-auto max-w-3xl text-center">
+			<div class="space-y-6 text-lg leading-relaxed lg:text-xl">
+				<p>
+					{t('therapie.vision.p1')}
+				</p>
+				<p>
+					{t('therapie.vision.p2')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 6. Pour Qui */}
+	<section class="bg-base-100 py-20 md:py-32">
+		<div class="site-container">
+			<h2 class="h2 mb-16 text-center uppercase tracking-tight">{t('therapie.who.title')}</h2>
+			<div class="grid gap-12 md:grid-cols-3">
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg flex items-center justify-center bg-primary-50">
+						<span class="text-4xl">⚓</span>
+					</div>
+					<h3 class="h4 mb-4 uppercase">{t('therapie.who.stress.title')}</h3>
+					<p class="text-base-600">{t('therapie.who.stress.desc')}</p>
+				</div>
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg flex items-center justify-center bg-primary-50">
+						<span class="text-4xl">🌌</span>
+					</div>
+					<h3 class="h4 mb-4 uppercase">{t('therapie.who.explorers.title')}</h3>
+					<p class="text-base-600">{t('therapie.who.explorers.desc')}</p>
+				</div>
+				<div class="text-center">
+					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg flex items-center justify-center bg-primary-50">
+						<span class="text-4xl">🎯</span>
+					</div>
+					<h3 class="h4 mb-4 uppercase">{t('therapie.who.goals.title')}</h3>
+					<p class="text-base-600">{t('therapie.who.goals.desc')}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 7. Une thérapie humaniste et intégrative */}
+	<section class="site-container py-20 md:py-32">
+		<div class="mx-auto max-w-4xl">
+			<h2 class="h2 mb-10 text-center uppercase tracking-tight">{t('therapie.posture.title')}</h2>
+			<div class="mb-12 text-center text-lg lg:text-xl">
+				<p>{t('therapie.posture.intro')}</p>
+			</div>
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="border-l-4 border-primary-500 bg-base-100 p-6 shadow-sm">
+					<h3 class="h4 font-medium">{t('therapie.posture.p1.title')}</h3>
+				</div>
+				<div class="border-l-4 border-primary-500 bg-base-100 p-6 shadow-sm">
+					<h3 class="h4 font-medium">{t('therapie.posture.p2.title')}</h3>
+				</div>
+				<div class="border-l-4 border-primary-500 bg-base-100 p-6 shadow-sm">
+					<h3 class="h4 font-medium">{t('therapie.posture.p3.title')}</h3>
+				</div>
+				<div class="border-l-4 border-primary-500 bg-base-100 p-6 shadow-sm">
+					<h3 class="h4 font-medium">{t('therapie.posture.p4.title')}</h3>
+				</div>
+			</div>
+			<div class="mt-12 text-lg leading-relaxed text-base-800 lg:text-xl whitespace-pre-line">
+				<p>{t('therapie.posture.details')}</p>
+			</div>
+			<div class="mt-16 text-center text-lg leading-relaxed italic lg:text-xl whitespace-pre-line">
+				<p>{t('therapie.posture.conclusion')}</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 3. Le Breathwork */}
+	<SideSection
+		title={t('therapie.breathwork.title')}
+		subtitle={t('therapie.breathwork.subtitle')}
+		content={t('therapie.breathwork.content')}
+		imageSrc={breathworkImage}
+		imageAlt="Breathwork"
+		reversed={true}
+	/>
+
+	{/* 8. Prestations */}
+	<section class="bg-primary-50 py-20 md:py-32">
+		<div class="site-container">
+			<h2 class="h2 mb-16 text-center uppercase tracking-tight">{t('therapie.offers.title')}</h2>
+			<div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-4">
+				{/* individual session */}
+				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-400">
+					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">{t('therapie.offers.individual.title')}</h3>
+					<p class="mb-6 text-base-800">{t('therapie.offers.individual.desc')}</p>
+					<div class="mt-auto pt-6 border-t border-base-100 text-sm text-base-600 whitespace-pre-line leading-relaxed">
+						{t('therapie.offers.individual.details')}
+					</div>
+				</div>
+
+				{/* group breathwork */}
+				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-600">
+					<h3 class="h4 mb-2 text-primary-600 uppercase font-bold">{t('therapie.offers.group_breathwork.title')}</h3>
+					<p class="mb-6 text-xs uppercase tracking-widest text-base-400 font-medium">{t('therapie.offers.group_breathwork.subtitle')}</p>
+					<div class="text-sm text-base-800 whitespace-pre-line leading-relaxed">
+						{t('therapie.offers.group_breathwork.desc')}
+					</div>
+				</div>
+
+				{/* 1:1 breathwork */}
+				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-600 relative md:-mt-4 z-10">
+					<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-full">Approfondi</div>
+					<h3 class="h4 mb-2 text-primary-600 uppercase font-bold">{t('therapie.offers.solo_breathwork.title')}</h3>
+					<p class="mb-6 text-xs uppercase tracking-widest text-base-400 font-medium">{t('therapie.offers.solo_breathwork.subtitle')}</p>
+					<div class="text-sm text-base-800 whitespace-pre-line leading-relaxed">
+						{t('therapie.offers.solo_breathwork.desc')}
+					</div>
+				</div>
+
+				{/* specific interventions */}
+				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-400">
+					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">{t('therapie.offers.special.title')}</h3>
+					<p class="mb-6 text-base-800">{t('therapie.offers.special.desc')}</p>
+					
+					<div class="mt-auto pt-6 border-t border-base-100">
+						<Button variant="ghost" arrow="right" href="/articles/le-bain-glace" class="text-sm text-primary-600 p-0 hover:bg-transparent">
+							{t('therapie.offers.special.cta')}
+						</Button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 9. Contact CTA */}
+	<section class="bg-base-100 py-16 md:py-24">
+		<div class="site-container text-center">
+			<p class="h3 mb-10 max-w-4xl mx-auto leading-relaxed">{t('therapie.contact_cta.title')}</p>
+			<Button variant="primary" href={lang === 'fr' ? "/contact/" : "/en/contact/"}>
+				{t('therapie.contact_cta.button')}
+			</Button>
+		</div>
+	</section>
+</BaseLayout>

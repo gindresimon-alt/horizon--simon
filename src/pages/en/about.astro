@@ -1,106 +1,183 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import SideSection from "@components/Feature/SideSection.astro";
 import Button from "@components/Button/Button.astro";
-import { Image } from "astro:assets";
-
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { Image } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// images
-import profileImage from "@assets/images/photographer-min.jpg";
-import photographyImage from "@assets/images/couple-1-min.jpg";
-import therapyImage from "@assets/images/hero-bg-min.jpg";
-
 const title = t('about.page.title') + " | Simon Gindre";
 const description = t('about.page.desc');
+
+// images
+import therapyImage from "@assets/images/hero-bg-min.jpg";
 ---
 
 <BaseLayout {title} {description} navStartStyle="white">
-	{/* Hero Section */}
-	<section class="relative h-[60vh] min-h-[400px] w-full overflow-hidden bg-base-900">
-		<Image
-			src={profileImage}
-			alt="Simon Gindre"
-			class="absolute inset-0 h-full w-full object-cover opacity-60"
-		/>
-		<div class="site-container relative flex h-full items-center justify-center text-center">
-			<div class="max-w-3xl">
-				<h1 class="h1 mb-6 text-white">{t('about.hero.title')}</h1>
-				<p class="text-lg text-white/90 md:text-xl">
-					{t('about.hero.subtitle')}
+	{/* 1. Intro Section */}
+	<section class="site-container py-24 md:py-32">
+		<div class="mx-auto max-w-4xl text-center">
+			<p class="text-primary-600 font-bold tracking-widest uppercase mb-4">{t('about.intro.p1')}</p>
+			<h1 class="h1 mb-8">{t('about.intro.p2')}</h1>
+			<p class="text-xl text-base-600 leading-relaxed md:text-2xl whitespace-pre-line max-w-2xl mx-auto">
+				{t('about.intro.p3')}
+			</p>
+		</div>
+	</section>
+
+	{/* 2. Identity Section */}
+	<section class="bg-base-50 py-20 md:py-32">
+		<div class="site-container">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="h2 mb-8">{t('about.identity.title')}</h2>
+				<p class="text-lg leading-relaxed lg:text-xl">
+					{t('about.identity.content')}
 				</p>
 			</div>
 		</div>
 	</section>
 
-	{/* Intro Text */}
-	<section class="site-container py-16 md:py-24">
-		<div class="mx-auto max-w-4xl text-center">
-			<h2 class="h2 mb-8">{t('about.vision.title')}</h2>
-			<p class="text-lg leading-relaxed lg:text-xl">
-				{t('about.vision.content')}
-			</p>
-		</div>
-	</section>
-
-	{/* The Two Pillars */}
-	<SideSection
-		title={t('about.photo.title')}
-		subtitle={t('about.photo.subtitle')}
-		content={t('about.photo.content')}
-		imageSrc={photographyImage}
-		imageAlt="Photographie"
-		buttonText={t('about.photo.cta')}
-		buttonHref={lang === 'fr' ? "/photographie/" : "/en/photographie/"}
-	/>
-
-	<SideSection
-		title={t('about.therapy.title')}
-		subtitle={t('about.therapy.subtitle')}
-		content={t('about.therapy.content')}
-		imageSrc={therapyImage}
-		imageAlt="Thérapie"
-		buttonText={t('about.therapy.cta')}
-		buttonHref={lang === 'fr' ? "/therapie-holistique/" : "/en/therapie-holistique/"}
-		reversed={true}
-	/>
-
-	{/* Values Section */}
-	<section class="bg-base-200 py-16 md:py-24">
-		<div class="site-container">
-			<h2 class="h2 mb-16 text-center">{t('about.values.title')}</h2>
-			<div class="grid gap-12 md:grid-cols-3">
-				<div class="text-center">
-					<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary-100 text-primary-600">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-						</svg>
-					</div>
-					<h3 class="h4 mb-4 uppercase">{t('about.values.v1.title')}</h3>
-					<p>{t('about.values.v1.desc')}</p>
-				</div>
-				<div class="text-center">
-					<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary-100 text-primary-600">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-					</div>
-					<h3 class="h4 mb-4 uppercase">{t('about.values.v2.title')}</h3>
-					<p>{t('about.values.v2.desc')}</p>
-				</div>
-				<div class="text-center">
-					<div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary-100 text-primary-600">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-						</svg>
-					</div>
-					<h3 class="h4 mb-4 uppercase">{t('about.values.v3.title')}</h3>
-					<p>{t('about.values.v3.desc')}</p>
+	{/* 3. Journey - Travel as Revelation */}
+	<section class="site-container py-20 md:py-32 border-b border-base-100">
+		<div class="grid items-center gap-16 md:grid-cols-2">
+			<div class="order-2 md:order-1 overflow-hidden shadow-2xl">
+				<Image src={therapyImage} alt="Simon Gindre" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
+			</div>
+			<div class="order-1 md:order-2">
+				<h2 class="h3 mb-8 text-primary-600 uppercase tracking-tight">{t('about.journey.title')}</h2>
+				<div class="space-y-6 text-lg leading-relaxed text-base-800">
+					<p>{t('about.journey.p1')}</p>
+					<p class="whitespace-pre-line">{t('about.journey.p2')}</p>
+					<p>{t('about.journey.p3')}</p>
+					<p class="italic text-base-500">{t('about.journey.p4')}</p>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	{/* 4. Exploration - World and Nature */}
+	<section class="bg-base-900 text-white py-20 md:py-32">
+		<div class="site-container">
+			<div class="mx-auto max-w-3xl">
+				<h2 class="h2 mb-12 text-center">{t('about.exploration.title')}</h2>
+				<div class="space-y-8 text-lg md:text-xl font-light opacity-90 leading-relaxed">
+					<p class="text-center italic">{t('about.exploration.p1')}</p>
+					<p>{t('about.exploration.p2')}</p>
+					<p>{t('about.exploration.p3')}</p>
+					<div class="pt-8 border-t border-white/20">
+						<p class="font-bold text-primary-400 whitespace-pre-line mb-4">{t('about.exploration.p4')}</p>
+						<p class="whitespace-pre-line">{t('about.exploration.p5')}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 5. Empathy as Strength */}
+	<section class="site-container py-20 md:py-32 border-b border-base-100">
+		<div class="mx-auto max-w-3xl">
+			<h2 class="h2 mb-12 text-center text-primary-600 underline decoration-primary-200 decoration-8 underline-offset-8">{t('about.empathy.title')}</h2>
+			<div class="space-y-8 text-lg leading-relaxed">
+				<p>{t('about.empathy.p1')}</p>
+				<p>{t('about.empathy.p2')}</p>
+				<p>{t('about.empathy.p3')}</p>
+				<div class="bg-primary-50 p-8 border-l-4 border-primary-500 italic">
+					<p class="mb-4 font-bold not-italic text-primary-800">{t('about.empathy.p4')}</p>
+					<p class="whitespace-pre-line">{t('about.empathy.p5')}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 6. Vision of Accompaniment */}
+	<section class="bg-base-50 py-20 md:py-32">
+		<div class="site-container flex flex-col items-center">
+			<h2 class="h2 mb-12 text-center uppercase tracking-tight">{t('about.vision.title')}</h2>
+			<div class="mx-auto max-w-3xl text-center mb-16 space-y-8">
+				<div class="space-y-2">
+					<p class="text-base-500 uppercase tracking-widest text-sm">{t('about.vision.p1')}</p>
+					<p class="text-3xl font-serif md:text-4xl text-base-900">{t('about.vision.p2')}</p>
+				</div>
+				<p class="text-lg whitespace-pre-line">{t('about.vision.p3')}</p>
+				<p class="text-lg font-bold">{t('about.vision.p4')}</p>
+			</div>
+
+			<div class="bg-white p-12 shadow-xl rounded-sm max-w-2xl w-full border border-base-100">
+				<h3 class="h4 mb-8 text-primary-600 border-b pb-4">{t('about.vision.list_title')}</h3>
+				<ul class="space-y-4 text-lg mb-8">
+					<li class="flex items-start gap-3">
+						<span class="text-primary-500 font-bold">—</span>
+						{t('about.vision.item1')}
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-primary-500 font-bold">—</span>
+						{t('about.vision.item2')}
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-primary-500 font-bold">—</span>
+						{t('about.vision.item3')}
+					</li>
+					<li class="flex items-start gap-3">
+						<span class="text-primary-500 font-bold">—</span>
+						{t('about.vision.item4')}
+					</li>
+				</ul>
+				<p class="text-sm text-base-500 italic whitespace-pre-line">
+					{t('about.vision.footer')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 7. Playa Context */}
+	<section class="site-container py-20 md:py-32">
+		<div class="mx-auto max-w-3xl">
+			<h2 class="h2 mb-12 text-center">{t('about.playa.title')}</h2>
+			<div class="space-y-6 text-lg leading-relaxed">
+				<p>{t('about.playa.p1')}</p>
+				<p>{t('about.playa.p2')}</p>
+				<p class="font-light italic text-base-400">{t('about.playa.p3')}</p>
+				<p class="text-xl font-medium pt-4 text-primary-700">{t('about.playa.p4')}</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 8. The Proposal */}
+	<section class="bg-primary-900 text-white py-20 md:py-32">
+		<div class="site-container">
+			<div class="mx-auto max-w-4xl">
+				<h2 class="h2 mb-16 text-center">{t('about.proposal.title')}</h2>
+				<div class="grid gap-8 md:grid-cols-3 text-center mb-16">
+					<div class="p-8 border border-white/10 bg-white/5 rounded-sm">
+						<p class="text-xl font-bold uppercase tracking-tight">{t('about.proposal.item1')}</p>
+					</div>
+					<div class="p-8 border border-white/10 bg-white/5 rounded-sm">
+						<p class="text-xl font-bold uppercase tracking-tight">{t('about.proposal.item2')}</p>
+					</div>
+					<div class="p-8 border border-white/10 bg-white/5 rounded-sm">
+						<p class="text-xl font-bold uppercase tracking-tight">{t('about.proposal.item3')}</p>
+					</div>
+				</div>
+				<p class="text-center text-lg md:text-xl font-light opacity-80 max-w-2xl mx-auto">
+					{t('about.proposal.footer')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 9. Final CTA */}
+	<section class="site-container py-24 md:py-32 text-center">
+		<div class="mx-auto max-w-3xl">
+			<h2 class="h2 mb-8">{t('about.conclusion.title')}</h2>
+			<p class="text-2xl mb-4 font-serif italic text-base-600 tracking-tight">{t('about.conclusion.p1')}</p>
+			<p class="text-lg text-base-500 whitespace-pre-line mb-12">
+				{t('about.conclusion.p2')}
+			</p>
+			<Button variant="primary" href={lang === 'fr' ? "/contact/" : "/en/contact/"}>
+				{t('therapie.contact_cta.button')}
+			</Button>
+		</div>
+	</section>
 </BaseLayout>
+
