@@ -3,7 +3,6 @@ title: "Thérapie humaniste : retrouver un espace pour se comprendre et évoluer
 description: "Un cadre sérieux et sécurisant pour explorer son vécu, réguler ses émotions et retrouver une direction intérieure."
 pubDate: 2026-02-17
 category: "Thérapie"
-heroImage: "../../assets/images/couple-7-min.jpg"
 author: "Simon Gindre"
 ---
 

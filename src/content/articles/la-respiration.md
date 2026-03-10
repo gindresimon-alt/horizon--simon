@@ -3,7 +3,6 @@ title: "La respiration : Clé de la vitalité"
 description: "Découvrez comment une respiration consciente peut transformer votre état d'être et vous apporter une sérénité profonde au quotidien."
 pubDate: 2026-02-01
 category: "Thérapie"
-heroImage: "../../assets/images/hero-bg-min.jpg"
 author: "Simon Gindre"
 ---
 

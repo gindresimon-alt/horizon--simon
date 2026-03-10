@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
 
 export async function getStaticPaths() {
@@ -43,14 +42,6 @@ const formattedDate = pubDate.toLocaleDateString("en-US", {
 			</p>
 		</header>
 
-		<div class="mx-auto max-w-5xl mb-16 overflow-hidden rounded-2xl shadow-lg">
-			<Image
-				src={heroImage}
-				alt={title}
-				width={1200}
-				class="h-full w-full object-cover"
-			/>
-		</div>
 
 		<div class="prose prose-lg prose-neutral mx-auto dark:prose-invert">
 			<Content />

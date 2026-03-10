@@ -3,7 +3,6 @@ title: "Le Bain Glacé : Plongée dans la Vitalité"
 description: "Découvrez les bienfaits insoupçonnés de l'immersion en eau froide et comment cette pratique peut transformer votre santé physique et mentale."
 pubDate: 2026-02-13
 category: "Thérapie Holistique"
-heroImage: "../../assets/images/le-bain-glace-hero.png"
 author: "Simon Gindre"
 draft: false
 ---

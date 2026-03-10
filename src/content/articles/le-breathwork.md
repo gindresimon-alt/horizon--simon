@@ -3,7 +3,6 @@ title: "Le Breathwork : Un voyage au cœur de soi"
 description: "Découvrez comment la respiration consciente peut libérer les blocages émotionnels et transformer votre vie."
 pubDate: 2026-02-02
 category: "Thérapie Holistique"
-heroImage: "../../assets/images/couple-4-min.jpg"
 author: "Simon Gindre"
 draft: false
 ---
