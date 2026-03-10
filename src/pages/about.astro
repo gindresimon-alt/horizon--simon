@@ -11,7 +11,6 @@ const title = t('about.page.title') + " | Simon Gindre";
 const description = t('about.page.desc');
 
 // images
-import therapyImage from "@assets/images/hero-bg-min.jpg";
 ---
 
 <BaseLayout {title} {description} navStartStyle="white">
@@ -40,19 +39,14 @@ import therapyImage from "@assets/images/hero-bg-min.jpg";
 
 	{/* 3. Journey - Travel as Revelation */}
 	<section class="site-container py-20 md:py-32 border-b border-base-100">
-		<div class="grid items-center gap-16 md:grid-cols-2">
-			<div class="order-2 md:order-1 overflow-hidden shadow-2xl">
-				<Image src={therapyImage} alt="Simon Gindre" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
-			</div>
-			<div class="order-1 md:order-2">
-				<h2 class="h3 mb-8 text-primary-600 uppercase tracking-tight">{t('about.journey.title')}</h2>
-				<div class="space-y-6 text-lg leading-relaxed text-base-800">
-					<p>{t('about.journey.p1')}</p>
-					<p>{t('about.journey.p2')}</p>
-					<p>{t('about.journey.p3')}</p>
-					<div class="pt-6 border-t border-base-100 space-y-4">
-						<p class="whitespace-pre-line italic font-serif text-primary-800">{t('about.journey.p4')}</p>
-					</div>
+		<div class="mx-auto max-w-3xl text-center">
+			<h2 class="h3 mb-8 text-primary-600 uppercase tracking-tight">{t('about.journey.title')}</h2>
+			<div class="space-y-6 text-lg leading-relaxed text-base-800">
+				<p>{t('about.journey.p1')}</p>
+				<p>{t('about.journey.p2')}</p>
+				<p>{t('about.journey.p3')}</p>
+				<div class="pt-6 border-t border-base-100 space-y-4">
+					<p class="whitespace-pre-line italic font-serif text-primary-800">{t('about.journey.p4')}</p>
 				</div>
 			</div>
 		</div>
@@ -76,16 +70,6 @@ import therapyImage from "@assets/images/hero-bg-min.jpg";
 		</div>
 	</section>
 
-	{/* 5. Empathy as Strength (Simple Space) */}
-	<section class="site-container py-20 md:py-32 border-b border-base-100">
-		<div class="mx-auto max-w-3xl text-center">
-			<h2 class="h2 mb-12 text-primary-600 underline decoration-primary-200 decoration-8 underline-offset-8 uppercase tracking-widest">{t('about.empathy.title')}</h2>
-			<div class="flex justify-center gap-12 text-2xl font-serif italic text-base-400 md:text-4xl">
-				<p>{t('about.empathy.p1')}</p>
-				<p>{t('about.empathy.p2')}</p>
-			</div>
-		</div>
-	</section>
 
 	{/* 6. Vision of Accompaniment */}
 	<section class="bg-base-50 py-20 md:py-32 border-b border-base-100">
