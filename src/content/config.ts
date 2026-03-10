@@ -8,7 +8,7 @@ const articlesCollection = defineCollection({
         description: z.string(),
         pubDate: z.coerce.date(),
         category: z.string(),
-        heroImage: image(),
+        heroImage: image().optional(),
         author: z.string(),
         draft: z.boolean().optional(),
     }),
