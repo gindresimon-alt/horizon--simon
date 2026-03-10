@@ -7,7 +7,7 @@ author: "Simon Gindre"
 draft: false
 ---
 
-L'immersion en eau glacée, bien plus qu'une simple tendance, est une pratique ancestrale aux vertus scientifiquement prouvées. Dans cet article, nous explorons pourquoi et comment intégrer le froid dans votre routine de bien-être.
+> L'immersion en eau glacée, bien plus qu'une simple tendance, est une pratique ancestrale aux vertus scientifiquement prouvées. Dans cet article, nous explorons pourquoi et comment intégrer le froid dans votre routine de bien-être.
 
 ## Les Bienfaits du Froid
 
@@ -27,4 +27,4 @@ Il n'est pas nécessaire de plonger immédiatement dans une eau à 2°C. La prog
 - Pratiquez la respiration consciente (Breathwork) avant l'immersion.
 - Écoutez toujours votre corps et ne restez pas plus de quelques minutes les premières fois.
 
-Le bain glacé est un miroir de notre force intérieure. En domptant le froid, on apprend à dompter ses propres peurs.
+> Le bain glacé est un miroir de notre force intérieure. En domptant le froid, on apprend à dompter ses propres peurs.

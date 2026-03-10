@@ -6,4 +6,9 @@ category: "Art"
 author: "Simon Gindre"
 ---
 
-Photographier, c'est mettre sur la même ligne de mire la tête, l'œil et le cœur. C'est une quête de lumière, tant extérieure qu'intérieure...
+> Photographier, c'est mettre sur la même ligne de mire **la tête, l'œil et le cœur**.
+> C'est une quête de lumière, tant extérieure qu'intérieure...
+
+## Fixer l'éphémère
+
+*(Article en cours de rédaction)*

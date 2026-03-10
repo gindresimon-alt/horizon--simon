@@ -7,7 +7,7 @@ author: "Simon Gindre"
 draft: false
 ---
 
-Respirer. C'est la première chose que nous faisons en venant au monde, et la dernière avant de le quitter. Pourtant, combien de fois par jour prêtons-nous vraiment attention à notre souffle ?
+> Respirer. C'est la première chose que nous faisons en venant au monde, et la dernière avant de le quitter. Pourtant, combien de fois par jour prêtons-nous vraiment attention à notre souffle ?
 
 Le **Breathwork** est une pratique puissante qui utilise la respiration comme un outil de transformation et de guérison.
 
@@ -24,4 +24,4 @@ Il s'agit d'une technique de respiration connectée et consciente. En modifiant 
 
 Lors de mes séances, j'observe souvent des transformations incroyables. Des personnes arrivent tendues, chargées de soucis, et repartent le visage apaisé, rayonnant, comme allégées d'un poids immense.
 
-Le souffle ne ment pas. Il va directement là où nous avons besoin d'aller, contournant les barrières du mental pour toucher notre essence profonde.
+> Le souffle ne ment pas. Il va directement là où nous avons besoin d'aller, contournant les barrières du mental pour toucher notre essence profonde.

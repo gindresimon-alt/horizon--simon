@@ -10,9 +10,8 @@ author: "Simon Gindre"
 
 Dans un monde où tout s’accélère, il devient rare de disposer d’un espace réellement dédié à la parole, à la conscience et à la compréhension de soi.
 
-La thérapie humaniste propose précisément cela :
+> La thérapie humaniste propose précisément cela : un cadre sérieux et sécurisant pour explorer son vécu, réguler ses émotions et retrouver une direction intérieure.
 
-un cadre sérieux et sécurisant pour explorer son vécu, réguler ses émotions et retrouver une direction intérieure.
 
 À Playa del Carmen comme ailleurs, de nombreux francophones vivent des périodes de transition, d’anxiété ou de perte de sens. La thérapie humaniste offre une approche profondément respectueuse de la personne, loin des méthodes normatives ou strictement symptomatiques.
 
@@ -26,9 +25,7 @@ D’un côté, la fameuse psychanalyse qui se concentre principalement sur l’i
 
 De l’autre, le behaviorisme (qui vient de l’anglais “Behavior” qui se traduit litterallement par “comportement”) se concentrait principalement sur les comportements observables.
 
-Les fondateurs du courant humaniste ont introduit une idée simple et radicale :
-
-**L’être humain possède en lui une capacité naturelle de croissance et d’autorégulation.**
+> **L’être humain possède en lui une capacité naturelle de croissance et d’autorégulation.**
 
 Les figures majeures a l’origine de cette revolution sont :
 
@@ -42,9 +39,8 @@ Ces approches partagent plusieurs fondements :
 - L’importance de la relation thérapeutique
 - La confiance dans le potentiel d’évolution de chacun
 
-La thérapie n’est plus un lieu d’interprétation autoritaire ou le therapeute sait et l’autre suit.
-
-Elle devient un espace de rencontre, de confiance, de croissance accompagnee.
+> La thérapie n’est plus un lieu d’interprétation autoritaire où le thérapeute sait et l’autre suit.
+> **Elle devient un espace de rencontre, de confiance, de croissance accompagnée.**
 
 ---
 
@@ -144,9 +140,8 @@ Elle considère qu’a la racine des symptômes se trouvent :
 - Des blessures relationnelles
 - Des stratégies de survie devenues limitantes
 
-En soi, la thérapie humaniste restaure surtout une chose essentielle :
-
-A savoir la capacité à se rencontrer soi-même sans jugement, et de s’accueillir tel quel.
+> En soi, la thérapie humaniste restaure surtout une chose essentielle :
+> **La capacité à se rencontrer soi-même sans jugement, et de s’accueillir tel quel.**
 
 ---
 
@@ -206,4 +201,4 @@ Dans un monde ou le rythme n’a jamais ete aussi rapide et ne cesse d’acceler
 
 Si vous recherchez un accompagnement thérapeutique en français à Playa del Carmen ou en ligne, la thérapie humaniste peut constituer une approche à la fois profonde, structurée et respectueuse de votre rythme.
 
-Je vous propose un lieu, un instant hors du temps, pour penser, sentir et se liberer en toute lucidite.
+> Je vous propose un lieu, un instant hors du temps, pour penser, sentir et se libérer en toute lucidité.

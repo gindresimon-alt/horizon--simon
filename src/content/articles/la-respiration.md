@@ -6,4 +6,8 @@ category: "Thérapie"
 author: "Simon Gindre"
 ---
 
-La respiration est bien plus qu'un simple processus physiologique automatique. C'est le pont entre notre corps et notre esprit, un outil puissant que nous portons en nous à chaque instant...
+> La respiration est bien plus qu'un simple processus physiologique automatique. C'est le pont entre notre corps et notre esprit, un outil puissant que nous portons en nous à chaque instant...
+
+## Une ancre dans le tumulte
+
+*(Article en cours de rédaction)*
