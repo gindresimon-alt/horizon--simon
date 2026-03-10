@@ -67,7 +67,15 @@ export const ui = {
         'about.vision.footer': "La parole permet de comprendre.\nLa respiration aide à réguler.\nLe corps permet d’intégrer.\n\n*particulierement adapte pour travailler sur la concentration, la gestion des addictions, l’anxiete",
         'about.playa.title': "Pour qui ?",
         'about.playa.p1': "Cet accompagnement peut être pertinent si vous traversez :",
-        'about.playa.p2': "– Un sentiment de décalage\n\n– Une perte de sens\n\n– Des difficultés d’attention\n\n– Une gestion compliquée du stress ou des émotions\n\n– Une peur de l’avenir\n\n– Une crise existentielle\n\n– Des comportements addictifs\n\n– Une faible estime de soi\n\n– Le besoin de redevenir pleinement acteur de votre vie",
+        'about.playa.p2': `– Un sentiment de décalage
+– Une perte de sens
+– Des difficultés d’attention
+– Une gestion compliquée du stress ou des émotions
+– Une peur de l’avenir
+– Une crise existentielle
+– Des comportements addictifs
+– Une faible estime de soi
+– Le besoin de redevenir pleinement acteur de votre vie`,
         'about.playa.title2': "Accompagner à Playa del Carmen",
         'about.playa.p3': "S’installer ou vivre à Playa représente souvent un changement important. Nouvel environnement, nouveau rythme, nouvelles perspectives.",
         'about.playa.p4': "Ces transitions peuvent être enthousiasmantes mais aussi déstabilisantes.\nJe propose un accompagnement pour traverser ces périodes avec plus de stabilité, de clarté et de présence.",
@@ -208,7 +216,15 @@ export const ui = {
         'about.vision.footer': "Speech allows understanding.\nBreathing helps regulate.\nThe body allows integration.\n\n*particularly adapted to work on concentration, managing addictions, anxiety",
         'about.playa.title': "For whom?",
         'about.playa.p1': "This accompaniment can be relevant if you are going through:",
-        'about.playa.p2': "– A sense of discrepancy\n\n– A loss of meaning\n\n– Attention difficulties\n\n– Complicated stress or emotion management\n\n– Fear of the future\n\n– An existential crisis\n\n– Addictive behaviors\n\n– Low self-esteem\n\n– The need to fully become an actor in your life again",
+        'about.playa.p2': `– A sense of discrepancy
+– A loss of meaning
+– Attention difficulties
+– Complicated stress or emotion management
+– Fear of the future
+– An existential crisis
+– Addictive behaviors
+– Low self-esteem
+– The need to fully become an actor in your life again`,
         'about.playa.title2': "Supporting in Playa del Carmen",
         'about.playa.p3': "Moving to or living in Playa often represents a significant change. New environment, new pace, new perspectives.",
         'about.playa.p4': "These transitions can be exciting but also destabilizing.\nI offer support to navigate these periods with more stability, clarity, and presence.",

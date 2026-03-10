@@ -110,7 +110,11 @@ const description = t('about.page.desc');
 			<h2 class="h2 mb-12 text-center">{t('about.playa.title')}</h2>
 			<div class="space-y-6 text-lg leading-relaxed">
 				<p>{t('about.playa.p1')}</p>
-				<p class="whitespace-pre-line">{t('about.playa.p2')}</p>
+				<ul class="space-y-4">
+					{t('about.playa.p2').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+						<li>{line}</li>
+					))}
+				</ul>
 				<p class="font-light italic text-base-400">{t('about.playa.p3')}</p>
 				<p class="text-xl font-medium pt-4 text-primary-700">{t('about.playa.p4')}</p>
 			</div>
