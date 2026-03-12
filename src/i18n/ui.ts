@@ -117,7 +117,12 @@ export const ui = {
         'therapie.vision.p3': "",
         'therapie.breathwork.title': "Le breathwork",
         'therapie.breathwork.subtitle': "Séances de respiration consciente",
-        'therapie.breathwork.content': "En complément des séances individuelles, j’anime des ateliers hebdomadaires de breathwork à Playa del Carmen.\n\nLa respiration devient ici un outil de :\n\n- Régulation émotionnelle\n- Exploration intérieure\n- Présence corporelle",
+        'therapie.breathwork.content': `En complément des séances individuelles, j’anime des ateliers hebdomadaires de breathwork à Playa del Carmen.
+
+La respiration devient ici un outil de :
+- Régulation émotionnelle
+- Exploration intérieure
+- Présence corporelle`,
         'therapie.accomp.title': "Un Accompagnement Holistique",
         'therapie.accomp.p1': "Mon accompagnement ne se limite pas au souffle. Il intègre la globalité de votre être :\n\nLa parole reste l’outil le plus puissant et le plus concret pour tous. Par la verbalisation de vos besoins, de certaines de vos problématiques ou encore plus simplement de certains de vos désirs d’approfondissement et d’épanouissement personnel.",
         'therapie.accomp.p2': "Puisque votre vie est unique, je m’engage pleinement à vos côtés dans la révélation de votre singularité pour que chaque séance soit personnalisée et vous donne toutes les clefs pour intégrer durablement les fruits de nos séances.",
@@ -268,7 +273,12 @@ export const ui = {
         'therapie.vision.p2': "I support people who wish for a space of listening and understanding in an often shifting context.\n\nIn Playa Del Carmen or online",
         'therapie.breathwork.title': "Breathwork",
         'therapie.breathwork.subtitle': "Conscious Breathing Sessions",
-        'therapie.breathwork.content': "In addition to individual sessions, I lead weekly breathwork workshops in Playa del Carmen.\n\nBreathing here becomes a tool for:\n\n- Emotional regulation\n- Inner exploration\n- Bodily presence",
+        'therapie.breathwork.content': `In addition to individual sessions, I lead weekly breathwork workshops in Playa del Carmen.
+
+Breathing here becomes a tool for:
+- Emotional regulation
+- Inner exploration
+- Bodily presence`,
         'therapie.accomp.title': "Holistic Support",
         'therapie.accomp.p1': "My support does not stop at the breath. It integrates the totality of your being. Together, we explore your thought patterns, your emotional blockages and how they are inscribed in your body.",
         'therapie.accomp.p2': "It is a tailor-made journey, where each session is a step towards a better knowledge of yourself and greater autonomy in your process of healing and fulfillment.",
