@@ -81,8 +81,6 @@ export const ui = {
         'about.playa.p4': "Ces transitions peuvent être enthousiasmantes mais aussi déstabilisantes.\nJe propose un accompagnement pour traverser ces périodes avec plus de stabilité, de clarté et de présence.",
         'about.conclusion.title': "Si vous sentez que c’est le bon moment",
         'about.conclusion.p1': "Je vous propose un premier échange.",
-        'about.conclusion.p2': "Parfois, retrouver l’essentiel commence simplement par un espace où l’on peut se déposer",
-        // Photographie Page
         'photo.hero.cta': "En savoir plus",
         'photo.vision.title': "Mon rapport à l'image",
         'photo.vision.p1': "Au delà des formes qui ont été fixées par l'appareil, il s'agit de préserver l'émotion, la passion, le frisson. En shooting le sujet devient une œuvre, le photographe n'est là que pour qu'elle se reconnaisse comme telle.",
@@ -241,8 +239,6 @@ La respiration devient ici un outil de :
         'about.playa.p4': "These transitions can be exciting but also destabilizing.\nI offer support to navigate these periods with more stability, clarity, and presence.",
         'about.conclusion.title': "If you feel it's the right time",
         'about.conclusion.p1': "I propose an initial exchange.",
-        'about.conclusion.p2': "Sometimes, finding the essential simply starts with a space where one can settle down",
-        // Photography Page
         'photo.hero.title': 'Photography',
         'photo.hero.subtitle': "Capture the moment, reveal the invisible.",
         'photo.hero.desc': "Sincere photography, imbued with calm and accuracy, to immortalize your most precious stories.",
