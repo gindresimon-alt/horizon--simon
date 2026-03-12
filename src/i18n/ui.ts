@@ -103,7 +103,13 @@ export const ui = {
         'photo.format.private.item3': "+ Galerie privée en ligne",
         'photo.format.private.item4': "+ Tirages d'art disponibles",
         'photo.format.collab.title': "COLLABORATIONS",
-        'photo.format.collab.desc': "Photographie d'événement de vie, communication professionnelle, pour créateur de contenu, voyageur, pour marquer un changement de vie ou une page qui se tourne. Pour projet artistique ou artisanal. Parlons ensemble du caractère unique de votre projet.",
+        'photo.format.collab.desc': `- Photographie d'événement de vie
+- Communication professionnelle
+- Pour créateur de contenu ou voyageur
+- Pour marquer un changement de vie ou une page qui se tourne
+- Pour projet artistique ou artisanal
+
+Parlons ensemble du caractère unique de votre projet.`,
         'photo.gallery.title': "Portfolio & Instants",
         'photo.gallery.subtitle': "Une fenêtre sur mon univers et les histoires que j'ai eu l'honneur de raconter.",
         // Therapie Page
@@ -260,7 +266,13 @@ La respiration devient ici un outil de :
         'photo.format.private.item3': "+ Private online gallery",
         'photo.format.private.item4': "+ Fine art prints available",
         'photo.format.collab.title': "COLLABORATIONS",
-        'photo.format.collab.desc': "Wedding photographer, life events, artistic projects or artisanal reports. Let's talk together about your unique project.",
+        'photo.format.collab.desc': `- Life event photography
+- Professional communication
+- For content creators or travelers
+- To mark a life change or a turning page
+- For artistic or artisanal projects
+
+Let's talk together about your unique project.`,
         'photo.gallery.title': "Portfolio & Moments",
         'photo.gallery.subtitle': "A window into my universe and the stories I have had the honor of telling.",
         // Therapie Page

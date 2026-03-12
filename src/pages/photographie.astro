@@ -102,21 +102,12 @@ const description = t('photo.hero.desc');
 			<p class="mb-12 text-lg leading-relaxed">
 				{t('photo.format.p1')}
 			</p>
-			<div class="grid gap-8 md:grid-cols-2">
+			<div class="mx-auto max-w-2xl">
 				<div class="bg-white p-8 border border-base-200 text-left shadow-sm">
-					<h3 class="h5 mb-4 text-primary-600 font-bold uppercase underline decoration-primary-200 underline-offset-8">{t('photo.format.private.title')}</h3>
-					<ul class="space-y-3 font-light">
-						<li>{t('photo.format.private.item1')}</li>
-						<li>{t('photo.format.private.item2')}</li>
-						<li>{t('photo.format.private.item3')}</li>
-						<li>{t('photo.format.private.item4')}</li>
-					</ul>
-				</div>
-				<div class="bg-white p-8 border border-base-200 text-left shadow-sm">
-					<h3 class="h5 mb-4 text-primary-600 font-bold uppercase underline decoration-primary-200 underline-offset-8">{t('photo.format.collab.title')}</h3>
-					<p class="font-light italic">
+					<h3 class="h5 mb-6 text-primary-600 font-bold uppercase underline decoration-primary-200 underline-offset-8 text-center">{t('photo.format.collab.title')}</h3>
+					<ul class="font-light italic space-y-2 leading-relaxed whitespace-pre-line text-lg">
 						{t('photo.format.collab.desc')}
-					</p>
+					</ul>
 				</div>
 			</div>
 		</div>
