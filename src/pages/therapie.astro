@@ -131,9 +131,11 @@ const description = t('therapie.hero.desc');
 					<hr class="my-6 border-base-100" />
 					<p class="text-base-800">{t('therapie.offers.individual.desc')}</p>
 					<hr class="my-6 border-base-100" />
-					<div class="mt-auto text-sm text-base-600 whitespace-pre-line leading-relaxed">
-						{t('therapie.offers.individual.details')}
-					</div>
+					<ul class="mt-auto text-sm text-base-600 leading-relaxed space-y-2">
+						{t('therapie.offers.individual.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
 				</div>
 
 				{/* group breathwork */}
@@ -143,9 +145,11 @@ const description = t('therapie.hero.desc');
 					<hr class="my-6 border-base-100" />
 					<p class="text-base-800">{t('therapie.offers.group_breathwork.desc')}</p>
 					<hr class="my-6 border-base-100" />
-					<div class="mt-auto text-sm text-base-800 whitespace-pre-line leading-relaxed">
-						{t('therapie.offers.group_breathwork.details')}
-					</div>
+					<ul class="mt-auto text-sm text-base-800 leading-relaxed space-y-2">
+						{t('therapie.offers.group_breathwork.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
 				</div>
 
 				{/* 1:1 breathwork */}
@@ -155,9 +159,11 @@ const description = t('therapie.hero.desc');
 					<hr class="my-6 border-base-100" />
 					<p class="text-base-800">{t('therapie.offers.solo_breathwork.desc')}</p>
 					<hr class="my-6 border-base-100" />
-					<div class="mt-auto text-sm text-base-800 whitespace-pre-line leading-relaxed">
-						{t('therapie.offers.solo_breathwork.details')}
-					</div>
+					<ul class="mt-auto text-sm text-base-800 leading-relaxed space-y-2">
+						{t('therapie.offers.solo_breathwork.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
 				</div>
 
 				{/* specific interventions */}

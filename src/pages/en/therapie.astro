@@ -155,39 +155,54 @@ const description = t('therapie.hero.desc');
 			<div class="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-4">
 				{/* individual session */}
 				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-400">
-					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">{t('therapie.offers.individual.title')}</h3>
-					<p class="mb-6 text-base-800">{t('therapie.offers.individual.desc')}</p>
-					<div class="mt-auto pt-6 border-t border-base-100 text-sm text-base-600 whitespace-pre-line leading-relaxed">
-						{t('therapie.offers.individual.details')}
-					</div>
+					<h3 class="h4 text-primary-600 uppercase font-bold">{t('therapie.offers.individual.title')}</h3>
+					<hr class="my-6 border-base-100" />
+					<p class="text-base-800">{t('therapie.offers.individual.desc')}</p>
+					<hr class="my-6 border-base-100" />
+					<ul class="mt-auto text-sm text-base-600 leading-relaxed space-y-2">
+						{t('therapie.offers.individual.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
 				</div>
 
 				{/* group breathwork */}
-				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-600">
-					<h3 class="h4 mb-2 text-primary-600 uppercase font-bold">{t('therapie.offers.group_breathwork.title')}</h3>
-					<p class="mb-6 text-xs uppercase tracking-widest text-base-400 font-medium">{t('therapie.offers.group_breathwork.subtitle')}</p>
-					<div class="text-sm text-base-800 whitespace-pre-line leading-relaxed">
-						{t('therapie.offers.group_breathwork.desc')}
-					</div>
+				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-600 relative">
+					<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-full whitespace-nowrap">Group Session</div>
+					<h3 class="h4 text-primary-600 uppercase font-bold">{t('therapie.offers.group_breathwork.title')}</h3>
+					<hr class="my-6 border-base-100" />
+					<p class="text-base-800">{t('therapie.offers.group_breathwork.desc')}</p>
+					<hr class="my-6 border-base-100" />
+					<ul class="mt-auto text-sm text-base-800 leading-relaxed space-y-2">
+						{t('therapie.offers.group_breathwork.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
 				</div>
 
 				{/* 1:1 breathwork */}
 				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-600 relative md:-mt-4 z-10">
 					<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-full">In-depth</div>
-					<h3 class="h4 mb-2 text-primary-600 uppercase font-bold">{t('therapie.offers.solo_breathwork.title')}</h3>
-					<p class="mb-6 text-xs uppercase tracking-widest text-base-400 font-medium">{t('therapie.offers.solo_breathwork.subtitle')}</p>
-					<div class="text-sm text-base-800 whitespace-pre-line leading-relaxed">
-						{t('therapie.offers.solo_breathwork.desc')}
-					</div>
+					<h3 class="h4 text-primary-600 uppercase font-bold">{t('therapie.offers.solo_breathwork.title')}</h3>
+					<hr class="my-6 border-base-100" />
+					<p class="text-base-800">{t('therapie.offers.solo_breathwork.desc')}</p>
+					<hr class="my-6 border-base-100" />
+					<ul class="mt-auto text-sm text-base-800 leading-relaxed space-y-2">
+						{t('therapie.offers.solo_breathwork.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
 				</div>
 
 				{/* specific interventions */}
 				<div class="bg-white p-10 flex flex-col shadow-lg transition-transform hover:-translate-y-2 border-t-4 border-primary-400">
-					<h3 class="h4 mb-4 text-primary-600 uppercase font-bold">{t('therapie.offers.special.title')}</h3>
-					<p class="mb-6 text-base-800">{t('therapie.offers.special.desc')}</p>
-					
-					<div class="mt-auto pt-6 border-t border-base-100">
-						<Button variant="ghost" arrow="right" href="/articles/le-bain-glace" class="text-sm text-primary-600 p-0 hover:bg-transparent">
+					<h3 class="h4 text-primary-600 uppercase font-bold">{t('therapie.offers.special.title')}</h3>
+					<hr class="my-6 border-base-100" />
+					<p class="text-base-800">{t('therapie.offers.special.desc')}</p>
+					<hr class="my-6 border-base-100" />
+					<div class="mt-auto">
+						<p class="text-sm text-base-600 mb-6 italic">{t('therapie.offers.special.details')}</p>
+						<Button variant="ghost" arrow="right" href="/articles/le-bain-glace" class="text-sm text-primary-600 p-0 hover:bg-transparent uppercase font-bold">
 							{t('therapie.offers.special.cta')}
 						</Button>
 					</div>
