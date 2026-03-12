@@ -2,9 +2,9 @@
 title: "Séance Groupe"
 description: "L'authenticité des rires et de la connexion partagée lors d'une rencontre entre amis."
 date: 2026-02-13
-heroImage: "../../assets/images/portfolios/group.png"
+heroImage: "../../assets/images/portfolios/group-new.jpg"
 images:
-  - ["../../assets/images/portfolios/group.png"]
+  - ["../../assets/images/portfolios/group-new.jpg"]
 clients: ["Cercle d'Amis"]
 location: "Bacalar, Mexique"
 draft: false
