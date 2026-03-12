@@ -16,9 +16,9 @@ Le **Breathwork** est une pratique puissante qui utilise la respiration comme un
 Il s'agit d'une technique de respiration connectée et consciente. En modifiant notre schéma respiratoire habituel, nous pouvons accéder à des états de conscience modifiés qui permettent de :
 
 - **Libérer le stress** et l'anxiété accumulés
-- Débloquer des émotions refoulées
-- Gagner en clarté mentale
-- Se reconnecter profondément à son corps
+- **Débloquer des émotions** refoulées
+- **Gagner en clarté** mentale
+- **Se reconnecter** profondément à son corps
 
 ### Mon expérience
 

@@ -23,8 +23,8 @@ Utilisé par les athlètes de haut niveau, le bain glacé réduit les inflammati
 ## Comment débuter ?
 
 Il n'est pas nécessaire de plonger immédiatement dans une eau à 2°C. La progressivité est la clé :
-- Commencez par des douches écossaises (alternance chaud/froid).
-- Pratiquez la respiration consciente (Breathwork) avant l'immersion.
-- Écoutez toujours votre corps et ne restez pas plus de quelques minutes les premières fois.
+- **Commencez par des douches écossaises** (alternance chaud/froid).
+- **Pratiquez la respiration consciente** (Breathwork) avant l'immersion.
+- **Écoutez toujours votre corps** et ne restez pas plus de quelques minutes les premières fois.
 
 > Le bain glacé est un miroir de notre force intérieure. En domptant le froid, on apprend à dompter ses propres peurs.
