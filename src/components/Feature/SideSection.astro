@@ -33,9 +33,11 @@ const {
 			<h2 class="h3 text-primary-500 text-pretty uppercase">{title}</h2>
 			{subtitle && <h3 class="h2 mt-4">{subtitle}</h3>}
 			<div class="bg-base-100 mt-8 p-8 md:mb-20 lg:text-lg">
-				<p class="whitespace-pre-line">
-					{content}
-				</p>
+				<div class="whitespace-pre-line space-y-2">
+					{content.split('\n').map((line) => (
+						line.trim() !== '' ? <p>{line}</p> : <br/>
+					))}
+				</div>
 				{
 					buttonText && buttonHref && (
 						<div class="mt-8 flex justify-end">
