@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="flex h-full flex-col justify-between gap-4">
+<form id="contact-form" name="contact" method="POST" netlify netlify-honeypot="bot-field" class="flex h-full flex-col justify-between gap-4">
 	<p class="hidden">
 		<label>
 			Ne pas remplir si vous êtes humain : <input name="bot-field" />
