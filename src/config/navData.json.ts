@@ -21,10 +21,12 @@ const navConfig: navItem[] = [
 		text: "nav.therapie",
 		link: "/therapie/",
 	},
+	/*
 	{
 		text: "nav.articles",
 		link: "/articles/",
 	},
+	*/
 	{
 		text: "nav.about",
 		link: "/about/", // Changed from /#about
