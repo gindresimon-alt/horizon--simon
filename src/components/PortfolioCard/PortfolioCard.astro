@@ -1,10 +1,10 @@
 ---
 /**
- * * These are small cards that are used in the portfolio section
+ * * PortfolioCard component used in lists/grids
  */
-import Button from "@components/Button/Button.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { getLangFromUrl } from "../../i18n/utils";
 
 interface Props {
 	portfolio: CollectionEntry<"portfolios">;
@@ -13,18 +13,27 @@ interface Props {
 }
 
 const { portfolio, direction, noTransitions = false } = Astro.props as Props;
-const { title, description, heroImage } = portfolio.data;
+const { title, description, heroImage, category } = portfolio.data;
+
+const lang = getLangFromUrl(Astro.url);
+const baseSlug = portfolio.id.split('/').pop();
+
+// Generate localized URL
+const localizedHref = lang === 'es' 
+	? `/portfolio/${baseSlug}/` 
+	: `/${lang}/portfolio/${baseSlug}/`;
 ---
 
 <div
 	class:list={[
-		"grid gap-4",
+		"grid gap-4 portfolio-card-item",
 		{
 			"md:grid-cols-2": direction === "horizontal",
 		},
 	]}
+	data-category={category}
 >
-	<a href={`/portfolio/${portfolio.id}`} class="aspect-square overflow-hidden">
+	<a href={localizedHref} class="aspect-square overflow-hidden block">
 		{
 			noTransitions && (
 				<Image
@@ -32,8 +41,8 @@ const { title, description, heroImage } = portfolio.data;
 					alt={title}
 					width={450}
 					densities={[1.5, 2, 3]}
-					class="h-auto min-h-full w-full min-w-full object-cover"
-					style={portfolio.id === 'pregnancy' ? 'object-position: center 30%;' : ''}
+					class="h-auto min-h-full w-full min-w-full object-cover transition-transform duration-500 hover:scale-105"
+					style={portfolio.id.includes('pregnancy') ? 'object-position: center 30%;' : ''}
 				/>
 			)
 		}
@@ -44,8 +53,8 @@ const { title, description, heroImage } = portfolio.data;
 					alt={title}
 					width={450}
 					densities={[1.5, 2, 3]}
-					class="h-auto min-h-full w-full min-w-full object-cover"
-					style={portfolio.id === 'pregnancy' ? 'object-position: center 30%;' : ''}
+					class="h-auto min-h-full w-full min-w-full object-cover transition-transform duration-500 hover:scale-105"
+					style={portfolio.id.includes('pregnancy') ? 'object-position: center 30%;' : ''}
 					transition:name={`portfolio-image-${portfolio.id}`}
 				/>
 			)
@@ -53,9 +62,8 @@ const { title, description, heroImage } = portfolio.data;
 	</a>
 	<div class="flex flex-col justify-between gap-2">
 		<div>
-			<h3 class="h3 text-primary-500 tracking-widest">{title}</h3>
-			<p class="mt-4 lg:text-lg">{description}</p>
+			<h3 class="h3 text-primary-600 tracking-wider font-semibold">{title}</h3>
+			<p class="mt-2 text-sm text-base-700 leading-relaxed">{description}</p>
 		</div>
-
 	</div>
 </div>

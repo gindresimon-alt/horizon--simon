@@ -1,64 +1,89 @@
 ---
 /**
- * * Hero with background image
- * You'll want a mobile image, and a desktop image for this.
+ * * Hero with background image and localized texts
  */
-
 import Button from "@components/Button/Button.astro";
-import heroImage from "@images/home-hero-2026-v2.jpg";
-import heroImageMobile from "@images/home-hero-2026-v2.jpg";
+import heroImage from "@images/home-hero-2026-v3.png";
+import heroImageMobile from "@images/home-hero-2026-v3.png";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Localized WhatsApp pre-filled messages
+const whatsappMessages = {
+	es: "Hola Simon, me gustaría obtener una cotización para fotografiar una propiedad ubicada en [lugar]. Se trata de un(a) [departamento, casa, villa, hotel o restaurante] de aproximadamente [superficie].",
+	en: "Hello Simon, I would like to get a quote to photograph a property located in [location]. It is a [apartment, house, villa, hotel or restaurant] of approximately [size].",
+	fr: "Bonjour Simon, je souhaite obtenir un devis pour photographier une propriété située à [lieu]. Il s’agit d’un(e) [appartement, maison, villa, hôtel ou restaurant] d’environ [superficie]."
+};
+
+const messageText = whatsappMessages[lang] || whatsappMessages.es;
+const encodedMessage = encodeURIComponent(messageText);
+const whatsappUrl = `https://wa.me/33651775979?text=${encodedMessage}`;
+
+const portfolioUrl = lang === 'es' ? '/portfolio/' : `/${lang}/portfolio/`;
 ---
 
-<section id="hero" class="relative z-10 flex min-h-[100lvh] w-full">
-	<!-- background image -->
-	<div class="absolute -z-10 h-full min-h-full w-full overflow-hidden">
-		<div class="absolute inset-0 bg-black/10"></div>
-
+<section id="hero" class="relative z-10 flex min-h-[100lvh] w-full items-center">
+	<!-- Background image with overlay -->
+	<div class="absolute inset-0 -z-10 overflow-hidden">
+		<div class="absolute inset-0 bg-black/45 z-10"></div>
 		<Image
 			src={heroImage}
-			class="hidden h-auto min-h-full w-full object-cover object-bottom sm:block"
-			alt="wedding"
+			class="hidden h-full w-full object-cover object-center sm:block"
+			alt="Simon Gindre photography background"
 			aria-hidden="true"
 			loading="eager"
-			height={1400}
 		/>
 		<Image
 			src={heroImageMobile}
-			class="h-auto min-h-full w-full object-cover sm:hidden"
-			alt="wedding"
+			class="h-full w-full object-cover object-center sm:hidden"
+			alt="Simon Gindre photography background mobile"
 			aria-hidden="true"
 			loading="eager"
-			width={1200}
 		/>
 	</div>
 
-	<!-- hero items -->
-	<div class="site-container relative w-full gap-10 py-44 text-center md:py-52 md:text-left">
-		<!-- Hero text -->
-		<div class="text-base-50 my-auto mr-auto max-w-[800px] flex-col">
-			<h1
-				class="font-heading-1 text-4xl font-semibold text-pretty drop-shadow-[0_2px_2px_rgba(0,0,0,0.4)] md:text-7xl md:leading-tight"
-			>
+	<!-- Hero content -->
+	<div class="site-container relative w-full pt-32 pb-20 flex flex-col justify-center">
+		<div class="text-white max-w-[850px] flex flex-col gap-6">
+			<!-- Local cities indicator -->
+			<div class="text-xs uppercase tracking-widest text-primary-300 font-semibold opacity-90">
+				{t('hero.cities')}
+			</div>
+
+			<!-- Main Heading (H1) -->
+			<h1 class="font-heading-1 text-4xl sm:text-5xl md:text-7xl font-bold leading-tight text-pretty">
 				{t('hero.title')}
 			</h1>
-			<p
-				class="mt-8 text-lg tracking-widest text-pretty drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:max-w-[550px] md:text-2xl"
-			>
+
+			<!-- Subtitle -->
+			<p class="font-heading-2 text-lg sm:text-xl md:text-2xl text-base-100 tracking-wide max-w-[700px] leading-relaxed">
 				{t('hero.subtitle')}
 			</p>
-			<div class="mt-10 flex flex-wrap justify-center gap-4 md:justify-start">
-				<Button
-					variant="ghost"
-					arrow="right"
-					href="/#contact"
-					class="pl-0 text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)] md:text-3xl"
+
+			<!-- Description -->
+			<p class="text-sm sm:text-base text-base-200 max-w-[600px] opacity-90 leading-relaxed">
+				{t('hero.desc')}
+			</p>
+
+			<!-- CTA Buttons -->
+			<div class="mt-4 flex flex-wrap gap-4">
+				<a
+					href={whatsappUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="button button--primary flex items-center justify-center gap-2 px-6 py-3 font-semibold text-sm sm:text-base tracking-wider uppercase transition-transform hover:scale-102"
 				>
-					{t('hero.cta')}
+					{t('hero.cta.whatsapp')}
+				</a>
+				<Button
+					variant="outline"
+					href={portfolioUrl}
+					class="px-6 py-3 text-white border-white hover:bg-white hover:text-base-950 font-semibold text-sm sm:text-base tracking-wider uppercase"
+				>
+					{t('hero.cta.portfolio')}
 				</Button>
 			</div>
 		</div>

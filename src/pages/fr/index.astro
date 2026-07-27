@@ -1,0 +1,22 @@
+---
+// components
+import Homepage from "@components/Home/Homepage.astro";
+import WhatsAppFloating from "@components/WhatsAppFloating/WhatsAppFloating.astro";
+// layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import { useTranslations } from "../../i18n/utils";
+
+const lang = "fr";
+const t = useTranslations(lang);
+
+// Get portfolios for this language
+const portfolios = await getCollection("portfolios", (item) => {
+	return item.id.startsWith(`${lang}/`) && item.data.draft !== true;
+});
+---
+
+<BaseLayout title={t('site.title')} description={t('site.desc')} navStartStyle="white">
+	<Homepage lang={lang} portfolios={portfolios} />
+	<WhatsAppFloating lang={lang} />
+</BaseLayout>

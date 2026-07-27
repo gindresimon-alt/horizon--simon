@@ -2,8 +2,7 @@
 /**
  * * Contact section for the website
  */
-
-import ContactForm from "@components/Forms/ContactForm.astro";
+import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 interface Props {
@@ -13,20 +12,44 @@ interface Props {
 const { class: className } = Astro.props as Props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const whatsappUrl = "https://wa.me/33651775979?text=" + encodeURIComponent(
+	lang === 'es' ? 'Hola Simon, me gustaría obtener información para un proyecto de fotografía.' :
+	lang === 'en' ? 'Hello Simon, I would like to get information for a photography project.' :
+	'Bonjour Simon, je souhaite obtenir des informations pour un projet de photographie.'
+);
+const emailUrl = "mailto:gindresimon@gmail.com";
 ---
 
 <section
 	id="contact"
-	class="mx-auto max-w-2xl scroll-mt-10 px-4 py-8 md:py-12"
+	class="mx-auto max-w-2xl scroll-mt-10 px-4 py-8 md:py-12 text-center"
 	class:list={[className]}
 >
-	<h2 class="h2 mb-4 text-center md:px-12 lg:text-6xl">{t('contact.title')}</h2>
-	<div class="mb-10 text-center">
+	<h2 class="h2 mb-4 text-center text-primary-900">{t('contact.title')}</h2>
+	<div class="mb-8 text-center">
 		<p class="description text-lg">
-			{t('contact.subtitle')}
+			{lang === 'es' ? 'Póngase en contacto conmigo directamente por WhatsApp o por correo electrónico para hablar de su proyecto.' : 
+			 lang === 'en' ? 'Get in touch with me directly via WhatsApp or email to discuss your project.' : 
+			 'Contactez-moi directement par WhatsApp ou par e-mail pour échanger sur votre projet.'}
 		</p>
 	</div>
-	<div class="w-full">
-		<ContactForm />
+	
+	<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+		<a
+			href={whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="button button--primary flex items-center justify-center gap-2 px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-full sm:w-auto"
+		>
+			<Icon name="tabler:brand-whatsapp" class="h-6 w-6" /> {lang === 'es' ? 'Escribir por WhatsApp' : lang === 'en' ? 'Write on WhatsApp' : 'Écrire sur WhatsApp'}
+		</a>
+		
+		<a
+			href={emailUrl}
+			class="button button--outline border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white flex items-center justify-center gap-2 px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-full sm:w-auto"
+		>
+			<Icon name="tabler:mail" class="h-6 w-6" /> {lang === 'es' ? 'Enviar un correo' : lang === 'en' ? 'Send an email' : 'Envoyer un e-mail'}
+		</a>
 	</div>
 </section>

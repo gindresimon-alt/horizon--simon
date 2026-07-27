@@ -1,0 +1,12 @@
+---
+import RealEstateService from "@components/Services/RealEstateService.astro";
+import WhatsAppFloating from "@components/WhatsAppFloating/WhatsAppFloating.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const lang = "fr";
+---
+
+<BaseLayout title="Photographie Immobilière | Simon Gindre" description="Photographie immobilière de haut standing, prises de vue drone et reels à Playa del Carmen et dans toute la Riviera Maya.">
+	<RealEstateService lang={lang} />
+	<WhatsAppFloating lang={lang} />
+</BaseLayout>

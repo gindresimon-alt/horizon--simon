@@ -13,19 +13,36 @@ const { text, link, newTab = false } = navItem;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Localize link
-let localizedLink = link;
-if (lang === 'en' && link.startsWith('/') && !link.startsWith('/#')) {
-    if (link === '/') {
-        localizedLink = '/en/';
-    } else {
-        localizedLink = `/en${link}`;
+// Localized links map lookup
+const localizedLinksMap: Record<string, Record<string, string>> = {
+    es: {
+        "/": "/",
+        "/immobilier/": "/inmobiliario/",
+        "/pros-events/": "/profesionales-eventos/",
+        "/portfolio/": "/portfolio/",
+        "/about/": "/sobre-mi/",
+        "/contact/": "/contacto/"
+    },
+    en: {
+        "/": "/en/",
+        "/immobilier/": "/en/real-estate/",
+        "/pros-events/": "/en/pros-events/",
+        "/portfolio/": "/en/portfolio/",
+        "/about/": "/en/about/",
+        "/contact/": "/en/contact/"
+    },
+    fr: {
+        "/": "/fr/",
+        "/immobilier/": "/fr/immobilier/",
+        "/pros-events/": "/fr/pros-evenements/",
+        "/portfolio/": "/fr/portfolio/",
+        "/about/": "/fr/about/",
+        "/contact/": "/fr/contact/"
     }
-}
-// Handle hash links for about page when on other pages
-if (link.startsWith('/#') && lang === 'en') {
-    localizedLink = `/en${link}`;
-}
+};
+
+const currentMap = localizedLinksMap[lang] || localizedLinksMap.es;
+let localizedLink = currentMap[link] || link;
 
 // Check for active state
 const isActive = Astro.url.pathname === localizedLink || (link !== '/' && Astro.url.pathname.startsWith(localizedLink));

@@ -4,64 +4,404 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Local dictionary for form fields
+const formTranslations = {
+	es: {
+		projectType: "¿Qué tipo de proyecto desea realizar?",
+		typeRealEstate: "Bienes raíces / Inmobiliario",
+		typeAirbnb: "Airbnb / Renta vacacional",
+		typeHotelRestaurant: "Hotel o Restaurante",
+		typeDrone: "Solo Dron",
+		typeVideo: "Solo Video",
+		typeWorkshopRetreat: "Taller o Retiro",
+		typeEventSport: "Evento deportivo",
+		typeEventPro: "Evento profesional / Corporativo",
+		typePortrait: "Retrato individual",
+		typeMaternity: "Maternidad / Embarazo",
+		typeFamilyCouple: "Pareja o Familia",
+		typeOther: "Otro",
+		
+		// Common Fields
+		company: "Empresa / Marca",
+		location: "Ubicación / Lugar del proyecto",
+		desiredDate: "Fecha deseada",
+		budget: "Presupuesto aproximado (opcional)",
+		
+		// Real Estate Specific
+		propertyType: "Tipo de propiedad",
+		propertyTypePlaceholder: "Ej: Casa, departamento, villa, local...",
+		area: "Superficie (en m²)",
+		bedrooms: "Número de habitaciones",
+		listingLink: "Enlace al anuncio (si ya existe)",
+		reServices: "Servicios deseados (seleccione varios si aplica)",
+		servicePhoto: "Fotografía profesional",
+		serviceVideo: "Video de recorrido / Reel vertical",
+		serviceDrone: "Tomas aéreas con dron",
+		serviceTwilight: "Fotografía al atardecer (Twilight)",
+		deadline: "Plazo de entrega deseado",
+		deadlineUrgent: "Urgente (menos de 48h)",
+		deadlineStandard: "Estándar (48h - 3 días)",
+		deadlineFlexible: "Flexible (1 semana o más)",
+
+		// Event Specific
+		eventTime: "Horario del evento",
+		eventParticipants: "Número estimado de participantes",
+		eventProgram: "Programa o detalles del evento",
+		eventServices: "Servicios solicitados",
+		eventDuration: "Duración de la cobertura (en horas)",
+
+		// Portrait Specific
+		portraitLocationType: "Tipo de locación",
+		portraitLocationBeach: "Playa",
+		portraitLocationCity: "Ciudad / Urbano",
+		portraitLocationHome: "A domicilio",
+		portraitLocationHotel: "Hotel o Villa",
+		portraitParticipants: "Número de personas a fotografiar",
+		portraitStyle: "Estilo visual buscado",
+		portraitAvailability: "Disponibilidad horaria (Ej: Mañana, atardecer...)"
+	},
+	en: {
+		projectType: "What type of project do you want to realize?",
+		typeRealEstate: "Real Estate",
+		typeAirbnb: "Airbnb / Vacation Rental",
+		typeHotelRestaurant: "Hotel or Restaurant",
+		typeDrone: "Drone only",
+		typeVideo: "Video only",
+		typeWorkshopRetreat: "Workshop or Retreat",
+		typeEventSport: "Sports Event",
+		typeEventPro: "Professional / Corporate Event",
+		typePortrait: "Individual Portrait",
+		typeMaternity: "Maternity / Pregnancy",
+		typeFamilyCouple: "Couple or Family",
+		typeOther: "Other",
+		
+		// Common Fields
+		company: "Company / Brand Name",
+		location: "Location / Project site",
+		desiredDate: "Desired Date",
+		budget: "Approximate budget (optional)",
+		
+		// Real Estate Specific
+		propertyType: "Property type",
+		propertyTypePlaceholder: "e.g., House, apartment, villa...",
+		area: "Surface area (in sq. ft. / m²)",
+		bedrooms: "Number of bedrooms",
+		listingLink: "Link to existing listing (if any)",
+		reServices: "Desired services (select multiple if applicable)",
+		servicePhoto: "Professional photography",
+		serviceVideo: "Walkthrough video / Vertical reel",
+		serviceDrone: "Aerial drone shots",
+		serviceTwilight: "Sunset / Twilight photography",
+		deadline: "Desired delivery timeframe",
+		deadlineUrgent: "Urgent (under 48h)",
+		deadlineStandard: "Standard (48h - 3 days)",
+		deadlineFlexible: "Flexible (1 week or more)",
+
+		// Event Specific
+		eventTime: "Event schedule",
+		eventParticipants: "Estimated number of participants",
+		eventProgram: "Program or event details",
+		eventServices: "Requested services",
+		eventDuration: "Duration of coverage (in hours)",
+
+		// Portrait Specific
+		portraitLocationType: "Location type",
+		portraitLocationBeach: "Beach",
+		portraitLocationCity: "City / Urban",
+		portraitLocationHome: "At home",
+		portraitLocationHotel: "Hotel or Villa",
+		portraitParticipants: "Number of people to photograph",
+		portraitStyle: "Preferred visual style",
+		portraitAvailability: "Availability (e.g., Sunrise, Sunset, Afternoon...)"
+	},
+	fr: {
+		projectType: "Quel type de projet souhaitez-vous réaliser ?",
+		typeRealEstate: "Immobilier / Propriété",
+		typeAirbnb: "Airbnb / Location saisonnière",
+		typeHotelRestaurant: "Hôtel ou Restaurant",
+		typeDrone: "Drone uniquement",
+		typeVideo: "Vidéo uniquement",
+		typeWorkshopRetreat: "Workshop ou Retraite",
+		typeEventSport: "Événement sportif",
+		typeEventPro: "Événement professionnel / Corporatif",
+		typePortrait: "Portrait individuel",
+		typeMaternity: "Maternité / Grossesse",
+		typeFamilyCouple: "Couple ou Famille",
+		typeOther: "Autre",
+		
+		// Common Fields
+		company: "Entreprise / Nom de marque",
+		location: "Localisation / Lieu du projet",
+		desiredDate: "Date souhaitée",
+		budget: "Budget approximatif (optionnel)",
+		
+		// Real Estate Specific
+		propertyType: "Type de bien",
+		propertyTypePlaceholder: "Ex: Maison, appartement, villa...",
+		area: "Superficie (en m²)",
+		bedrooms: "Nombre de chambres",
+		listingLink: "Lien vers l'annonce existante (si applicable)",
+		reServices: "Prestations souhaitées (sélectionnez plusieurs si besoin)",
+		servicePhoto: "Photographie professionnelle",
+		serviceVideo: "Vidéo visite / Reel vertical",
+		serviceDrone: "Prises de vue drone",
+		serviceTwilight: "Photographie crépusculaire (Twilight)",
+		deadline: "Délai de livraison souhaité",
+		deadlineUrgent: "Urgent (moins de 48h)",
+		deadlineStandard: "Standard (48h - 3 jours)",
+		deadlineFlexible: "Flexible (1 semaine ou plus)",
+
+		// Event Specific
+		eventTime: "Horaires de l'événement",
+		eventParticipants: "Nombre estimé de participants",
+		eventProgram: "Programme ou détails de l'événement",
+		eventServices: "Services demandés",
+		eventDuration: "Durée de la couverture (en heures)",
+
+		// Portrait Specific
+		portraitLocationType: "Type de lieu souhaité",
+		portraitLocationBeach: "Plage",
+		portraitLocationCity: "Ville / Urbain",
+		portraitLocationHome: "À domicile",
+		portraitLocationHotel: "Hôtel ou Villa",
+		portraitParticipants: "Nombre de personnes à photographier",
+		portraitStyle: "Style visuel recherché",
+		portraitAvailability: "Disponibilité horaire (Ex: Matin, coucher du soleil...)"
+	}
+};
+
+const fT = formTranslations[lang] || formTranslations.es;
+const actionUrl = lang === 'fr' ? '/merci/' : lang === 'en' ? '/en/thank-you/' : '/merci/';
 ---
 
-<form id="contact-form" name="contact" method="POST" action={lang === 'fr' ? '/merci/' : '/en/thank-you/'} netlify netlify-honeypot="bot-field" data-astro-reload class="flex h-full flex-col justify-between gap-4">
+<form
+	id="contact-form"
+	name="contact"
+	method="POST"
+	action={actionUrl}
+	netlify
+	netlify-honeypot="bot-field"
+	data-astro-reload
+	class="flex h-full flex-col justify-between gap-6"
+>
 	<p class="hidden">
 		<label>
 			Ne pas remplir si vous êtes humain : <input name="bot-field" />
 		</label>
 	</p>
 	<input type="hidden" name="form-name" value="contact" />
-	<div>
-		<label for="contact-name" class="font-heading-1 text-lg uppercase">{t('form.name')}</label>
-		<input type="text" class="form__input" name="name" id="contact-name" placeholder="" required />
+
+	<!-- Project Type Selector -->
+	<div class="flex flex-col gap-2">
+		<label for="project-type" class="font-heading-1 text-lg uppercase font-semibold">{fT.projectType}</label>
+		<select name="project_type" id="project-type" class="form__input cursor-pointer" required>
+			<option value="" disabled selected>-- Seleccionar --</option>
+			<option value="immobilier">{fT.typeRealEstate}</option>
+			<option value="drone">{fT.typeDrone}</option>
+			<option value="video">{fT.typeVideo}</option>
+			<option value="autre">{fT.typeOther}</option>
+		</select>
 	</div>
-	<div class="flex flex-col gap-1">
-		<label for="contact-email" class="font-heading-1 text-lg uppercase">{t('form.email')}</label>
-		<input
-			type="email"
-			class="form__input"
-			name="email"
-			id="contact-email"
-			inputmode="email"
-			placeholder=""
-			required
-		/>
-	</div>
-	<div class="flex flex-col gap-1">
-		<label for="contact-whatsapp" class="font-heading-1 text-lg uppercase">{t('form.whatsapp')}</label>
-		<div class="flex gap-2">
-			<select name="country-code" class="form__input w-32 shrink-0 cursor-pointer" aria-label="Code pays">
-				<option value="+33" selected>+33 (FR)</option>
-				<option value="+52">+52 (MX)</option>
-				<option value="+1">+1 (US/CA)</option>
-				<option value="+34">+34 (ES)</option>
-				<option value="+41">+41 (CH)</option>
-				<option value="+32">+32 (BE)</option>
-				<option value="+44">+44 (UK)</option>
-			</select>
-			<input
-				type="tel"
-				class="form__input"
-				name="whatsapp"
-				id="contact-whatsapp"
-				inputmode="tel"
-				placeholder=""
-			/>
+
+	<!-- Common Fields Grid -->
+	<div class="grid gap-4 md:grid-cols-2">
+		<div>
+			<label for="contact-name" class="font-heading-1 text-base uppercase">{t('form.name')}</label>
+			<input type="text" class="form__input" name="name" id="contact-name" required />
+		</div>
+		<div>
+			<label for="contact-company" class="font-heading-1 text-base uppercase">{fT.company}</label>
+			<input type="text" class="form__input" name="company" id="contact-company" />
+		</div>
+		<div>
+			<label for="contact-email" class="font-heading-1 text-base uppercase">{t('form.email')}</label>
+			<input type="email" class="form__input" name="email" id="contact-email" inputmode="email" required />
+		</div>
+		<div>
+			<label for="contact-whatsapp" class="font-heading-1 text-base uppercase">{t('form.whatsapp')}</label>
+			<div class="flex gap-2">
+				<select name="country-code" class="form__input w-28 shrink-0 cursor-pointer" aria-label="Code pays">
+					<option value="+52" selected>+52 (MX)</option>
+					<option value="+33">+33 (FR)</option>
+					<option value="+1">+1 (US)</option>
+					<option value="+34">+34 (ES)</option>
+				</select>
+				<input type="tel" class="form__input" name="whatsapp" id="contact-whatsapp" inputmode="tel" />
+			</div>
+		</div>
+		<div>
+			<label for="contact-location" class="font-heading-1 text-base uppercase">{fT.location}</label>
+			<input type="text" class="form__input" name="location" id="contact-location" required />
+		</div>
+		<div>
+			<label for="contact-date" class="font-heading-1 text-base uppercase">{fT.desiredDate}</label>
+			<input type="date" class="form__input" name="desired_date" id="contact-date" required />
 		</div>
 	</div>
-	<div>
-		<label for="contact-message" class="font-heading-1 text-lg uppercase">{t('form.message')}</label>
-		<textarea
-			name="message"
-			class="form__input"
-			id="contact-message"
-			rows="6"
-			placeholder=""
-			required></textarea>
+
+	<!-- REAL ESTATE SPECIFIC FIELDS -->
+	<div id="section-realestate" class="hidden border-l-2 border-primary-400 pl-4 py-2 flex flex-col gap-4">
+		<div class="grid gap-4 md:grid-cols-3">
+			<div>
+				<label for="re-property-type" class="font-heading-1 text-sm uppercase">{fT.propertyType}</label>
+				<input type="text" class="form__input" name="re_property_type" id="re-property-type" placeholder={fT.propertyTypePlaceholder} />
+			</div>
+			<div>
+				<label for="re-area" class="font-heading-1 text-sm uppercase">{fT.area}</label>
+				<input type="text" class="form__input" name="re_area" id="re-area" />
+			</div>
+			<div>
+				<label for="re-bedrooms" class="font-heading-1 text-sm uppercase">{fT.bedrooms}</label>
+				<input type="number" class="form__input" name="re_bedrooms" id="re-bedrooms" min="0" />
+			</div>
+		</div>
+		<div>
+			<label for="re-link" class="font-heading-1 text-sm uppercase">{fT.listingLink}</label>
+			<input type="url" class="form__input" name="re_listing_link" id="re-link" placeholder="https://..." />
+		</div>
+		<div>
+			<label class="font-heading-1 text-sm uppercase block mb-1">{fT.reServices}</label>
+			<div class="grid gap-2 sm:grid-cols-2">
+				<label class="flex items-center gap-2 font-heading-2 text-sm cursor-pointer">
+					<input type="checkbox" name="re_services" value="photo" class="rounded border-primary-300" /> {fT.servicePhoto}
+				</label>
+				<label class="flex items-center gap-2 font-heading-2 text-sm cursor-pointer">
+					<input type="checkbox" name="re_services" value="video" class="rounded border-primary-300" /> {fT.serviceVideo}
+				</label>
+				<label class="flex items-center gap-2 font-heading-2 text-sm cursor-pointer">
+					<input type="checkbox" name="re_services" value="drone" class="rounded border-primary-300" /> {fT.serviceDrone}
+				</label>
+				<label class="flex items-center gap-2 font-heading-2 text-sm cursor-pointer">
+					<input type="checkbox" name="re_services" value="twilight" class="rounded border-primary-300" /> {fT.serviceTwilight}
+				</label>
+			</div>
+		</div>
+		<div>
+			<label for="re-deadline" class="font-heading-1 text-sm uppercase">{fT.deadline}</label>
+			<select name="re_deadline" id="re-deadline" class="form__input cursor-pointer">
+				<option value="standard">{fT.deadlineStandard}</option>
+				<option value="urgent">{fT.deadlineUrgent}</option>
+				<option value="flexible">{fT.deadlineFlexible}</option>
+			</select>
+		</div>
 	</div>
-	<div class="flex justify-start">
+
+	<!-- EVENT SPECIFIC FIELDS -->
+	<div id="section-event" class="hidden border-l-2 border-primary-400 pl-4 py-2 flex flex-col gap-4">
+		<div class="grid gap-4 md:grid-cols-2">
+			<div>
+				<label for="event-time" class="font-heading-1 text-sm uppercase">{fT.eventTime}</label>
+				<input type="text" class="form__input" name="event_time" id="event-time" placeholder="Ej: 09:00 - 18:00" />
+			</div>
+			<div>
+				<label for="event-duration" class="font-heading-1 text-sm uppercase">{fT.eventDuration}</label>
+				<input type="number" class="form__input" name="event_duration" id="event-duration" min="1" />
+			</div>
+		</div>
+		<div class="grid gap-4 md:grid-cols-2">
+			<div>
+				<label for="event-participants" class="font-heading-1 text-sm uppercase">{fT.eventParticipants}</label>
+				<input type="number" class="form__input" name="event_participants" id="event-participants" min="0" />
+			</div>
+			<div>
+				<label for="event-services" class="font-heading-1 text-sm uppercase">{fT.eventServices}</label>
+				<input type="text" class="form__input" name="event_services" id="event-services" placeholder="Ej: Fotos, Video, Dron..." />
+			</div>
+		</div>
+		<div>
+			<label for="event-program" class="font-heading-1 text-sm uppercase">{fT.eventProgram}</label>
+			<textarea name="event_program" id="event-program" class="form__input" rows="3"></textarea>
+		</div>
+	</div>
+
+	<!-- PORTRAIT SPECIFIC FIELDS -->
+	<div id="section-portrait" class="hidden border-l-2 border-primary-400 pl-4 py-2 flex flex-col gap-4">
+		<div class="grid gap-4 md:grid-cols-2">
+			<div>
+				<label for="portrait-location-type" class="font-heading-1 text-sm uppercase">{fT.portraitLocationType}</label>
+				<select name="portrait_location_type" id="portrait-location-type" class="form__input cursor-pointer">
+					<option value="beach">{fT.portraitLocationBeach}</option>
+					<option value="city">{fT.portraitLocationCity}</option>
+					<option value="home">{fT.portraitLocationHome}</option>
+					<option value="hotel">{fT.portraitLocationHotel}</option>
+				</select>
+			</div>
+			<div>
+				<label for="portrait-participants" class="font-heading-1 text-sm uppercase">{fT.portraitParticipants}</label>
+				<input type="number" class="form__input" name="portrait_participants" id="portrait-participants" min="1" value="1" />
+			</div>
+		</div>
+		<div>
+			<label for="portrait-style" class="font-heading-1 text-sm uppercase">{fT.portraitStyle}</label>
+			<input type="text" class="form__input" name="portrait_style" id="portrait-style" placeholder="Ej: Luminoso, natural, corporativo..." />
+		</div>
+		<div>
+			<label for="portrait-availability" class="font-heading-1 text-sm uppercase">{fT.portraitAvailability}</label>
+			<input type="text" class="form__input" name="portrait_availability" id="portrait-availability" />
+		</div>
+	</div>
+
+	<!-- Common message & budget -->
+	<div class="grid gap-4 md:grid-cols-2">
+		<div>
+			<label for="contact-budget" class="font-heading-1 text-base uppercase">{fT.budget}</label>
+			<input type="text" class="form__input" name="budget" id="contact-budget" placeholder="Ej: 5000 MXN" />
+		</div>
+	</div>
+	
+	<div>
+		<label for="contact-message" class="font-heading-1 text-base uppercase">{t('form.message')}</label>
+		<textarea name="message" class="form__input" id="contact-message" rows="5" required></textarea>
+	</div>
+
+	<div class="flex justify-start pt-2">
 		<Button variant="primary" type="submit" class="w-full px-10 md:w-fit">{t('form.submit')}</Button>
 	</div>
 </form>
+
+<script>
+	function updateFormFields() {
+		const select = document.getElementById('project-type') as HTMLSelectElement;
+		if (!select) return;
+
+		const val = select.value;
+		
+		const sectionRe = document.getElementById('section-realestate');
+		const sectionEvent = document.getElementById('section-event');
+		const sectionPortrait = document.getElementById('section-portrait');
+		
+		// Hide all
+		sectionRe?.classList.add('hidden');
+		sectionEvent?.classList.add('hidden');
+		sectionPortrait?.classList.add('hidden');
+		
+		// Remove required on specific inputs
+		const reInputs = sectionRe?.querySelectorAll('input, select') as NodeListOf<HTMLInputElement | HTMLSelectElement>;
+		const eventInputs = sectionEvent?.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
+		const portraitInputs = sectionPortrait?.querySelectorAll('input, select') as NodeListOf<HTMLInputElement | HTMLSelectElement>;
+
+		// Show corresponding section
+		if (['immobilier', 'airbnb', 'hotel_restaurant'].includes(val)) {
+			sectionRe?.classList.remove('hidden');
+		} else if (['workshop_retraite', 'event_sportif', 'event_pro'].includes(val)) {
+			sectionEvent?.classList.remove('hidden');
+		} else if (['portrait', 'grossesse', 'couple_famille'].includes(val)) {
+			sectionPortrait?.classList.remove('hidden');
+		} else if (val === 'drone' || val === 'video') {
+			sectionRe?.classList.remove('hidden');
+		}
+	}
+
+	function setupForm() {
+		const select = document.getElementById('project-type');
+		if (select) {
+			select.addEventListener('change', updateFormFields);
+			updateFormFields();
+		}
+	}
+
+	// Setup on load and after view transitions
+	document.addEventListener('astro:page-load', setupForm);
+	setupForm();
+</script>

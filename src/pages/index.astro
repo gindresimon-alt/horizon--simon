@@ -1,68 +1,22 @@
 ---
-import About from "@components/About/About.astro";
-import Button from "@components/Button/Button.astro";
-import Contact from "@components/Contact/Contact.astro";
-import SideSection from "@components/Feature/SideSection.astro";
 // components
-import Hero from "@components/Hero/Hero.astro";
-import PortfolioThreeCards from "@components/Portfolio/PortfolioThreeCards.astro";
-import Testimonials from "@components/Testimonials/Testimonials.astro";
-// data
-import siteData from "@config/siteData.json";
+import Homepage from "@components/Home/Homepage.astro";
+import WhatsAppFloating from "@components/WhatsAppFloating/WhatsAppFloating.astro";
 // layout
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getCollection } from "astro:content";
+import { useTranslations } from "../i18n/utils";
 
-const lang = getLangFromUrl(Astro.url);
+const lang = "es";
 const t = useTranslations(lang);
 
-// images for sections
-import photographyImage from "@assets/images/photographie-tunnel.jpg";
-import therapyImage from "@assets/images/home-hero-2026-v2.jpg";
-import articlesImage from "@assets/images/articles-ponton.jpg";
+// Get portfolios for this language
+const portfolios = await getCollection("portfolios", (item) => {
+	return item.id.startsWith(`${lang}/`) && item.data.draft !== true;
+});
 ---
 
-<BaseLayout title={t('site.title')} description={siteData.description} navStartStyle="white">
-	<Hero />
-	{/* <PortfolioThreeCards /> */}
-	{/* <Testimonials /> */}
-	<About />
-
-	<SideSection
-		id="photography"
-		title={t('home.photo.title')}
-		subtitle={t('home.photo.subtitle')}
-		content={t('home.photo.content')}
-		imageSrc={photographyImage}
-		imageAlt="Photographie"
-		buttonText={t('home.photo.title')}
-		buttonHref={lang === 'fr' ? "/photographie/" : "/en/photographie/"}
-		reversed={true}
-	/>
-
-	<SideSection
-		id="therapy"
-		title={t('home.therapy.title')}
-		subtitle={t('home.therapy.subtitle')}
-		content={t('home.therapy.content')}
-		imageSrc={therapyImage}
-		imageAlt="Thérapie"
-		buttonText={t('home.therapy.title')}
-		buttonHref={lang === 'fr' ? "/therapie/" : "/en/therapie/"}
-	/>
-
-	{/* <SideSection
-		id="articles"
-		title={t('home.articles.title')}
-		subtitle={t('home.articles.subtitle')}
-		content={t('home.articles.content')}
-		imageSrc={articlesImage}
-		imageAlt="Articles"
-		buttonText={t('home.articles.title')}
-		buttonHref="/articles/"
-		reversed={true}
-	/> */}
-
-	<Contact />
+<BaseLayout title={t('site.title')} description={t('site.desc')} navStartStyle="white">
+	<Homepage lang={lang} portfolios={portfolios} />
+	<WhatsAppFloating lang={lang} />
 </BaseLayout>

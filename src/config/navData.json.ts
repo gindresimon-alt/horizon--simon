@@ -11,25 +11,23 @@ export interface navDropdownItem {
 
 export type navItem = navLinkItem | navDropdownItem;
 
-// note: 1 level of dropdown is supported
+// Simple and clear menu: Home, Real Estate, Pros & Events, Portraits, Portfolio, About, Contact
 const navConfig: navItem[] = [
 	{
-		text: "nav.photographie",
-		link: "/photographie/",
+		text: "nav.home",
+		link: "/",
 	},
 	{
-		text: "nav.therapie",
-		link: "/therapie/",
+		text: "nav.immobilier",
+		link: "/immobilier/",
 	},
-	/*
 	{
-		text: "nav.articles",
-		link: "/articles/",
+		text: "nav.portfolio",
+		link: "/portfolio/",
 	},
-	*/
 	{
 		text: "nav.about",
-		link: "/about/", // Changed from /#about
+		link: "/about/",
 	},
 	{
 		text: "nav.contact",

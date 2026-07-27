@@ -1,0 +1,198 @@
+---
+/**
+ * * RealEstateService component (Multilingual)
+ */
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import reHero from "@assets/images/home-hero-2026-v2.jpg";
+import reSection1Image from "@assets/images/real-estate-village-aerial.jpg";
+import droneImg from "@assets/images/drone-hotel-aerial.jpg";
+
+interface Props {
+	lang: "es" | "en" | "fr";
+}
+
+const { lang } = Astro.props as Props;
+
+// Localized strings
+const content = {
+	es: {
+		title: "Fotografía Inmobiliaria & Hospitalidad",
+		subtitle: "Servicios visuales profesionales para destacar propiedades, hoteles y rentas vacacionales en la Riviera Maya.",
+		
+		sec1Title: "Fotografía Inmobiliaria",
+		sec1Desc: "Capturas de alta calidad para interiores y exteriores de casas, departamentos y desarrollos.",
+		sec1Bullets: ["Interiores y exteriores", "Arquitectura y diseño de interiores", "Áreas comunes, albercas y jardines", "Vistas y detalles del equipamiento"],
+
+		sec2Title: "Airbnb & Rentas Vacacionales",
+		sec2Desc: "Imágenes optimizadas para plataformas de reserva que capturan la atmósfera del lugar y aumentan sus reservas.",
+		sec2Bullets: ["Presentación clara de espacios", "Luz y ambiente cálidos", "Valorización de equipamientos", "Formatos listos para Airbnb y Booking"],
+
+		sec3Title: "Hoteles, Restaurantes & Spas",
+		sec3Desc: "Contenido editorial de alta gama para destacar la experiencia, el lujo y los servicios de su establecimiento.",
+		sec3Bullets: ["Habitaciones y suites", "Instalaciones y áreas comunes", "Fotografía gastronómica y cocina", "Retratos de equipo y lifestyle"],
+
+		sec4Title: "Tomas con Dron",
+		sec4Desc: "Perspectivas aéreas excepcionales que muestran la escala, el entorno de la propiedad y su cercanía al mar.",
+		sec4Bullets: ["Vistas generales y de vecindario", "Video aéreo en alta resolución", "Seguridad y cumplimiento de normas", "Composición y planos dinámicos"],
+
+		sec5Title: "Video & Reels",
+		sec5Desc: "Recorridos dinámicos en formatos horizontales y verticales adaptados para Instagram y agencias.",
+		sec5Bullets: ["Video visitas guiadas", "Reels verticales dinámicos", "Videos de ambiente cinematográfico", "Formatos adaptados a redes sociales"],
+
+		sec6Title: "Twilight / Atardecer",
+		sec6Desc: "Tomas tomadas durante la hora azul para revelar los detalles de iluminación exterior y la atmósfera nocturna del bien.",
+		sec6Bullets: ["Fotografía al atardecer", "Iluminaciones cálidas combinadas", "Terrazas y albercas iluminadas", "Efecto WOW inmediato"],
+
+		ctaTitle: "¿Tiene una propiedad para fotografiar?",
+		ctaDesc: "Envíeme un mensaje por WhatsApp con los detalles de su propiedad para recibir una cotización a su medida en minutos.",
+		ctaBtn: "Pedir cotización por WhatsApp"
+	},
+	en: {
+		title: "Real Estate & Hospitality Photography",
+		subtitle: "Professional visual services to showcase properties, hotels, and vacation rentals in the Riviera Maya.",
+		
+		sec1Title: "Real Estate Photography",
+		sec1Desc: "High-quality captures for interiors and exteriors of houses, condos, and developments.",
+		sec1Bullets: ["Interiors & exteriors", "Architecture & interior design", "Common areas, pools, and gardens", "Views & equipment details"],
+
+		sec2Title: "Airbnb & Vacation Rentals",
+		sec2Desc: "Optimized images for booking platforms to capture the property feel and boost bookings.",
+		sec2Bullets: ["Clear space layouts", "Warm lighting & atmosphere", "Amenities highlighting", "Formats ready for Airbnb & Booking"],
+
+		sec3Title: "Hotels, Restaurants & Spas",
+		sec3Desc: "High-end editorial content to showcase the luxury, experience, and services of your business.",
+		sec3Bullets: ["Rooms & suites", "Facilities & common areas", "Food & beverage photography", "Staff portraits & lifestyle"],
+
+		sec4Title: "Drone & Aerial Shots",
+		sec4Desc: "Exceptional aerial views highlighting the scale, environment, and proximity to the ocean.",
+		sec4Bullets: ["General & neighborhood views", "High-definition aerial video", "Safety & regulations compliant", "Dynamic transitions"],
+
+		sec5Title: "Video & Reels",
+		sec5Desc: "Dynamic walkthroughs in both horizontal and vertical formats customized for Instagram and brokers.",
+		sec5Bullets: ["Guided video tours", "Dynamic vertical reels", "Cinematic atmospheric videos", "Social-first optimized formats"],
+
+		sec6Title: "Twilight Photography",
+		sec6Desc: "Stunning blue-hour captures revealing exterior lighting details and the property's evening vibe.",
+		sec6Bullets: ["Sunset photoshoot", "Combined warm light render", "Illuminated pools & terraces", "Immediate WOW effect"],
+
+		ctaTitle: "Have a property to photograph?",
+		ctaDesc: "Send me a message on WhatsApp with your property details to get a tailored quote within minutes.",
+		ctaBtn: "Get a quote on WhatsApp"
+	},
+	fr: {
+		title: "Photographie Immobilière & Hôtelière",
+		subtitle: "Prestations visuelles de haut niveau pour valoriser appartements, villas, hôtels et restaurants dans la Riviera Maya.",
+		
+		sec1Title: "Photographie Immobilière",
+		sec1Desc: "Prises de vue de qualité professionnelle pour intérieurs et extérieurs d'appartements, maisons et copropriétés.",
+		sec1Bullets: ["Intérieur et extérieur", "Architecture et décoration", "Espaces communs, piscines et jardins", "Vues et détails des équipements"],
+
+		sec2Title: "Airbnb & Locations Saisonnières",
+		sec2Desc: "Des images pensées pour optimiser votre taux d'occupation sur les plateformes de réservation.",
+		sec2Bullets: ["Présentation claire des volumes", "Lumière chaleureuse et ambiance", "Mise en valeur des équipements", "Formats adaptés Airbnb et Booking"],
+
+		sec3Title: "Hôtels, Restaurants & Spas",
+		sec3Desc: "Contenu éditorial haut de gamme pour illustrer le standing et l'expérience unique de votre établissement.",
+		sec3Bullets: ["Chambres et suites", "Espaces communs et infrastructures", "Photographie culinaire et gastronomique", "Portraits d'équipe et lifestyle"],
+
+		sec4Title: "Prises de vue Drone",
+		sec4Desc: "Prenez de la hauteur pour révéler la situation géographique de votre bien et sa proximité avec la mer.",
+		sec4Bullets: ["Vues générales de l'environnement", "Vidéos aériennes haute définition", "Respect des normes de sécurité", "Plans d'introduction dynamiques"],
+
+		sec5Title: "Vidéo & Reels",
+		sec5Desc: "Visites fluides et reels rythmés pour capter l'intérêt sur votre site web et vos réseaux sociaux.",
+		sec5Bullets: ["Visites vidéo cinématiques", "Reels verticaux rythmés", "Vidéos d'ambiance", "Formats adaptés aux réseaux"],
+
+		sec6Title: "Twilight / Crépuscule",
+		sec6Desc: "Séance à l'heure bleue pour sublimer les éclairages extérieurs et créer une atmosphère magique.",
+		sec6Bullets: ["Photos au coucher du soleil", "Équilibre lumières intérieures/extérieures", "Piscines et terrasses illuminées", "Impact visuel fort"],
+
+		ctaTitle: "Un projet immobilier à valoriser ?",
+		ctaDesc: "Contactez-moi directement sur WhatsApp pour recevoir une proposition tarifaire ajustée à vos besoins.",
+		ctaBtn: "Demander un devis sur WhatsApp"
+	}
+};
+
+const c = content[lang] || content.es;
+const encodedMessage = encodeURIComponent(lang === 'es' ? "Hola Simon, deseo cotizar la fotografía de una propiedad." : lang === 'en' ? "Hello Simon, I would like to get a quote for property photography." : "Bonjour Simon, je souhaite obtenir un devis pour des photos immobilières.");
+const whatsappUrl = `https://wa.me/33651775979?text=${encodedMessage}`;
+---
+
+<!-- Hero Section -->
+<section class="relative py-24 md:py-36 bg-base-900 text-white overflow-hidden">
+	<div class="absolute inset-0 -z-10 bg-black/60 z-10"></div>
+	<Image
+		src={reHero}
+		alt="Real Estate Hero Background"
+		class="absolute inset-0 -z-10 w-full h-full object-cover object-center"
+		loading="eager"
+	/>
+	<div class="site-container relative z-10 text-center max-w-3xl pt-10">
+		<span class="text-xs uppercase tracking-widest text-primary-300 font-bold block mb-3">{lang === 'es' ? 'SERVICIOS PRINCIPALES' : lang === 'en' ? 'MAIN SERVICES' : 'SERVICES PRINCIPAUX'}</span>
+		<h1 class="h1 mb-6">{c.title}</h1>
+		<p class="text-base-100 text-lg md:text-xl font-heading-2">{c.subtitle}</p>
+	</div>
+</section>
+
+<!-- Services Grid Section -->
+<section class="py-20 md:py-28 bg-white">
+	<div class="site-container flex flex-col gap-20 md:gap-28">
+		<!-- Section 1: Real Estate -->
+		<div class="grid gap-12 lg:grid-cols-2 items-center">
+			<div class="flex flex-col gap-6">
+				<h2 class="h2 text-primary-900">{c.sec1Title}</h2>
+				<p class="text-base-800 leading-relaxed">{c.sec1Desc}</p>
+				<ul class="grid gap-2 grid-cols-2 text-sm text-base-750 font-medium">
+					{c.sec1Bullets.map(bullet => <li class="flex items-center gap-2">✓ {bullet}</li>)}
+				</ul>
+			</div>
+			<div>
+				<Image src={reSection1Image} alt="Photography interiors" class="w-full h-auto object-cover aspect-4/3 shadow-sm" />
+			</div>
+		</div>
+
+
+
+
+
+		<!-- Section 4: Drone -->
+		<div class="grid gap-12 lg:grid-cols-2 items-center">
+			<div class="lg:order-2 flex flex-col gap-6">
+				<h2 class="h2 text-primary-900">{c.sec4Title}</h2>
+				<p class="text-base-800 leading-relaxed">{c.sec4Desc}</p>
+				<ul class="grid gap-2 grid-cols-2 text-sm text-base-750 font-medium">
+					{c.sec4Bullets.map(bullet => <li class="flex items-center gap-2">✓ {bullet}</li>)}
+				</ul>
+			</div>
+			<div>
+				<Image src={droneImg} alt="Drone aerial views" class="w-full h-auto object-cover aspect-4/3 shadow-sm" />
+			</div>
+		</div>
+
+		<!-- Section 5: Video & Reels -->
+		<div class="max-w-3xl mx-auto flex flex-col gap-6 text-center">
+			<h2 class="h2 text-primary-900 mx-auto">{c.sec5Title}</h2>
+			<p class="text-base-800 leading-relaxed">{c.sec5Desc}</p>
+			<ul class="grid gap-4 grid-cols-2 text-sm text-base-750 font-medium max-w-xl mx-auto text-left">
+				{c.sec5Bullets.map(bullet => <li class="flex items-center gap-2">✓ {bullet}</li>)}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-16 bg-primary-50 border-t border-primary-100">
+	<div class="site-container max-w-2xl text-center flex flex-col gap-6">
+		<h2 class="font-heading-1 text-3xl font-bold text-primary-900">{c.ctaTitle}</h2>
+		<p class="text-base-700">{c.ctaDesc}</p>
+		<a
+			href={whatsappUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="button button--primary mx-auto flex items-center justify-center gap-2 px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-fit"
+		>
+			<Icon name="tabler:brand-whatsapp" class="h-6 w-6" /> {c.ctaBtn}
+		</a>
+	</div>
+</section>

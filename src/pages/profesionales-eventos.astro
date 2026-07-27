@@ -1,0 +1,12 @@
+---
+import ProsEventsService from "@components/Services/ProsEventsService.astro";
+import WhatsAppFloating from "@components/WhatsAppFloating/WhatsAppFloating.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const lang = "es";
+---
+
+<BaseLayout title="Profesionales y Eventos | Simon Gindre - Fotógrafo" description="Fotografía para profesionales, branding de marca, retiros de yoga y cobertura de eventos en Playa del Carmen, Tulum y Cancún.">
+	<ProsEventsService lang={lang} />
+	<WhatsAppFloating lang={lang} />
+</BaseLayout>

@@ -1,45 +1,48 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
-const { lang = 'fr' } = Astro.params;
-
 // Get current path to redirect to the same page in another language
 const pathname = Astro.url.pathname;
 
 const languages = [
-  { code: 'fr', label: 'FR' },
+  { code: 'es', label: 'ES' },
   { code: 'en', label: 'EN' },
+  { code: 'fr', label: 'FR' },
 ];
 
-// Helper to get the correct URL for the language switch
 function getLangUrl(code: string) {
-  // If we are at root, or root-ish
   let segments = pathname.split('/').filter(Boolean);
   
-  if (code === 'fr') {
-    // If we're already in another language, remove the prefix
-    if (segments[0] === 'en' || segments[0] === 'fr') {
-      segments.shift();
-    }
-    return '/' + segments.join('/');
-  } else {
-    // Adding prefix
-    if (segments[0] === 'en' || segments[0] === 'fr') {
-      segments.shift();
-    }
-    return '/en/' + segments.join('/');
+  // Remove existing language prefix if present
+  if (segments.length > 0 && ['en', 'fr', 'es'].includes(segments[0])) {
+    segments.shift();
   }
+  
+  const base = segments.join('/');
+  if (code === 'es') {
+    return '/' + (base ? base + '/' : '');
+  } else {
+    return `/${code}/` + (base ? base + '/' : '');
+  }
+}
+
+// Helper to determine if a language is active
+function isActive(code: string) {
+  const segments = pathname.split('/').filter(Boolean);
+  if (code === 'es') {
+    return segments.length === 0 || !['en', 'fr'].includes(segments[0]);
+  }
+  return segments.length > 0 && segments[0] === code;
 }
 ---
 
-<div class="flex items-center gap-2 px-2 text-sm font-medium">
+<div class="flex items-center gap-3 px-2 text-sm font-medium">
   {languages.map((l) => (
     <a
       href={getLangUrl(l.code)}
       class:list={[
-        "transition-colors hover:text-primary-500",
-        Astro.url.pathname.startsWith(`/${l.code}`) || (l.code === 'fr' && !Astro.url.pathname.startsWith('/en'))
-          ? "text-primary-600 font-bold underline underline-offset-4"
-          : "text-base-600 opacity-70"
+        "transition-colors hover:text-primary-500 tracking-wider font-semibold",
+        isActive(l.code)
+          ? "text-primary-600 underline underline-offset-4"
+          : "text-base-600 opacity-60 hover:opacity-100"
       ]}
     >
       {l.label}

@@ -1,0 +1,186 @@
+---
+/**
+ * * Reusable Aboutpage component
+ */
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import simonPortrait from "@assets/images/simon-portrait.jpg";
+import workingImage from "@assets/images/photographie-tunnel.jpg";
+
+interface Props {
+	lang: "es" | "en" | "fr";
+}
+
+const { lang } = Astro.props as Props;
+
+// Localized strings
+const contentText = {
+	es: {
+		title: "Fotógrafo francés basado en Playa del Carmen",
+		p1: "Soy Simon Gindre, fotógrafo francés basado en Playa del Carmen.",
+		p2: "Trabajo principalmente con agentes inmobiliarios, propietarios, hoteles y profesionales de la Riviera Maya para crear imágenes que destaquen las propiedades, servicios y experiencias.",
+		p3: "Mi experiencia en comercio, marketing y desarrollo comercial me ha enseñado que una bella imagen no es suficiente. Debe atraer la atención, generar confianza y permitir que el cliente se proyecte.",
+		p4: "También realizo retratos, sesiones de embarazo y reportajes para emprendedores, talleres, retiros y eventos deportivos.",
+		p5: "Mi enfoque se basa en una fotografía luminosa, natural y cuidada, combinada con un entendimiento concreto de sus necesidades de comunicación.",
+		p6: "Según el proyecto, ofrezco fotografía, video, reels verticales y tomas aéreas con dron.",
+		p7: "Trabajo en francés e inglés, así como en español según las necesidades del proyecto.",
+		highlight1: "Visión Comercial y Marketing",
+		highlight1Desc: "Imágenes creadas para captar la atención de su público objetivo y optimizar conversiones.",
+		highlight2: "Sentido del Detalle",
+		highlight2Desc: "Luz controlada, corrección geométrica de perspectivas y encuadres limpios.",
+		highlight3: "Flexibilidad y Confianza",
+		highlight3Desc: "Comunicación sencilla, plazos rápidos y gran flexibilidad de adaptación.",
+		highlight4: "Contenido Multiformato",
+		highlight4Desc: "Una biblioteca completa de fotos, videos cinemáticos, reels y tomas aéreas con dron.",
+		ctaTitle: "¿Listo para impulsar su comunicación visual?",
+		ctaDesc: "Envíeme un mensaje detallando sus necesidades y me pondré en contacto con usted a la brevedad.",
+		ctaBtn: "Hablar de mi proyecto"
+	},
+	en: {
+		title: "French Photographer based in Playa del Carmen",
+		p1: "I am Simon Gindre, a French photographer based in Playa del Carmen.",
+		p2: "I work mainly with real estate agents, owners, hotels, and professionals in the Riviera Maya to create images that showcase properties, services, and experiences.",
+		p3: "My background in commerce, marketing, and business development has taught me that a beautiful image is not enough. It must capture attention, build trust, and allow clients to envision themselves in the space.",
+		p4: "I also shoot portraits, pregnancy sessions, and visual content for entrepreneurs, workshops, retreats, and sports events.",
+		p5: "My approach is based on bright, natural, and polished photography, combined with a practical understanding of communication needs.",
+		p6: "Depending on the project, I offer photography, video, vertical reels, and aerial drone shots.",
+		p7: "I work in French and English, as well as Spanish depending on project requirements.",
+		highlight1: "Commercial & Marketing Vision",
+		highlight1Desc: "Visual assets engineered to capture target attention and boost conversion rates.",
+		highlight2: "Attention to Detail",
+		highlight2Desc: "Precision lighting, geometric perspective correction, and spotless framing.",
+		highlight3: "Flexibility & Trust",
+		highlight3Desc: "Clear communication, fast deliveries, and easy-going adaptation to your schedule.",
+		highlight4: "Multi-format Delivery",
+		highlight4Desc: "A complete visual bundle including photography, cinematic videos, reels, and drone shots.",
+		ctaTitle: "Ready to elevate your visual marketing?",
+		ctaDesc: "Send me a message detailing your project and I will get back to you shortly.",
+		ctaBtn: "Discuss my project"
+	},
+	fr: {
+		title: "Photographe français basé à Playa del Carmen",
+		p1: "Je suis Simon Gindre, photographe français basé à Playa del Carmen.",
+		p2: "Je travaille principalement avec les agents immobiliers, propriétaires, hôtels et professionnels de la Riviera Maya afin de créer des images qui valorisent les lieux, les services et les expériences.",
+		p3: "Mon parcours dans le commerce, le marketing et le développement commercial m'a appris qu'une belle image ne suffit pas. Elle doit aussi attirer l'attention, donner confiance et permettre au client de se projeter.",
+		p4: "Je réalise également des portraits, des séances grossesse et des reportages pour entrepreneurs, workshops, retraites et événements sportifs.",
+		p5: "Mon approche repose sur une photographie lumineuse, naturelle et soignée, associée à une compréhension concrète des besoins de communication.",
+		p6: "Selon les projets, je propose de la photographie, de la vidéo, des reels verticaux et des prises de vue aériennes par drone.",
+		p7: "Je travaille en français et en anglais selon les besoins du projet.",
+		highlight1: "Vision Commerce & Marketing",
+		highlight1Desc: "Des visuels pensés pour capter l'intérêt de votre clientèle cible et maximiser vos ventes.",
+		highlight2: "Le Sens du Détail",
+		highlight2Desc: "Maîtrise de l'éclairage, correction géométrique des perspectives et cadrage méticuleux.",
+		highlight3: "Fiabilité & Souplesse",
+		highlight3Desc: "Une communication simple, des délais rapides et une grande flexibilité opérationnelle.",
+		highlight4: "Contenu Multi-format",
+		highlight4Desc: "Une banque d'images complète : photos haute définition, vidéos cinématiques, reels et drone.",
+		ctaTitle: "Prêt à valoriser vos espaces et expériences ?",
+		ctaDesc: "Contactez-moi en décrivant votre projet et je vous répondrai dans les plus brefs délais.",
+		ctaBtn: "Parler de mon projet"
+	}
+};
+
+const c = contentText[lang] || contentText.es;
+const contactLink = lang === 'es' ? '/contacto/' : `/${lang}/contact/`;
+---
+
+<!-- Intro Profile Section -->
+<section class="py-20 md:py-28 bg-white">
+	<div class="site-container grid gap-12 lg:grid-cols-12 items-center">
+		<div class="lg:col-span-5 flex justify-center">
+			<div class="relative max-w-xs md:max-w-md">
+				<Image
+					src={simonPortrait}
+					alt="Simon Gindre Portrait"
+					class="w-full h-auto object-cover border border-base-200"
+				/>
+				<div class="absolute -bottom-4 -right-4 h-16 w-16 bg-primary-600/10 -z-10"></div>
+			</div>
+		</div>
+		<div class="lg:col-span-7 flex flex-col gap-6">
+			<span class="text-xs uppercase tracking-widest text-primary-600 font-bold">{lang === 'es' ? 'Quién Soy' : lang === 'en' ? 'Who I Am' : 'Qui suis-je'}</span>
+			<h1 class="h2 text-primary-900">{c.title}</h1>
+			<div class="flex flex-col gap-4 text-base-800 leading-relaxed font-heading-2">
+				<p class="font-bold text-lg text-primary-750">{c.p1}</p>
+				<p>{c.p2}</p>
+				<p>{c.p3}</p>
+				<p>{c.p4}</p>
+				<p>{c.p5}</p>
+				<p>{c.p6}</p>
+				<p class="italic text-base-600 font-medium">{c.p7}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Highlights Section -->
+<section class="py-16 md:py-24 bg-base-50 border-t border-b border-base-200">
+	<div class="site-container">
+		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+			<div class="flex flex-col gap-3 p-6 bg-white border border-base-200">
+				<div class="h-10 w-10 bg-primary-50 text-primary-600 flex items-center justify-center">
+					<Icon name="tabler:bulb" class="h-5 w-5" />
+				</div>
+				<h3 class="font-heading-1 text-base font-bold text-primary-900">{c.highlight1}</h3>
+				<p class="text-xs text-base-600 leading-relaxed">{c.highlight1Desc}</p>
+			</div>
+			<div class="flex flex-col gap-3 p-6 bg-white border border-base-200">
+				<div class="h-10 w-10 bg-primary-50 text-primary-600 flex items-center justify-center">
+					<Icon name="tabler:info-circle" class="h-5 w-5" />
+				</div>
+				<h3 class="font-heading-1 text-base font-bold text-primary-900">{c.highlight2}</h3>
+				<p class="text-xs text-base-600 leading-relaxed">{c.highlight2Desc}</p>
+			</div>
+			<div class="flex flex-col gap-3 p-6 bg-white border border-base-200">
+				<div class="h-10 w-10 bg-primary-50 text-primary-600 flex items-center justify-center">
+					<Icon name="tabler:phone" class="h-5 w-5" />
+				</div>
+				<h3 class="font-heading-1 text-base font-bold text-primary-900">{c.highlight3}</h3>
+				<p class="text-xs text-base-600 leading-relaxed">{c.highlight3Desc}</p>
+			</div>
+			<div class="flex flex-col gap-3 p-6 bg-white border border-base-200">
+				<div class="h-10 w-10 bg-primary-50 text-primary-600 flex items-center justify-center">
+					<Icon name="tabler:category" class="h-5 w-5" />
+				</div>
+				<h3 class="font-heading-1 text-base font-bold text-primary-900">{c.highlight4}</h3>
+				<p class="text-xs text-base-600 leading-relaxed">{c.highlight4Desc}</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Additional Working Picture Section -->
+<section class="py-16 md:py-24 bg-white">
+	<div class="site-container grid gap-12 lg:grid-cols-2 items-center">
+		<div class="lg:order-2">
+			<Image
+				src={workingImage}
+				alt="Simon Gindre photography work"
+				class="w-full h-auto object-cover aspect-16/10 shadow-sm"
+			/>
+		</div>
+		<div class="flex flex-col gap-6">
+			<h2 class="h2 text-primary-900">{lang === 'es' ? 'Imágenes con Sentido' : lang === 'en' ? 'Images with Purpose' : 'Des images porteuses de sens'}</h2>
+			<p class="text-base-800 leading-relaxed">
+				{lang === 'es' ? 'Cada sesión o proyecto fotográfico es abordado de forma única, buscando siempre contar la historia real detrás de los espacios o de las personas.' : lang === 'en' ? 'Every shoot or photography project is approached uniquely, always striving to tell the true story behind the spaces or people.' : 'Chaque séance ou projet photographique est abordé de manière unique, en cherchant toujours à raconter l’histoire réelle derrière les espaces ou les personnes.'}
+			</p>
+			<p class="text-base-800 leading-relaxed">
+				{lang === 'es' ? 'Mi objetivo es crear un banco de imágenes estéticas y profesionales que sirvan directamente a sus metas de marketing y comunicación.' : lang === 'en' ? 'My objective is to build a bank of aesthetic and professional images that directly serve your marketing and communication goals.' : 'Mon objectif est de créer une bibliothèque d’images esthétiques et professionnelles qui servent directement vos objectifs de marketing et de communication.'}
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- CTA Bottom -->
+<section class="py-16 bg-primary-50 border-t border-primary-100">
+	<div class="site-container max-w-2xl text-center flex flex-col gap-6">
+		<h2 class="font-heading-1 text-3xl font-bold text-primary-900">{c.ctaTitle}</h2>
+		<p class="text-base-700">{c.ctaDesc}</p>
+		<a
+			href={contactLink}
+			class="button button--primary mx-auto px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-fit"
+		>
+			{c.ctaBtn}
+		</a>
+	</div>
+</section>

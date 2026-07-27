@@ -22,8 +22,22 @@ const portfoliosCollection = defineCollection({
         date: z.coerce.date(),
         heroImage: image(),
         images: z.array(z.array(image())),
+        category: z.enum([
+            "immobilier", "hospitality", "drone", "video", 
+            "professionnels", "workshops", "sport", 
+            "portraits", "grossesse", "couples"
+        ]),
         clients: z.array(z.string()),
         location: z.string(),
+        draft: z.boolean().optional(),
+    }),
+});
+
+const otherPagesCollection = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/data/otherPages' }),
+    schema: () => z.object({
+        title: z.string(),
+        description: z.string(),
         draft: z.boolean().optional(),
     }),
 });
@@ -31,4 +45,5 @@ const portfoliosCollection = defineCollection({
 export const collections = {
     articles: articlesCollection,
     portfolios: portfoliosCollection,
+    otherPages: otherPagesCollection,
 };

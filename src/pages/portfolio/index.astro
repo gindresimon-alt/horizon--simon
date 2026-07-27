@@ -1,29 +1,25 @@
 ---
 // components
 import Contact from "@components/Contact/Contact.astro";
-import PortfolioGrid from "@components/Portfolio/PortfolioGrid.astro";
-import TestimonialQuote from "@components/Testimonials/TestimonialQuote.astro";
+import WhatsAppFloating from "@components/WhatsAppFloating/WhatsAppFloating.astro";
 // layout
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getCollection, render } from "astro:content";
 
-const portfolios = await getCollection("portfolios", ({ data }) => {
-	// filter out draft pages
-	return data.draft !== true;
-});
+const lang = "es";
 ---
 
-<BaseLayout title="Portfolios" description="Portfolio page for my projects and work.">
-	<div class="site-container pt-24 md:pt-36">
-		<div class="mx-auto max-w-6xl text-center">
-			<h1 class="h2 text-pretty uppercase">
-				The moments you'll want to relive in a timeless, romantic, and artistic style.
+<BaseLayout title="Portafolio | Simon Gindre" description="El portafolio de Simon Gindre está en proceso de modificación. Descubre pronto nuestros nuevos proyectos.">
+	<div class="site-container pt-36 pb-24 text-center min-h-[50vh] flex flex-col justify-center items-center">
+		<div class="max-w-xl mx-auto px-4">
+			<h1 class="h2 uppercase tracking-wide text-primary-900 mb-6">
+				Portafolio en modificación
 			</h1>
+			<p class="description text-lg md:text-xl">
+				Esta sección está en proceso de actualización. Muy pronto descubrirás aquí nuestros últimos proyectos de fotografía inmobiliaria y retratos.
+			</p>
 		</div>
-		<PortfolioGrid portfolios={portfolios} />
 	</div>
 
-	<TestimonialQuote />
-
 	<Contact class="mt-12" />
+	<WhatsAppFloating lang={lang} />
 </BaseLayout>

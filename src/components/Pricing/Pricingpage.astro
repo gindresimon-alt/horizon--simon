@@ -1,0 +1,255 @@
+---
+/**
+ * * Reusable Pricingpage component (Multilingual)
+ */
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	lang: "es" | "en" | "fr";
+}
+
+const { lang } = Astro.props as Props;
+
+// Localized strings
+const content = {
+	es: {
+		title: "Tarifas & Servicios",
+		subtitle: "Tarifas transparentes y adaptadas a cada tipo de proyecto en la Riviera Maya.",
+		
+		reTitle: "Fotografía Inmobiliaria",
+		reSubtitle: "Valorice sus anuncios y desarrollos con imágenes de alta gama. Tarifas a partir de 2,500 MXN.",
+		
+		pkg1Name: "Esencial",
+		pkg1Price: "2,500 MXN",
+		pkg1Desc: "Ideal para estudios, lofts y departamentos pequeños.",
+		pkg1Bullets: ["Hasta 15 fotografías editadas", "Interiores y exteriores", "Retoque digital de perspectivas y luz", "Entrega en galería digital en 48h"],
+
+		pkg2Name: "Firma",
+		pkg2Price: "4,500 MXN",
+		pkg2Desc: "Recomendado para departamentos grandes, casas y villas de tamaño medio.",
+		pkg2Bullets: ["Hasta 25 fotografías editadas", "Áreas comunes e instalaciones", "Fotos aéreas con dron (si es posible)", "Entrega prioritaria en 48h"],
+
+		pkg3Name: "Premium",
+		pkg3Price: "7,500 MXN",
+		pkg3Desc: "Para villas de lujo, hoteles boutique y desarrollos residenciales.",
+		pkg3Bullets: ["Cobertura completa sin límite de fotos", "Tomas aéreas de dron y video corto", "Sesión crepuscular (Twilight)", "Formatos web y redes sociales"],
+
+		proTitle: "Profesionales & Reportajes de Marca",
+		proSubtitle: "Contenido a la medida para talleres, retiros de bienestar, marcas y eventos corporativos.",
+		proTime1: "Cobertura por hora",
+		proTime1Price: "1,800 MXN / hora",
+		proTime2: "Media jornada (4h)",
+		proTime2Price: "6,000 MXN",
+		proTime3: "Jornada completa (8h)",
+		proTime3Price: "10,000 MXN",
+		proOptionsTitle: "Opciones Adicionales",
+		proOpt1: "Servicio de Dron profesional",
+		proOpt2: "Video vertical / Reel dinámico",
+		proOpt3: "Entrega express en 24 horas",
+
+		portTitle: "Sesiones de Retrato Personal",
+		portSubtitle: "Conserve recuerdos invaluables de sus viajes, pareja o embarazo.",
+		port1Name: "Retrato Individual",
+		port1Price: "2,200 MXN",
+		port1Desc: "Sesión lifestyle o retratos de branding personal.",
+		port2Name: "Pareja o Familia",
+		port2Price: "3,200 MXN",
+		port2Desc: "Capturas espontáneas en la playa al atardecer.",
+		port3Name: "Maternidad / Embarazo",
+		port3Price: "3,000 MXN",
+		port3Desc: "Un shooting suave y memorable en entornos naturales.",
+
+		ctaTitle: "¿Tiene un requerimiento específico?",
+		ctaDesc: "Hablemos de su proyecto y preparemos una propuesta a su medida.",
+		ctaBtn: "Pedir un presupuesto personalizado"
+	},
+	en: {
+		title: "Pricing & Packages",
+		subtitle: "Transparent rates adapted to every type of project in the Riviera Maya.",
+		
+		reTitle: "Real Estate Photography",
+		reSubtitle: "Elevate your property listings and developments. Real Estate photography starting from 2,500 MXN.",
+		
+		pkg1Name: "Essential",
+		pkg1Price: "2,500 MXN",
+		pkg1Desc: "Perfect for studios, lofts, and small apartments.",
+		pkg1Bullets: ["Up to 15 fully edited photos", "Interior & exterior coverage", "Perspective & lighting correction", "Online gallery delivery within 48 hours"],
+
+		pkg2Name: "Signature",
+		pkg2Price: "4,500 MXN",
+		pkg2Desc: "Highly recommended for large condos, houses, and medium villas.",
+		pkg2Bullets: ["Up to 25 fully edited photos", "Common facilities coverage", "Aerial drone shots (where allowed)", "Priority 48-hour delivery"],
+
+		pkg3Name: "Premium",
+		pkg3Price: "7,500 MXN",
+		pkg3Desc: "Tailored for luxury estates, boutique hotels, and new developments.",
+		pkg3Bullets: ["Full property coverage (no photo limits)", "Aerial drone views & short video clips", "Blue-hour sunset session (Twilight)", "Web-optimized & high-resolution files"],
+
+		proTitle: "Professionals & Event Coverage",
+		proSubtitle: "Tailored branding content for workshops, wellness retreats, and corporate events.",
+		proTime1: "Hourly rate",
+		proTime1Price: "1,800 MXN / hour",
+		proTime2: "Half day (4h)",
+		proTime2Price: "6,000 MXN",
+		proTime3: "Full day (8h)",
+		proTime3Price: "10,000 MXN",
+		proOptionsTitle: "Extra Options",
+		proOpt1: "Professional Drone add-on",
+		proOpt2: "Vertical video / Reels editing",
+		proOpt3: "Express 24-hour delivery",
+
+		portTitle: "Portrait & Lifestyle Sessions",
+		portSubtitle: "Preserve beautiful memories of your travels, couple, or pregnancy.",
+		port1Name: "Individual Portrait",
+		port1Price: "2,200 MXN",
+		port1Desc: "Lifestyle headshots or personal branding.",
+		port2Name: "Couple or Family",
+		port2Price: "3,200 MXN",
+		port2Desc: "Spontaneous sunset shoots on the beach.",
+		port3Name: "Maternity & Pregnancy",
+		port3Price: "3,000 MXN",
+		port3Desc: "A warm and memorable session in tropical scenery.",
+
+		ctaTitle: "Do you have specific requirements?",
+		ctaDesc: "Let's discuss your project and draft a tailored proposal.",
+		ctaBtn: "Request a custom quote"
+	},
+	fr: {
+		title: "Tarifs & Formules",
+		subtitle: "Des tarifs transparents et ajustés à chaque projet dans la Riviera Maya.",
+		
+		reTitle: "Photographie Immobilière",
+		reSubtitle: "Sublimez vos annonces et développements. Photographie immobilière à partir de 2 500 MXN.",
+		
+		pkg1Name: "Essentiel",
+		pkg1Price: "2 500 MXN",
+		pkg1Desc: "Idéal pour studios, lofts et petits appartements.",
+		pkg1Bullets: ["Jusqu'à 15 photographies retouchées", "Prises de vue intérieures/extérieures", "Retouche des perspectives et lumières", "Livraison en galerie numérique sous 48h"],
+
+		pkg2Name: "Signature",
+		pkg2Price: "4 500 MXN",
+		pkg2Desc: "Recommandé pour appartements familiaux, maisons et villas moyennes.",
+		pkg2Bullets: ["Jusqu'à 25 photographies retouchées", "Espaces communs de la copropriété", "Photos aériennes au drone (si autorisé)", "Livraison prioritaire sous 48h"],
+
+		pkg3Name: "Premium",
+		pkg3Price: "7 500 MXN",
+		pkg3Desc: "Pour villas de luxe, hôtels boutique et programmes neufs.",
+		pkg3Bullets: ["Couverture complète (pas de limite de photos)", "Vues aériennes drone et courtes vidéos", "Séance crépusculaire (Twilight)", "Formats web et réseaux sociaux fournis"],
+
+		proTitle: "Professionnels & Événements",
+		proSubtitle: "Création de contenu sur-mesure pour ateliers, retraites de yoga et événements d'entreprise.",
+		proTime1: "Couverture à l'heure",
+		proTime1Price: "1 800 MXN / heure",
+		proTime2: "Demi-journée (4h)",
+		proTime2Price: "6 000 MXN",
+		proTime3: "Journée complète (8h)",
+		proTime3Price: "10 000 MXN",
+		proOptionsTitle: "Options Additionnelles",
+		proOpt1: "Option Drone professionnel",
+		proOpt2: "Vidéo verticale / Reels édités",
+		proOpt3: "Livraison express en 24h",
+
+		portTitle: "Séances Portrait Personnel",
+		portSubtitle: "Immortalisez de beaux souvenirs de votre voyage, couple ou grossesse.",
+		port1Name: "Portrait Individuel",
+		port1Price: "2 200 MXN",
+		port1Desc: "Shooting lifestyle ou portrait professionnel branding.",
+		port2Name: "Couple ou Famille",
+		port2Price: "3 200 MXN",
+		port2Desc: "Clichés spontanés sur la plage au coucher du soleil.",
+		port3Name: "Maternité / Grossesse",
+		port3Price: "3 000 MXN",
+		port3Desc: "Une séance douce et mémorable dans un cadre naturel.",
+
+		ctaTitle: "Besoin d'une formule sur-mesure ?",
+		ctaDesc: "Discutons de votre projet pour créer une proposition parfaitement adaptée.",
+		ctaBtn: "Demander une offre personnalisée"
+	}
+};
+
+const c = content[lang] || content.es;
+const contactLink = lang === 'es' ? '/contacto/' : `/${lang}/contact/`;
+---
+
+<!-- Header Section -->
+<section class="py-20 md:py-28 bg-base-50 border-b border-base-200">
+	<div class="site-container text-center max-w-3xl">
+		<h1 class="h2 text-primary-900 mb-4">{c.title}</h1>
+		<p class="description text-lg md:text-xl font-heading-2">{c.subtitle}</p>
+	</div>
+</section>
+
+<!-- Real Estate Pricing Section -->
+<section class="py-16 md:py-24 bg-white">
+	<div class="site-container">
+		<div class="text-center mb-16">
+			<h2 class="h2 text-primary-900">{c.reTitle}</h2>
+			<p class="description mt-2 max-w-xl mx-auto">{c.reSubtitle}</p>
+		</div>
+
+		<div class="grid gap-8 md:grid-cols-3">
+			<!-- Pkg 1 -->
+			<div class="flex flex-col justify-between p-8 bg-base-50 border border-base-200 rounded-none h-full">
+				<div>
+					<h3 class="font-heading-1 text-xl font-bold text-base-900 mb-1">{c.pkg1Name}</h3>
+					<span class="text-3xl font-bold text-primary-600 block mb-4">{c.pkg1Price}</span>
+					<p class="text-xs text-base-600 mb-6 leading-relaxed">{c.pkg1Desc}</p>
+					<hr class="border-base-200 mb-6" />
+					<ul class="space-y-3 text-sm text-base-800 font-medium">
+						{c.pkg1Bullets.map(b => <li class="flex items-center gap-2">✓ {b}</li>)}
+					</ul>
+				</div>
+				<a href={contactLink} class="button button--outline border-base-800 text-base-900 hover:bg-base-900 hover:text-white w-full text-center py-2.5 mt-8 uppercase tracking-wider font-semibold text-xs">{lang === 'es' ? 'Reservar' : lang === 'en' ? 'Book Now' : 'Réserver'}</a>
+			</div>
+
+			<!-- Pkg 2 -->
+			<div class="flex flex-col justify-between p-8 bg-primary-50/50 border-2 border-primary-500 rounded-none h-full relative">
+				<div class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-primary-600 text-white text-xxs tracking-widest uppercase font-bold px-3 py-1">
+					{lang === 'es' ? 'Popular' : lang === 'en' ? 'Popular' : 'Populaire'}
+				</div>
+				<div>
+					<h3 class="font-heading-1 text-xl font-bold text-primary-900 mb-1">{c.pkg2Name}</h3>
+					<span class="text-3xl font-bold text-primary-650 block mb-4">{c.pkg2Price}</span>
+					<p class="text-xs text-base-600 mb-6 leading-relaxed">{c.pkg2Desc}</p>
+					<hr class="border-primary-200 mb-6" />
+					<ul class="space-y-3 text-sm text-primary-900 font-medium">
+						{c.pkg2Bullets.map(b => <li class="flex items-center gap-2">✓ {b}</li>)}
+					</ul>
+				</div>
+				<a href={contactLink} class="button button--primary w-full text-center py-3 mt-8 uppercase tracking-wider font-semibold text-xs">{lang === 'es' ? 'Reservar' : lang === 'en' ? 'Book Now' : 'Réserver'}</a>
+			</div>
+
+			<!-- Pkg 3 -->
+			<div class="flex flex-col justify-between p-8 bg-base-50 border border-base-200 rounded-none h-full">
+				<div>
+					<h3 class="font-heading-1 text-xl font-bold text-base-900 mb-1">{c.pkg3Name}</h3>
+					<span class="text-3xl font-bold text-primary-600 block mb-4">{c.pkg3Price}</span>
+					<p class="text-xs text-base-600 mb-6 leading-relaxed">{c.pkg3Desc}</p>
+					<hr class="border-base-200 mb-6" />
+					<ul class="space-y-3 text-sm text-base-800 font-medium">
+						{c.pkg3Bullets.map(b => <li class="flex items-center gap-2">✓ {b}</li>)}
+					</ul>
+				</div>
+				<a href={contactLink} class="button button--outline border-base-800 text-base-900 hover:bg-base-900 hover:text-white w-full text-center py-2.5 mt-8 uppercase tracking-wider font-semibold text-xs">{lang === 'es' ? 'Reservar' : lang === 'en' ? 'Book Now' : 'Réserver'}</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<!-- Call to Action Section -->
+<section class="py-16 bg-primary-50 border-t border-primary-100">
+	<div class="site-container max-w-2xl text-center flex flex-col gap-6">
+		<h2 class="font-heading-1 text-3xl font-bold text-primary-900">{c.ctaTitle}</h2>
+		<p class="text-base-700">{c.ctaDesc}</p>
+		<a
+			href={contactLink}
+			class="button button--primary mx-auto px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-fit"
+		>
+			{c.ctaBtn}
+		</a>
+	</div>
+</section>

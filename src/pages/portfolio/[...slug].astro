@@ -2,22 +2,31 @@
 // layout
 import PortfolioLayout from "@layouts/PortfolioLayout.astro";
 import { type InferGetStaticPropsType } from "astro";
-import { type CollectionEntry, getCollection, render } from "astro:content";
+import { getCollection, render } from "astro:content";
+
+const lang = "es";
 
 export async function getStaticPaths() {
-	const portfolios = await getCollection("portfolios", ({ data }) => {
-		// filter out draft pages
-		return data.draft !== true;
+	// Fetch all Spanish portfolios
+	const portfolios = await getCollection("portfolios", (item) => {
+		return item.id.startsWith("es/") && item.data.draft !== true;
 	});
 
-	return portfolios.map((portfolio) => ({
-		params: { slug: portfolio.id },
-		props: portfolio,
-	}));
+	return portfolios.map((portfolio) => {
+		// Remove language prefix from slug
+		const cleanSlug = portfolio.id.replace("es/", "");
+		return {
+			params: { slug: cleanSlug },
+			props: { portfolio },
+		};
+	});
 }
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const portfolio = Astro.props as Props;
+type Props = {
+	portfolio: any;
+};
+
+const { portfolio } = Astro.props as Props;
 const { Content } = await render(portfolio);
 ---
 

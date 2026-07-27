@@ -1,0 +1,33 @@
+---
+// layout
+import PortfolioLayout from "@layouts/PortfolioLayout.astro";
+import { getCollection, render } from "astro:content";
+
+const lang = "en";
+
+export async function getStaticPaths() {
+	// Fetch all English portfolios
+	const portfolios = await getCollection("portfolios", (item) => {
+		return item.id.startsWith("en/") && item.data.draft !== true;
+	});
+
+	return portfolios.map((portfolio) => {
+		const cleanSlug = portfolio.id.replace("en/", "");
+		return {
+			params: { slug: cleanSlug },
+			props: { portfolio },
+		};
+	});
+}
+
+type Props = {
+	portfolio: any;
+};
+
+const { portfolio } = Astro.props as Props;
+const { Content } = await render(portfolio);
+---
+
+<PortfolioLayout portfolio={portfolio}>
+	<Content />
+</PortfolioLayout>
