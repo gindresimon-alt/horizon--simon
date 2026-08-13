@@ -6,7 +6,13 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 const lang = "es";
 ---
 
-<BaseLayout title="Fotografía Inmobiliaria | Simon Gindre" description="Fotografía inmobiliaria profesional, tomas con dron y reels en Playa del Carmen y Riviera Maya para Airbnb, hoteles y agencias.">
+<BaseLayout 
+	title="Fotógrafo Inmobiliario en Playa del Carmen | Simon Gindre" 
+	description="Fotografía inmobiliaria, video y tomas aéreas 4K con dron en Playa del Carmen y la Riviera Maya. Tarifas de lanzamiento para las primeras cinco reservas."
+>
 	<RealEstateService lang={lang} />
-	<WhatsAppFloating lang={lang} />
+	<WhatsAppFloating 
+		phone="529842353519" 
+		message="Hola Simon, me gustaría hablarle de un proyecto inmobiliario para fotografiar." 
+	/>
 </BaseLayout>

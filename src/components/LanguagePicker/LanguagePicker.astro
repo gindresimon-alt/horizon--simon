@@ -1,5 +1,4 @@
 ---
-// Get current path to redirect to the same page in another language
 const pathname = Astro.url.pathname;
 
 const languages = [
@@ -8,23 +7,71 @@ const languages = [
   { code: 'fr', label: 'FR' },
 ];
 
-function getLangUrl(code: string) {
+const localizedLinksMap: Record<string, Record<string, string>> = {
+    es: {
+        "/": "/",
+        "/immobilier/": "/inmobiliario/",
+        "/pros-events/": "/profesionales-eventos/",
+        "/portfolio/": "/portfolio/",
+        "/about/": "/sobre-mi/",
+        "/contact/": "/contacto/"
+    },
+    en: {
+        "/": "/en/",
+        "/immobilier/": "/en/real-estate/",
+        "/pros-events/": "/en/pros-events/",
+        "/portfolio/": "/en/portfolio/",
+        "/about/": "/en/about/",
+        "/contact/": "/en/contact/"
+    },
+    fr: {
+        "/": "/fr/",
+        "/immobilier/": "/fr/immobilier/",
+        "/pros-events/": "/fr/pros-evenements/",
+        "/portfolio/": "/fr/portfolio/",
+        "/about/": "/fr/about/",
+        "/contact/": "/fr/contact/"
+    }
+};
+
+function getLangUrl(targetLang: string) {
+  let currentPath = pathname;
+  if (!currentPath.endsWith('/') && !currentPath.includes('.')) {
+    currentPath += '/';
+  }
+
+  // Find the canonical link key
+  let canonicalLink: string | null = null;
+  for (const langKey of Object.keys(localizedLinksMap)) {
+    const langMap = localizedLinksMap[langKey];
+    for (const [key, val] of Object.entries(langMap)) {
+      if (val === currentPath) {
+        canonicalLink = key;
+        break;
+      }
+    }
+    if (canonicalLink) break;
+  }
+
+  if (canonicalLink) {
+    const targetMap = localizedLinksMap[targetLang] || localizedLinksMap.es;
+    return targetMap[canonicalLink] || canonicalLink;
+  }
+
+  // Fallback for portfolio slugs / custom pages
   let segments = pathname.split('/').filter(Boolean);
-  
-  // Remove existing language prefix if present
   if (segments.length > 0 && ['en', 'fr', 'es'].includes(segments[0])) {
     segments.shift();
   }
   
   const base = segments.join('/');
-  if (code === 'es') {
+  if (targetLang === 'es') {
     return '/' + (base ? base + '/' : '');
   } else {
-    return `/${code}/` + (base ? base + '/' : '');
+    return `/${targetLang}/` + (base ? base + '/' : '');
   }
 }
 
-// Helper to determine if a language is active
 function isActive(code: string) {
   const segments = pathname.split('/').filter(Boolean);
   if (code === 'es') {
