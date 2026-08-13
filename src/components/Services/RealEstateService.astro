@@ -7,6 +7,7 @@ import { Icon } from "astro-icon/components";
 import reHero from "@assets/images/home-hero-2026-v2.jpg";
 import reSection1Image from "@assets/images/real-estate-interior-showcase.jpg";
 import droneImg from "@assets/images/drone-hotel-aerial.jpg";
+import droneVillageImg from "@assets/images/real-estate-village-aerial.jpg";
 
 interface Props {
 	lang: "es" | "en" | "fr";
@@ -590,7 +591,7 @@ const portfolioLink = lang === 'es' ? '/portfolio/' : `/${lang}/portfolio/`;
 	<div class="site-container grid gap-12 lg:grid-cols-2 items-center">
 		<div class="lg:order-2">
 			<Image
-				src={droneImg}
+				src={droneVillageImg}
 				alt="Drone aerial photography Riviera Maya"
 				class="w-full h-auto object-cover aspect-4/3 shadow-sm border border-base-200"
 			/>
