@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Button from "@components/Button/Button.astro";
+import Contact from "@components/Contact/Contact.astro";
 import PortfolioGrid from "@components/Portfolio/PortfolioGrid.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
@@ -12,9 +13,6 @@ const t = useTranslations(lang);
 // images
 import heroImage from "@assets/images/home-hero-2026-v2.jpg";
 import visionImage from "@assets/images/simon-portrait.jpg";
-import coupleImage from "@assets/images/couple-1-square.jpg";
-import portraitImage from "@assets/images/couple-3-square.jpg";
-import artisanImage from "@assets/images/artisan-new.jpg";
 
 const portfolios = await getCollection("portfolios", ({ data }) => {
 	return data.draft !== true;
@@ -26,99 +24,107 @@ const description = t('photo.hero.desc');
 
 <BaseLayout {title} {description} navStartStyle="white">
 	{/* 1. Hero Section */}
-	<section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-base-900">
+	<section class="relative flex min-h-[75lvh] w-full items-center justify-center overflow-hidden bg-base-950 pt-24 pb-16">
 		<Image
 			src={heroImage}
 			alt="Photography"
-			class="absolute inset-0 h-full w-full object-cover opacity-60"
+			class="absolute inset-0 h-full w-full object-cover object-center opacity-55 scale-[1.02]"
+			loading="eager"
 		/>
-		<div class="site-container relative flex h-full items-center justify-center text-center">
-			<div class="max-w-4xl">
-				<h1 class="h1 mb-4 text-white uppercase tracking-widest">{t('photo.hero.title')}</h1>
-				<p class="h2 mb-8 text-white font-light italic">{t('photo.hero.subtitle')}</p>
-				<p class="mx-auto mb-10 max-w-2xl text-lg text-white/90 md:text-xl">
+		<div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
+
+		<div class="site-container relative z-10 text-center text-white">
+			<div class="mx-auto max-w-3xl">
+				<div class="mb-6 inline-flex items-center gap-3">
+					<span class="h-[1px] w-8 bg-primary-300"></span>
+					<span class="font-heading-2 text-xs font-medium tracking-[0.3em] uppercase text-primary-200">
+						Playa del Carmen · Riviera Maya
+					</span>
+					<span class="h-[1px] w-8 bg-primary-300"></span>
+				</div>
+
+				<h1 class="font-heading-1 text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl">
+					{t('photo.hero.title')}
+				</h1>
+
+				<p class="mt-6 font-heading-1 text-2xl italic font-light text-white/90 md:text-3xl">
+					« {t('photo.hero.subtitle')} »
+				</p>
+
+				<p class="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/80 md:text-lg">
 					{t('photo.hero.desc')}
 				</p>
-				<Button variant="primary" href="#vision">{t('photo.hero.cta')}</Button>
+
+				<div class="mt-10">
+					<a
+						href="#vision"
+						class="group inline-flex items-center gap-3 rounded-full border border-white/30 bg-white/10 px-8 py-3.5 font-heading-2 text-xs font-semibold tracking-[0.22em] uppercase text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-base-950"
+					>
+						<span>{t('photo.hero.cta')}</span>
+						<Icon name="tabler:arrow-narrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	{/* 2. My Vision */}
-	<section id="vision" class="site-container py-20 md:py-32">
-		<div class="grid items-center gap-16 md:grid-cols-2">
-			<div class="order-2 md:order-1 overflow-hidden shadow-2xl">
-				<Image src={visionImage} alt="Simon Gindre" class="h-full w-full object-cover" />
+	<section id="vision" class="site-container scroll-mt-16 py-24 md:py-36">
+		<div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
+			<div class="relative mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
+				<div class="absolute -inset-3 -z-10 -translate-x-3 translate-y-3 border border-primary-300/60 bg-primary-50/40"></div>
+				<div class="aspect-[4/5] overflow-hidden shadow-xl">
+					<Image
+						src={visionImage}
+						alt="Simon Gindre"
+						class="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+					/>
+				</div>
 			</div>
-			<div class="order-1 md:order-2">
-				<h2 class="h2 mb-8 uppercase tracking-tight">{t('photo.vision.title')}</h2>
-				<p class="mb-6 text-lg leading-relaxed">
+
+			<div class="lg:col-span-7">
+				<div class="eyebrow mb-4">
+					<span class="h-[1px] w-8 bg-primary-500"></span>
+					<span>Vision & Philosophy</span>
+				</div>
+
+				<h2 class="h2 text-base-950">
+					{t('photo.vision.title')}
+				</h2>
+
+				<p class="mt-8 text-lg font-light leading-relaxed text-base-700">
 					{t('photo.vision.p1')}
 				</p>
-				<p class="mb-6 text-lg leading-relaxed italic">
-					"{t('photo.vision.quote')}"
-				</p>
-				<p class="text-lg leading-relaxed">
+
+				<blockquote class="my-8 border-l-2 border-primary-400 bg-base-100/70 py-5 pl-6 pr-6 font-heading-1 text-xl italic leading-relaxed text-base-900 md:text-2xl">
+					« {t('photo.vision.quote')} »
+				</blockquote>
+
+				<p class="text-lg font-light leading-relaxed text-base-700">
 					{t('photo.vision.p2')}
 				</p>
 			</div>
 		</div>
 	</section>
 
-	{/* 3. For Whom */}
-	<section class="bg-base-100 py-20 md:py-32">
+	{/* 3. Gallery */}
+	<section class="border-t border-base-200/70 bg-base-100/50 py-24 md:py-32">
 		<div class="site-container">
-			<h2 class="h2 mb-16 text-center uppercase tracking-tight">{t('photo.who.title')}</h2>
-			<div class="grid gap-12 md:grid-cols-3">
-				<div class="text-center">
-					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg">
-						<Image src={coupleImage} alt="Couples" class="h-full w-full object-cover" />
-					</div>
-					<h3 class="h4 mb-4 uppercase">{t('photo.who.couples.title')}</h3>
-					<p class="text-base-600">{t('photo.who.couples.desc')}</p>
+			<div class="mx-auto max-w-2xl text-center">
+				<div class="eyebrow mb-3 justify-center">
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+					<span>Gallery</span>
+					<span class="h-[1px] w-6 bg-primary-500"></span>
 				</div>
-				<div class="text-center">
-					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg">
-						<Image src={portraitImage} alt="Portraits" class="h-full w-full object-cover" />
-					</div>
-					<h3 class="h4 mb-4 uppercase">{t('photo.who.portraits.title')}</h3>
-					<p class="text-base-600">{t('photo.who.portraits.desc')}</p>
-				</div>
-				<div class="text-center">
-					<div class="mx-auto mb-6 h-48 w-48 overflow-hidden rounded-full border-2 border-primary-100 shadow-lg">
-						<Image src={artisanImage} alt="Artisans" class="h-full w-full object-cover" />
-					</div>
-					<h3 class="h4 mb-4 uppercase">{t('photo.who.artisans.title')}</h3>
-					<p class="text-base-600">{t('photo.who.artisans.desc')}</p>
-				</div>
+				<h2 class="h2 text-base-950">{t('photo.gallery.title')}</h2>
+				<p class="mt-4 font-heading-1 text-xl italic text-base-600">{t('photo.gallery.subtitle')}</p>
+			</div>
+
+			<div class="mt-8">
+				<PortfolioGrid portfolios={portfolios} />
 			</div>
 		</div>
 	</section>
 
-	{/* 4. Format & Collaborations */}
-	<section class="site-container py-20 md:py-32">
-		<div class="mx-auto max-w-4xl text-center">
-			<h2 class="h2 mb-12 uppercase tracking-tight">{t('photo.format.title')}</h2>
-			<p class="mb-12 text-lg leading-relaxed">
-				{t('photo.format.p1')}
-			</p>
-			<div class="mx-auto max-w-2xl">
-				<div class="bg-white p-8 border border-base-200 text-left shadow-sm">
-					<h3 class="h5 mb-6 text-primary-600 font-bold uppercase underline decoration-primary-200 underline-offset-8 text-center">{t('photo.format.collab.title')}</h3>
-					<ul class="font-light italic space-y-2 leading-relaxed whitespace-pre-line text-lg">
-						{t('photo.format.collab.desc')}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	{/* 5. Gallery */}
-	<section class="bg-primary-50 py-20 md:py-32">
-		<div class="site-container">
-			<h2 class="h2 mb-8 text-center uppercase tracking-tight">{t('photo.gallery.title')}</h2>
-			<p class="mb-12 text-center text-lg italic text-base-600">{t('photo.gallery.subtitle')}</p>
-			<PortfolioGrid portfolios={portfolios} />
-		</div>
-	</section>
+	<Contact />
 </BaseLayout>

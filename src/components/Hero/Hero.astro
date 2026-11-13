@@ -1,90 +1,68 @@
 ---
 /**
- * * Hero with background image and localized texts
+ * * Hero with background image — Editorial Luxury style
  */
-import Button from "@components/Button/Button.astro";
-import heroImage from "@images/home-hero-2026-v3.png";
-import heroImageMobile from "@images/home-hero-2026-v3.png";
+
+import heroImage from "@images/home-hero-2026-v2.jpg";
+import heroImageMobile from "@images/home-hero-2026-v2.jpg";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-// Localized WhatsApp pre-filled messages
-const whatsappMessages = {
-	es: "Hola Simon, me gustaría obtener una cotización para fotografiar una propiedad ubicada en [lugar]. Se trata de un(a) [departamento, casa, villa, hotel o restaurante] de aproximadamente [superficie].",
-	en: "Hello Simon, I would like to get a quote to photograph a property located in [location]. It is a [apartment, house, villa, hotel or restaurant] of approximately [size].",
-	fr: "Bonjour Simon, je souhaite obtenir un devis pour photographier une propriété située à [lieu]. Il s’agit d’un(e) [appartement, maison, villa, hôtel ou restaurant] d’environ [superficie]."
-};
-
-const messageText = whatsappMessages[lang] || whatsappMessages.es;
-const encodedMessage = encodeURIComponent(messageText);
-const whatsappUrl = `https://wa.me/33651775979?text=${encodedMessage}`;
-
-const portfolioUrl = lang === 'es' ? '/portfolio/' : `/${lang}/portfolio/`;
 ---
 
-<section id="hero" class="relative z-10 flex min-h-[100lvh] w-full items-center">
-	<!-- Background image with overlay -->
-	<div class="absolute inset-0 -z-10 overflow-hidden">
-		<div class="absolute inset-0 bg-black/45 z-10"></div>
+<section id="hero" class="relative z-10 flex min-h-[95lvh] w-full items-end overflow-hidden pb-20 pt-36 md:items-center md:pb-24">
+	<!-- background image -->
+	<div class="absolute inset-0 -z-10 h-full w-full overflow-hidden bg-base-950">
 		<Image
 			src={heroImage}
-			class="hidden h-full w-full object-cover object-center sm:block"
-			alt="Simon Gindre photography background"
+			class="hidden h-full w-full object-cover object-bottom scale-[1.02] transition-transform duration-1000 sm:block"
+			alt="Simon Gindre — Breathwork & Photographie"
 			aria-hidden="true"
 			loading="eager"
+			height={1400}
 		/>
 		<Image
 			src={heroImageMobile}
 			class="h-full w-full object-cover object-center sm:hidden"
-			alt="Simon Gindre photography background mobile"
+			alt="Simon Gindre — Breathwork & Photographie"
 			aria-hidden="true"
 			loading="eager"
+			width={1200}
 		/>
+		<!-- Refined multi-layer gradient for optimal text contrast and mood -->
+		<div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/35 to-black/25"></div>
+		<div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent"></div>
 	</div>
 
-	<!-- Hero content -->
-	<div class="site-container relative w-full pt-32 pb-20 flex flex-col justify-center">
-		<div class="text-white max-w-[850px] flex flex-col gap-6">
-			<!-- Local cities indicator -->
-			<div class="text-xs uppercase tracking-widest text-primary-300 font-semibold opacity-90">
-				{t('hero.cities')}
+	<!-- hero items -->
+	<div class="site-container relative w-full">
+		<div class="max-w-3xl text-white">
+			<div class="mb-6 inline-flex items-center gap-3">
+				<span class="h-[1px] w-10 bg-primary-300"></span>
+				<span class="font-heading-2 text-xs font-medium tracking-[0.3em] uppercase text-primary-200">
+					Playa del Carmen · Riviera Maya
+				</span>
 			</div>
 
-			<!-- Main Heading (H1) -->
-			<h1 class="font-heading-1 text-4xl sm:text-5xl md:text-7xl font-bold leading-tight text-pretty">
+			<h1 class="font-heading-1 text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05]">
 				{t('hero.title')}
 			</h1>
 
-			<!-- Subtitle -->
-			<p class="font-heading-2 text-lg sm:text-xl md:text-2xl text-base-100 tracking-wide max-w-[700px] leading-relaxed">
+			<p class="mt-6 max-w-2xl font-heading-1 text-xl italic font-light text-white/90 sm:text-2xl md:text-3xl leading-relaxed">
 				{t('hero.subtitle')}
 			</p>
 
-			<!-- Description -->
-			<p class="text-sm sm:text-base text-base-200 max-w-[600px] opacity-90 leading-relaxed">
-				{t('hero.desc')}
-			</p>
-
-			<!-- CTA Buttons -->
-			<div class="mt-4 flex flex-wrap gap-4">
+			<div class="mt-12 flex flex-wrap items-center gap-6">
 				<a
-					href={whatsappUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="button button--primary flex items-center justify-center gap-2 px-6 py-3 font-semibold text-sm sm:text-base tracking-wider uppercase transition-transform hover:scale-102"
+					href="#contact"
+					class="group inline-flex items-center gap-4 rounded-full bg-white/95 px-8 py-4 font-heading-2 text-xs font-semibold tracking-[0.22em] uppercase text-base-950 shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-primary-500 hover:text-white hover:shadow-xl hover:-translate-y-0.5"
 				>
-					{t('hero.cta.whatsapp')}
+					<span>{t('hero.cta')}</span>
+					<Icon name="tabler:arrow-narrow-right" class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
 				</a>
-				<Button
-					variant="outline"
-					href={portfolioUrl}
-					class="px-6 py-3 text-white border-white hover:bg-white hover:text-base-950 font-semibold text-sm sm:text-base tracking-wider uppercase"
-				>
-					{t('hero.cta.portfolio')}
-				</Button>
 			</div>
 		</div>
 	</div>

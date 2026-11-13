@@ -1,34 +1,34 @@
 /**
  * * Tailwind theme settings
  * 
- * These are in a separate file so it can be imported into <style> tags in .astro components
+ * Warm Organic Editorial Palette (Alabaster, Warm Sand, Terracotta Bronze, Deep Charcoal)
  */
 @theme {
-	/* primary colors */
-	--color-primary-50: oklch(97.46% 0.0051 67.76);
-	--color-primary-100: oklch(94.4% 0.0115 84.58);
-	--color-primary-200: oklch(88.03% 0.0219 76.52);
-	--color-primary-300: oklch(80.1% 0.0376 73.97);
-	--color-primary-400: oklch(72.27% 0.0493 66.91);
-	--color-primary-500: oklch(53% 0.06 60.4);
-	--color-primary-600: oklch(59.23% 0.0631 54.17);
-	--color-primary-700: oklch(51.67% 0.0543 49.61);
-	--color-primary-800: oklch(45.03% 0.0426 44.25);
-	--color-primary-900: oklch(39.63% 0.0349 45.6);
-	--color-primary-950: oklch(26.18% 0.0222 42.02);
+	/* primary colors - warm terracotta / bronze clay */
+	--color-primary-50: oklch(97.5% 0.008 75);
+	--color-primary-100: oklch(94.2% 0.016 74);
+	--color-primary-200: oklch(88.5% 0.032 70);
+	--color-primary-300: oklch(80.2% 0.052 65);
+	--color-primary-400: oklch(71.5% 0.072 58);
+	--color-primary-500: oklch(61.8% 0.085 52);
+	--color-primary-600: oklch(53.4% 0.082 48);
+	--color-primary-700: oklch(45.2% 0.068 45);
+	--color-primary-800: oklch(38.5% 0.052 43);
+	--color-primary-900: oklch(32.8% 0.038 42);
+	--color-primary-950: oklch(22.4% 0.025 40);
 
-	/* base colors */
-	--color-base-50: oklch(97.31% 0 0);
-	--color-base-100: oklch(92.8% 0 0);
-	--color-base-200: oklch(86.07% 0 0);
-	--color-base-300: oklch(75.72% 0 0);
-	--color-base-400: oklch(62.68% 0 0);
-	--color-base-500: oklch(53.48% 0 0);
-	--color-base-600: oklch(47.84% 0 0);
-	--color-base-700: oklch(42.76% 0 0);
-	--color-base-800: oklch(39.04% 0 0);
-	--color-base-900: oklch(33.29% 0 0);
-	--color-base-950: oklch(26.86% 0 0);
+	/* base colors - warm stone / alabaster / deep espresso charcoal */
+	--color-base-50: oklch(98.2% 0.004 80);
+	--color-base-100: oklch(95.4% 0.008 78);
+	--color-base-200: oklch(90.2% 0.012 75);
+	--color-base-300: oklch(82.5% 0.015 72);
+	--color-base-400: oklch(68.0% 0.016 68);
+	--color-base-500: oklch(55.0% 0.015 65);
+	--color-base-600: oklch(45.5% 0.014 60);
+	--color-base-700: oklch(37.5% 0.012 55);
+	--color-base-800: oklch(29.5% 0.010 50);
+	--color-base-900: oklch(22.5% 0.008 45);
+	--color-base-950: oklch(16.5% 0.006 40);
 
 	/* other colors */
 	--color-info: var(--color-sky-300);
@@ -53,9 +53,9 @@
 		"-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica", "Arial", "sans-serif",
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	--font-sans: "Work Sans Variable", var(--font-fallback);
-	--font-heading-1: "Playfair Display Variable", var(--font-serif);
+	--font-heading-1: "Playfair Display Variable", Georgia, serif;
 	--font-heading-2: "Raleway Variable", var(--font-fallback);
-	--font-decorative: "Cinzel Decorative", "Playfair Display Variable", var(--font-serif);
+	--font-decorative: "Cinzel Decorative", "Playfair Display Variable", Georgia, serif;
 	--font-mono:
 		"SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
 }

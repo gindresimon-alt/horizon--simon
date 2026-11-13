@@ -5,8 +5,6 @@ import Footer from "@components/Footer/Footer.astro";
 import Nav from "@components/Nav/Nav.astro";
 import BaseHead from "@layouts/BaseHead.astro";
 
-import { getLangFromUrl } from "../i18n/utils";
-
 // heroImage and authorData are defined on blog posts
 // authorData could also be defined on the about author page
 interface Props {
@@ -26,61 +24,10 @@ const {
 	heroImage,
 	noindex = false,
 } = Astro.props as Props;
-
-const lang = getLangFromUrl(Astro.url);
-
-// Localized schema data
-const schemaData = {
-	"@context": "https://schema.org",
-	"@graph": [
-		{
-			"@type": "ProfessionalService",
-			"@id": "https://simongindre.com/#service",
-			"name": "Simon Gindre - Fotografía Inmobiliaria",
-			"image": "https://simongindre.com/assets/images/simon-portrait.jpg",
-			"telephone": "+529842353519",
-			"email": "gindresimon@gmail.com",
-			"url": "https://simongindre.com",
-			"address": {
-				"@type": "PostalAddress",
-				"addressLocality": "Playa del Carmen",
-				"addressRegion": "Quintana Roo",
-				"addressCountry": "MX"
-			},
-			"geo": {
-				"@type": "GeoCoordinates",
-				"latitude": "20.6296",
-				"longitude": "-87.0739"
-			},
-			"areaServed": [
-				"Playa del Carmen",
-				"Playacar",
-				"Mayakoba",
-				"Puerto Aventuras",
-				"Akumal",
-				"Tulum",
-				"Puerto Morelos",
-				"Cancún",
-				"Riviera Maya"
-			],
-			"priceRange": "$$$"
-		},
-		{
-			"@type": "Person",
-			"@id": "https://simongindre.com/#person",
-			"name": "Simon Gindre",
-			"jobTitle": "Photographer & Visual Content Creator",
-			"knowsLanguage": ["es", "en", "fr"],
-			"sameAs": [
-				"https://www.instagram.com/simon.gindre/"
-			]
-		}
-	]
-};
 ---
 
 <!doctype html>
-<html lang={lang} transition:animate="fade">
+<html lang="en" transition:animate="fade">
 	<head>
 		<BaseHead
 			type={type}
@@ -89,7 +36,6 @@ const schemaData = {
 			image={heroImage ? heroImage : undefined}
 			noindex={noindex}
 		/>
-		<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 	</head>
 	<body id="body" class="bg-base-50 text-base-900">
 		<div class="min-h-[100lvh]">

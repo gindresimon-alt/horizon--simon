@@ -7,8 +7,8 @@ import LanguagePicker from "@components/LanguagePicker/LanguagePicker.astro";
 import navData from "@config/navData.json";
 
 interface Props {
-	startStyle?: "default" | "white"; // if set to "white", the nav elements will be white until the page is scrolled down. Useful for background hero images.
-	rest?: any; // catch-all for any additional parameters, such as "aria-label"
+	startStyle?: "default" | "white";
+	rest?: any;
 }
 
 const { startStyle = "default", rest } = Astro.props as Props;
@@ -16,30 +16,27 @@ const { startStyle = "default", rest } = Astro.props as Props;
 
 <div
 	id="nav__container"
-	class="initial fixed top-0 left-0 z-30 flex w-full flex-col py-2 transition-[padding,background-color] duration-300"
+	class="initial fixed top-0 left-0 z-30 flex w-full flex-col py-4 transition-all duration-500"
 	transition:name={`nav`}
 	{...rest}
 >
 	<div class="mx-auto flex w-full" class:list={[{ "text-base-900": startStyle === "default" }]}>
 		<div class="site-container flex h-16 w-full items-center">
-			<header class="flex w-full items-center gap-2">
+			<header class="flex w-full items-center justify-between gap-4">
 				<!-- home button / image -->
 				<div class="flex flex-auto justify-start">
 					<SiteLogo />
 				</div>
 
 				<!-- desktop nav menu -->
-				<div class="flex flex-auto justify-end lg:gap-4">
+				<div class="flex flex-auto items-center justify-end lg:gap-6">
 					<nav class="hidden md:block">
-						<ul class="flex h-full items-center justify-center px-4 text-lg lg:gap-4">
+						<ul class="flex h-full items-center justify-center gap-2 lg:gap-6">
 							{
-								// if dropdown exists, setup the dropdown, otherwise it is just a link
 								navData.map((navItem) =>
 									"dropdown" in navItem ? (
-										// non-mobile dropdown menu
 										<NavDropdown navItem={navItem} class="text-base-900" />
 									) : (
-										// normal nav link
 										<NavLink {navItem} class="h-10" />
 									),
 								)
@@ -47,11 +44,11 @@ const { startStyle = "default", rest } = Astro.props as Props;
 						</ul>
 					</nav>
 
-					<div class="hidden items-center md:flex border-l border-base-300 ml-4 pl-4">
+					<div class="hidden items-center md:flex border-l border-current/20 ml-4 pl-6">
 						<LanguagePicker />
 					</div>
 
-					<!-- mobile nav menu, only load on small screens where it is visible -->
+					<!-- mobile nav menu -->
 					<div class="md:hidden">
 						<MobileNav />
 					</div>
@@ -66,8 +63,7 @@ const { startStyle = "default", rest } = Astro.props as Props;
 
 	function scrollHandler() {
 		if (navbar) {
-			if (window.scrollY > 50) {
-				// if we have scrolled down the page a bit, adjust colors
+			if (window.scrollY > 40) {
 				navbar.classList.add("scrolled");
 				navbar.classList.remove("initial");
 			} else {
@@ -79,25 +75,26 @@ const { startStyle = "default", rest } = Astro.props as Props;
 
 	function initNav() {
 		navbar = document.getElementById("nav__container");
+		scrollHandler();
 		window.addEventListener("scroll", scrollHandler, { passive: true });
 	}
 
-	// runs on initial page load
 	initNav();
-
-	// runs on view transitions navigation. Not needed if item has "transition:persist"
 	document.addEventListener("astro:after-swap", initNav);
 </script>
 
 <style>
 	#nav__container.initial {
-		/* @apply text-white; */
 		color: white;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent);
 	}
 
 	#nav__container.scrolled {
-		/* @apply bg-base-50 py-0; */
-		background-color: var(--color-base-50);
-		padding-block: 0;
+		background-color: oklch(98.2% 0.004 80 / 0.88);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		padding-block: 0.35rem;
+		border-bottom: 1px solid oklch(90.2% 0.012 75 / 0.7);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
 	}
 </style>

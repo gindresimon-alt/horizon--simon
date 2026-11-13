@@ -1,352 +1,329 @@
 export const languages = {
-    es: 'Español',
-    en: 'English',
     fr: 'Français',
+    en: 'English',
 };
 
-export const defaultLang = 'es';
+export const defaultLang = 'fr';
 
 export const ui = {
-    es: {
-        'site.title': 'Simon Gindre - Fotógrafo de Bienes Raíces y Contenido Visual en la Riviera Maya',
-        'site.desc': 'Fotografía inmobiliaria, hotelera y tomas aéreas con dron en Playa del Carmen, Tulum y Cancún para destacar propiedades, hoteles y marcas.',
-        
-        // Navigation
-        'nav.home': 'Inicio',
-        'nav.immobilier': 'Inmobiliario',
-        'nav.pros_events': 'Profesionales y Eventos',
-        'nav.portraits': 'Retratos',
-        'nav.portfolio': 'Portafolio',
-        'nav.about': 'Sobre mí',
-        'nav.contact': 'Contacto',
-        'nav.tarifs': 'Tarifas',
-        'nav.devis': 'Solicitar cotización',
-        
-        // Footer & General
-        'footer.rights': 'Todos los derechos reservados.',
-        'footer.location': 'Playa Del Carmen, México',
-        
-        // Homepage Hero
-        'hero.title': 'Imágenes que invitan a visitar.',
-        'hero.subtitle': 'Fotografía inmobiliaria, hotelera y contenido visual en Playa del Carmen y la Riviera Maya.',
-        'hero.desc': 'Fotos, videos y tomas aéreas con dron para valorizar propiedades, hoteles, marcas y experiencias.',
-        'hero.cta.portfolio': 'Ver el portafolio',
-        'hero.cta.whatsapp': 'Pedir cotización por WhatsApp',
-        'hero.cities': 'Playa del Carmen · Tulum · Puerto Morelos · Cancún',
-        
-        // Homepage Services Summary
-        'services.title': 'Nuestros Servicios',
-        'services.subtitle': 'Tres pilares para cubrir sus necesidades visuales',
-        'services.realestate.title': 'Bienes raíces y hospitalidad',
-        'services.realestate.desc': 'Fotografías, videos y tomas aéreas para departamentos, casas, villas, hoteles, restaurantes, spas y rentas vacacionales.',
-        'services.realestate.cta': 'Descubrir el inmobiliario',
-        'services.realestate.bullet1': 'Casas, villas y departamentos',
-        'services.realestate.bullet2': 'Airbnb y hoteles boutique',
-        'services.realestate.bullet3': 'Video de recorrido y tomas de dron',
-        'services.events.title': 'Profesionales y eventos',
-        'services.events.desc': 'Creación de contenido para emprendedores, marcas, talleres, retiros, eventos deportivos y experiencias colectivas.',
-        'services.events.cta': 'Descubrir los reportajes',
-        'services.portraits.title': 'Retratos y momentos de vida',
-        'services.portraits.desc': 'Sesiones de retrato, pareja, embarazo y familia en Playa del Carmen, en exteriores, a domicilio o en un lugar elegido juntos.',
-        'services.portraits.cta': 'Descubrir las sesiones',
-        
-        // Real Estate Detail Section
-        're.section.title': 'Fotografías pensadas para vender, rentar y convencer.',
-        're.section.desc': 'Una imagen inmobiliaria debe ser estética, pero también legible, realista y comercial. Mi experiencia en fotografía, marketing y desarrollo comercial me permite producir visuales que presentan cada propiedad bajo su mejor ángulo respetando su identidad.',
-        're.section.item1.title': 'Interiores y Exteriores',
-        're.section.item1.desc': 'Equilibrio natural de luces y corrección de perspectivas.',
-        're.section.item2.title': 'HDR & Flash-Ambient',
-        're.section.item2.desc': 'Renderizados cristalinos respetando la identidad del bien.',
-        're.section.item3.title': 'Reels & Video Visita',
-        're.section.item3.desc': 'Formatos adaptados a redes e inmobiliarias.',
-        're.section.item4.title': 'Twilight / Atardecer',
-        're.section.item4.desc': 'Atmósferas cálidas y elegantes para destacar.',
-
-        // Drone Section
-        'drone.title': 'Tome altura.',
-        'drone.desc': 'Las tomas aéreas permiten mostrar la arquitectura, los exteriores, el entorno, la proximidad del mar y la integración de un lugar en su entorno.',
-        'drone.bullet1': 'Propiedades inmobiliarias, villas y hoteles',
-        'drone.bullet2': 'Fotografía y video aéreo en alta definición',
-        'drone.bullet3': 'Formatos verticales para redes sociales',
-        'drone.bullet4': 'Vistas generales y planos de transición',
-        'drone.disclaimer': 'Las prestaciones de dron se realizan bajo reserva de las condiciones meteorológicas, reglas de seguridad y restricciones de vuelo vigentes.',
-
-        // Events Section
-        'events.title': 'Imágenes para contar una experiencia.',
-        'events.desc': 'Realizo reportajes fotográficos y de video para profesionales, emprendedores, talleres, retiros, eventos deportivos y experiencias colectivas. El objetivo es crear un banco de imágenes natural, dinámico y explotable en su web o redes sociales.',
-        'events.section.badge': 'Comunicación de Marca',
-        'events.section.bullet1': 'Talleres y Retiros',
-        'events.section.bullet2': 'Aftermovies y Reels',
-        'events.section.bullet3': 'Eventos deportivos',
-        'events.section.bullet4': 'Retratos profesionales',
-        'events.section.bullet5': 'Contenido para Instagram',
-        'events.section.bullet6': 'Lanzamiento de marcas',
-
-        // Portraits Section
-        'portraits.title': 'Retratos naturales, luminosos y personales.',
-        'portraits.desc': 'Sesiones pensadas para crear imágenes naturales, elegantes y llenas de vida, sin poses rígidas ni puestas en escena excesivas.',
-        'portraits.cta': 'Ver sesiones de retrato',
-        'portraits.section.badge': 'Momentos de Vida',
-        'portraits.section.item1.title': 'Retrato Individual',
-        'portraits.section.item1.desc': 'Sesiones elegantes, naturales, ideales para expatriados o profesionales.',
-        'portraits.section.item2.title': 'Maternidad & Parejas',
-        'portraits.section.item2.desc': 'Shooting al atardecer en la playa o entornos selváticos de la Riviera Maya.',
-
-        // Process Steps
-        'process.title': 'Cómo trabajo',
-        'process.step1.title': '1. Brief',
-        'process.step1.desc': 'Elegimos el tipo de servicio y definimos los detalles esenciales (ubicación, superficie, necesidades de video/dron).',
-        'process.step2.title': '2. Preparación',
-        'process.step2.desc': 'Guía para preparar la propiedad, recomendaciones de vestuario, selección de locaciones y horarios de luz.',
-        'process.step3.title': '3. Toma de fotos',
-        'process.step3.desc': 'Sesión de fotos, video y dron según el plan de trabajo establecido.',
-        'process.step4.title': '4. Edición y Entrega',
-        'process.step4.desc': 'Selección, retoque natural de luz y perspectivas, y entrega en galería digital. Entrega estándar en 48h para inmobiliario.',
-
-        // Zones
-        'zones.title': 'Zona de intervención',
-        'zones.desc': 'Basado en Playa del Carmen, me desplazo por toda la Riviera Maya para fotografía inmobiliaria y reportajes profesionales.',
-        'zones.extra': 'Pueden aplicar viáticos según la distancia y duración del proyecto.',
-
-        // Final CTA
-        'cta.title': 'Hablemos de su proyecto.',
-        'cta.desc': 'Propiedad, evento, retiro o sesión personal: envíeme los detalles para recibir una propuesta a su medida.',
-        'cta.button': 'Solicitar cotización',
-        
-        // Form & Generic
-        'form.name': 'Nombre',
-        'form.email': 'Correo electrónico',
-        'form.whatsapp': 'WhatsApp (opcional)',
-        'form.message': 'Mensaje',
-        'form.submit': 'Enviar',
-        'form.success': '¡Gracias! Su mensaje ha sido enviado correctamente.'
-    },
-    en: {
-        'site.title': 'Simon Gindre - Real Estate Photographer and Visual Content Creator in the Riviera Maya',
-        'site.desc': 'Real estate, hotel, and aerial drone photography in Playa del Carmen, Tulum, and Cancun to showcase properties, hotels, and brands.',
-        
-        // Navigation
-        'nav.home': 'Home',
-        'nav.immobilier': 'Real Estate',
-        'nav.pros_events': 'Pros & Events',
-        'nav.portraits': 'Portraits',
-        'nav.portfolio': 'Portfolio',
-        'nav.about': 'About me',
-        'nav.contact': 'Contact',
-        'nav.tarifs': 'Pricing',
-        'nav.devis': 'Request a quote',
-        
-        // Footer & General
-        'footer.rights': 'All rights reserved.',
-        'footer.location': 'Playa Del Carmen, Mexico',
-        
-        // Homepage Hero
-        'hero.title': 'Images that make you want to visit.',
-        'hero.subtitle': 'Real estate, hotel photography and visual content in Playa del Carmen and the Riviera Maya.',
-        'hero.desc': 'Photos, videos and aerial drone shots to enhance properties, hotels, brands and experiences.',
-        'hero.cta.portfolio': 'View portfolio',
-        'hero.cta.whatsapp': 'Request a quote on WhatsApp',
-        'hero.cities': 'Playa del Carmen · Tulum · Puerto Morelos · Cancún',
-        
-        // Homepage Services Summary
-        'services.title': 'Our Services',
-        'services.subtitle': 'Three pillars to cover your visual needs',
-        'services.realestate.title': 'Real Estate & Hospitality',
-        'services.realestate.desc': 'Photography, video, and aerial shots for apartments, houses, villas, hotels, restaurants, spas, and vacation rentals.',
-        'services.realestate.cta': 'Discover Real Estate',
-        'services.realestate.bullet1': 'Condos, villas, and apartments',
-        'services.realestate.bullet2': 'Airbnb and boutique hotels',
-        'services.realestate.bullet3': 'Walkthrough video and drone coverage',
-        'services.events.title': 'Professionals & Events',
-        'services.events.desc': 'Content creation for entrepreneurs, brands, workshops, retreats, sports events, and collective experiences.',
-        'services.events.cta': 'Discover Reports',
-        'services.portraits.title': 'Portraits & Life Moments',
-        'services.portraits.desc': 'Portrait, couple, maternity, and family sessions in Playa del Carmen, outdoors, at home, or in a location chosen together.',
-        'services.portraits.cta': 'Discover Sessions',
-        
-        // Real Estate Detail Section
-        're.section.title': 'Photography designed to sell, rent and convince.',
-        're.section.desc': 'A real estate image must be aesthetic, but also readable, realistic, and commercial. My background in commerce, marketing, and business development allows me to produce visuals that showcase each property in its best light while respecting its identity.',
-        're.section.item1.title': 'Interiors & Exteriors',
-        're.section.item1.desc': 'Natural balance of light and perspective correction.',
-        're.section.item2.title': 'HDR & Flash-Ambient',
-        're.section.item2.desc': 'Crystal-clear renders respecting the property\'s identity.',
-        're.section.item3.title': 'Reels & Video Walkthrough',
-        're.section.item3.desc': 'Formats optimized for socials and real estate platforms.',
-        're.section.item4.title': 'Twilight / Sunset',
-        're.section.item4.desc': 'Warm and elegant atmospheres to stand out.',
-
-        // Drone Section
-        'drone.title': 'Take height.',
-        'drone.desc': 'Aerial shots showcase architecture, landscaping, sea proximity, and integration into the surroundings.',
-        'drone.bullet1': 'Real estate properties, villas, and hotels',
-        'drone.bullet2': 'High-definition aerial photography & video',
-        'drone.bullet3': 'Vertical formats optimized for social media',
-        'drone.bullet4': 'General views and cinematic transitions',
-        'drone.disclaimer': 'Drone services are subject to weather conditions, safety rules, and local airspace restrictions.',
-
-        // Events Section
-        'events.title': 'Images to tell a story.',
-        'events.desc': 'I cover photo and video reports for professionals, entrepreneurs, workshops, retreats, sports events, and group experiences. The goal is to build a natural, dynamic, and high-quality image bank for your website or socials.',
-        'events.section.badge': 'Brand Communication',
-        'events.section.bullet1': 'Workshops & Retreats',
-        'events.section.bullet2': 'Aftermovies & Reels',
-        'events.section.bullet3': 'Sports events',
-        'events.section.bullet4': 'Professional portraits',
-        'events.section.bullet5': 'Instagram content',
-        'events.section.bullet6': 'Brand launches',
-
-        // Portraits Section
-        'portraits.title': 'Natural, bright and personal portraits.',
-        'portraits.desc': 'Sessions designed to create natural, elegant, and lively images without rigid poses or forced staging.',
-        'portraits.cta': 'View Portrait Sessions',
-        'portraits.section.badge': 'Life Moments',
-        'portraits.section.item1.title': 'Individual Portrait',
-        'portraits.section.item1.desc': 'Elegant, natural sessions, perfect for expats or professionals.',
-        'portraits.section.item2.title': 'Maternity & Couples',
-        'portraits.section.item2.desc': 'Sunset shoots on the beach or jungle surroundings of the Riviera Maya.',
-
-        // Process Steps
-        'process.title': 'How I Work',
-        'process.step1.title': '1. Brief',
-        'process.step1.desc': 'We choose the service type and define essential details (location, size, video/drone needs).',
-        'process.step2.title': '2. Preparation',
-        'process.step2.desc': 'Guidelines to prepare the property, clothing advice, location selection, and optimal lighting times.',
-        'process.step3.title': '3. Shooting',
-        'process.step3.desc': 'Photoshoot, video, and drone capturing according to the established plan.',
-        'process.step4.title': '4. Editing & Delivery',
-        'process.step4.desc': 'Selection, natural light/perspective editing, and online gallery delivery. Standard 48h delivery for real estate.',
-
-        // Zones
-        'zones.title': 'Service Area',
-        'zones.desc': 'Based in Playa del Carmen, I travel throughout the Riviera Maya for real estate and professional projects.',
-        'zones.extra': 'Travel fees may apply depending on distance and duration.',
-
-        // Final CTA
-        'cta.title': 'Tell me about your project.',
-        'cta.desc': 'Property, event, workshop, or portrait session: send me the details for a tailored proposal.',
-        'cta.button': 'Request a quote',
-        
-        // Form & Generic
-        'form.name': 'Name',
-        'form.email': 'Email',
-        'form.whatsapp': 'WhatsApp (optional)',
-        'form.message': 'Message',
-        'form.submit': 'Send',
-        'form.success': 'Thank you! Your message has been sent successfully.'
-    },
     fr: {
-        'site.title': 'Simon Gindre - Photographe Immobilier et Créateur de Contenu Visuel dans la Riviera Maya',
-        'site.desc': 'Photographie immobilière, hôtelière et drone à Playa del Carmen, Tulum et Cancún pour valoriser propriétés, hôtels et marques.',
-        
-        // Navigation
+        'site.title': 'Simon Gindre - Breathwork & Photographie',
         'nav.home': 'Accueil',
-        'nav.immobilier': 'Immobilier',
-        'nav.pros_events': 'Professionnels & Événements',
-        'nav.portraits': 'Portraits',
-        'nav.portfolio': 'Portfolio',
+        'nav.photographie': 'Photographie',
+        'nav.breathwork': 'Breathwork',
+        'nav.therapie': 'Breathwork',
+        'nav.articles': 'Articles',
         'nav.about': 'À Propos',
         'nav.contact': 'Contact',
-        'nav.tarifs': 'Tarifs',
-        'nav.devis': 'Demander un devis',
-        
-        // Footer & General
         'footer.rights': 'Tous droits réservés.',
         'footer.location': 'Playa Del Carmen, Mexique',
-        
-        // Homepage Hero
-        'hero.title': 'Des images qui donnent envie de visiter.',
-        'hero.subtitle': 'Photographie immobilière, hôtelière et contenu visuel à Playa del Carmen et dans la Riviera Maya.',
-        'hero.desc': 'Photos, vidéos et prises de vue aériennes pour valoriser propriétés, hôtels, marques et expériences.',
-        'hero.cta.portfolio': 'Voir le portfolio',
-        'hero.cta.whatsapp': 'Demander un devis sur WhatsApp',
-        'hero.cities': 'Playa del Carmen · Tulum · Puerto Morelos · Cancún',
-        
-        // Homepage Services Summary
-        'services.title': 'Mes Services',
-        'services.subtitle': 'Trois piliers pour couvrir vos besoins visuels',
-        'services.realestate.title': 'Immobilier & Hospitalité',
-        'services.realestate.desc': 'Photographies, vidéos et prises de vue aériennes pour appartements, maisons, villas, hôtels, restaurants, spas et locations saisonnières.',
-        'services.realestate.cta': 'Découvrir l’immobilier',
-        'services.realestate.bullet1': 'Maisons, villas et appartements',
-        'services.realestate.bullet2': 'Airbnb et hôtels boutique',
-        'services.realestate.bullet3': 'Vidéo visite et prises de vue drone',
-        'services.events.title': 'Professionnels et événements',
-        'services.events.desc': 'Création de contenu pour entrepreneurs, marques, workshops, retraites, événements sportifs et expériences collectives.',
-        'services.events.cta': 'Découvrir les reportages',
-        'services.portraits.title': 'Portraits et moments de vie',
-        'services.portraits.desc': 'Séances portrait, couple, grossesse et famille à Playa del Carmen, en extérieur, à domicile ou dans un lieu choisi ensemble.',
-        'services.portraits.cta': 'Découvrir les séances',
-        
-        // Real Estate Detail Section
-        're.section.title': 'Des photographies pensées pour vendre, louer et convaincre.',
-        're.section.desc': 'Une image immobilière doit être esthétique, mais aussi lisible, réaliste et commerciale. Mon expérience en photographie, en marketing et en développement commercial me permet de produire des visuels qui présentent chaque propriété sous son meilleur angle tout en respectant son identité.',
-        're.section.item1.title': 'Intérieurs & Extérieurs',
-        're.section.item1.desc': 'Équilibre naturel des lumières et correction des perspectives.',
-        're.section.item2.title': 'HDR & Flash-Ambiant',
-        're.section.item2.desc': 'Rendus cristallins respectant l\'identité du bien.',
-        're.section.item3.title': 'Reels & Vidéo Visite',
-        're.section.item3.desc': 'Formats adaptés aux réseaux et aux plateformes immobilières.',
-        're.section.item4.title': 'Twilight / Coucher de soleil',
-        're.section.item4.desc': 'Ambiances chaleureuses et élégantes pour vous démarquer.',
-
-        // Drone Section
-        'drone.title': 'Prenez de la hauteur.',
-        'drone.desc': 'Les prises de vue aériennes permettent de montrer l’architecture, les extérieurs, l’environnement, la proximité de la mer et l’intégration d’un lieu dans son cadre.',
-        'drone.bullet1': 'Propriétés immobilières, villas et hôtels',
-        'drone.bullet2': 'Photographie et vidéo aériennes haute définition',
-        'drone.bullet3': 'Formats verticaux pour les réseaux sociaux',
-        'drone.bullet4': 'Vues d’ensemble et plans de transition',
-        'drone.disclaimer': 'Les prestations drone sont réalisées sous réserve des conditions météorologiques, des règles de sécurité et des restrictions aériennes applicables.',
-
-        // Events Section
-        'events.title': 'Des images pour raconter une expérience.',
-        'events.desc': 'Je réalise des reportages photo et vidéo pour les professionnels, entrepreneurs, workshops, retraites, événements sportifs et expériences collectives. L’objectif est de créer une bibliothèque de contenu naturelle, dynamique et exploitable sur un site, Instagram ou une campagne de communication.',
-        'events.section.badge': 'Communication de Marque',
-        'events.section.bullet1': 'Workshops & Retraites',
-        'events.section.bullet2': 'Aftermovies & Reels',
-        'events.section.bullet3': 'Événements sportifs',
-        'events.section.bullet4': 'Portraits professionnels',
-        'events.section.bullet5': 'Contenu pour Instagram',
-        'events.section.bullet6': 'Lancements de marques',
-
-        // Portraits Section
-        'portraits.title': 'Des portraits naturels, lumineux et personnels.',
-        'portraits.desc': 'Des séances pensées pour créer des images naturelles, élégantes et vivantes, sans poses rigides ni mise en scène excessive.',
-        'portraits.cta': 'Voir les séances portrait',
-        'portraits.section.badge': 'Moments de Vie',
-        'portraits.section.item1.title': 'Portrait Individuel',
-        'portraits.section.item1.desc': 'Séances élégantes et naturelles, idéales pour expatriés ou professionnels.',
-        'portraits.section.item2.title': 'Maternité & Couples',
-        'portraits.section.item2.desc': 'Shootings au coucher du soleil sur la plage ou dans la jungle de la Riviera Maya.',
-
-        // Process Steps
-        'process.title': 'Mon Processus',
-        'process.step1.title': '1. Brief',
-        'process.step1.desc': 'Nous choisissons le type de prestation et définissons les détails clés (localisation, taille, besoins vidéo/dron).',
-        'process.step2.title': '2. Préparation',
-        'process.step2.desc': 'Conseils pour préparer le bien, recommandations de tenues, choix de lieux et de l\'éclairage optimal.',
-        'process.step3.title': '3. Prise de vue',
-        'process.step3.desc': 'Shooting photo, vidéo et captation drone selon le planning de production validé.',
-        'process.step4.title': '4. Retouche & Livraison',
-        'process.step4.desc': 'Sélection, retouche de lumière/perspectives et livraison sur galerie numérique. Livraison standard sous 48h pour l\'immobilier.',
-
-        // Zones
-        'zones.title': 'Zone d\'intervention',
-        'zones.desc': 'Basé à Playa del Carmen, je me déplace dans toute la Riviera Maya pour les photographies immobilières et les reportages professionnels.',
-        'zones.extra': 'Des frais de déplacement peuvent s’appliquer selon la localisation et la durée de la prestation.',
-
-        // Final CTA
-        'cta.title': 'Parlez-moi de votre projet.',
-        'cta.desc': 'Propriété, événement, workshop ou séance personnelle : envoyez-moi quelques informations pour recevoir une proposition adaptée.',
-        'cta.button': 'Demander un devis',
-        
-        // Form & Generic
+        'hero.title': 'Simon Gindre',
+        'hero.subtitle': "Explorer ce qui se vit à l'intérieur, révéler ce qui rayonne à l'extérieur",
+        'hero.cta': 'je souhaite être contacté',
+        'about.title': 'Qui suis-je ?',
+        'about.name': 'Simon',
+        'about.content': "Je suis un homme curieux, fasciné par le Mystère. Cette quête m'a amené à voyager et d'explorer encore davantage la nature humaine. Aussi sensible que sensé, je dédis mon temps au service de l'autre.",
+        'about.cta': 'À propos',
+        'contact.title': 'Contact',
+        'contact.subtitle': "Un message, une question ? N'hésitez pas à me contacter.",
+        'contact.send': 'Envoyer',
         'form.name': 'Nom',
-        'form.email': 'E-mail',
+        'form.email': 'Email',
         'form.whatsapp': 'WhatsApp (optionnel)',
         'form.message': 'Message',
         'form.submit': 'Envoyer',
-        'form.success': 'Merci ! Votre message a bien été envoyé.'
-    }
+        'form.success': 'Merci ! Votre message a bien été envoyé.',
+        // Home Page Sections
+        'home.photo.title': 'Photographie',
+        'home.photo.subtitle': "Immortaliser la beauté de l'éphémère",
+        'home.photo.content': "Le temps passe, rien n'est éternel, aussi je vous invite à prolonger ces moments sublimes en souvenir, par la photographie.",
+        'home.therapy.title': 'Breathwork',
+        'home.therapy.subtitle': "S'épanouir en profondeur",
+        'home.therapy.content': "Je réponds à l'appel d'une quête de sens par la proposition de séances de breathwork et d'accompagnement. En travaillant avec la respiration et le corps, nous explorons votre chemin vers l'épanouissement.",
+        'home.articles.title': 'Articles',
+        'home.articles.subtitle': 'Pensées et Partages',
+        'home.articles.content': "Retrouvez mes réflexions et partages sur le bien-être, la thérapie et l'art de capturer la vie à travers mes articles de blog.",
+        // Dedicated About Page
+        'about.page.title': 'À Propos',
+        'about.page.desc': "Découvrez le parcours et la philosophie de Simon Gindre, thérapeute à Playa del Carmen.",
+        'about.intro.p1': "Simplicité et authenticité sont mes maîtres mots.",
+        'about.intro.p2': "Mon travail consiste à créer un espace où l’on peut ralentir suffisamment pour voir plus clair.",
+        'about.intro.p3': "En soi. Autour de soi.",
+        'about.identity.title': "Je m’appelle Simon",
+        'about.identity.content': "J’habite dans la ville de Playa Del Carmen au Mexique.\n\nJ’accompagne essentiellement à travers la parole mais selon les situations je peux egalement proposer des pratiques respiratoires ou psycho corporelles lors de seance en presentielle. Il est aussi possible de travailler ensemble à distance, en visioconférence depuis la France ou partout ailleurs a travers le monde.",
+        'about.journey.title': "Un parcours construit par l’ouverture",
+        'about.journey.p1': "Mon chemin s’est dessiné au fil des expériences et des rencontres. Le doute et la peur ont longtemps ete actifs dans ma vie. La comprehension de leurs fonctionnements est aujourd’hui un outil incroyable pour pouvoir accompagner des personnes au travers de ce monde qui en est rempli.",
+        'about.journey.p2': "Le voyage a joué un rôle important pour cela. Il m’a appris à observer, à écouter et à remettre en question mes certitudes.",
+        'about.journey.p3': "J’ai notamment étudié en ashrams au Nepal et en India le yoga traditionnel, sa philosophie et le rapport corps-esprit.",
+        'about.journey.p4': "Ces enseignements m’ont apporté rigueur, discipline et compréhension du lien entre respiration, mental et stabilité intérieure.\n\nAujourd’hui, j’en garde l’essentiel : la simplicité des pratiques, la constance et le respect du rythme de chacun.",
+        'about.exploration.p4': "La thérapie ne prend sens que lorsqu’elle dépasse le mental pour s’installer dans le corps.\nL’intégration est le passage necessaire pour que la connaissance devienne transformation.",
+        'about.exploration.p5': "C’est pourquoi j’accorde une place centrale au corps et au système nerveux dans mon accompagnement.\n\nPar ailleurs, la compréhension et l’acceptation de ma neurodivergence ont joué un rôle important dans mon épanouissement. Elles me donnent aujourd’hui une sensibilité particulière face aux profils atypiques, au sentiment de décalage ou d’incompréhension.",
+        'about.vision.title': "Mon approche",
+        'about.vision.p1': "Je privilégie une approche structurée et adaptée à chaque personne.",
+        'about.vision.list_title': "Selon votre besoin, l’accompagnement peut inclure :",
+        'about.vision.item1': "Thérapie individuelle",
+        'about.vision.item2': "Breathwork (individuel ou collectif)",
+        'about.vision.item3': "Travail de régulation du système nerveux",
+        'about.vision.item4': "Exposition encadrée au froid*",
+        'about.vision.footer': "La parole permet de comprendre.\nLa respiration aide à réguler.\nLe corps permet d’intégrer.\n\n*particulierement adapte pour travailler sur la concentration, la gestion des addictions, l’anxiete",
+        'about.playa.title': "Pour qui ?",
+        'about.playa.p1': "Cet accompagnement peut être pertinent si vous traversez :",
+        'about.playa.p2': `– Un sentiment de décalage
+– Une perte de sens
+– Des difficultés d’attention
+– Une gestion compliquée du stress ou des émotions
+– Une peur de l’avenir
+– Une crise existentielle
+– Des comportements addictifs
+– Une faible estime de soi
+– Le besoin de redevenir pleinement acteur de votre vie`,
+        'about.playa.title2': "Accompagner à Playa del Carmen",
+        'about.playa.p3': "S’installer ou vivre à Playa représente souvent un changement important. Nouvel environnement, nouveau rythme, nouvelles perspectives.",
+        'about.playa.p4': "Ces transitions peuvent être enthousiasmantes mais aussi déstabilisantes.\nJe propose un accompagnement pour traverser ces périodes avec plus de stabilité, de clarté et de présence.",
+        'about.conclusion.title': "Si vous sentez que c’est le bon moment",
+        'about.conclusion.p1': "Je vous propose un premier échange.",
+        'photo.hero.cta': "En savoir plus",
+        'photo.vision.title': "Mon rapport à l'image",
+        'photo.vision.p1': "Au delà des formes qui ont été fixées par l'appareil, il s'agit de préserver l'émotion, la passion, le frisson. En shooting le sujet devient une œuvre, le photographe n'est là que pour qu'elle se reconnaisse comme telle.",
+        'photo.vision.quote': "À l'image d'un alchimiste cherchant à transmuter le plomb en or, partant d'une image brute je cherche à donner cette impression de sublime dans l'immobile.",
+        'photo.vision.p2': "Mon approche est empreinte de douceur et de calme. Mes maîtres mots sont autant spontanéité et connexion que légèreté et fraîcheur.",
+        'photo.who.title': "Pour Qui ?",
+        'photo.who.couples.title': "Couples",
+        'photo.who.couples.desc': "Pour célébrer l'amour, l'engagement et la complicité à travers des séances intimistes et poétiques.",
+        'photo.who.portraits.title': "Portraits",
+        'photo.who.portraits.desc': "Pour les voyageurs, les expatriés ou ceux en plein changement de vie. Une séance pour marquer une étape, se reconnecter à soi et ancrer ce nouveau chapitre.",
+        'photo.who.artisans.title': "Entrepreneurs & Freelance",
+        'photo.who.artisans.desc': "Dans un monde digital, votre image est votre première signature. Soignez votre communication avec des visuels qui reflètent votre professionnalisme et votre authenticité.",
+        'photo.format.title': "Format & Accompagnement",
+        'photo.format.p1': "Chaque collaboration commence par un échange, une rencontre pour comprendre vos besoins et vos envies. Je vous accompagne tout au long du processus, de la préparation à la livraison finale des images.",
+        'photo.format.private.title': "SÉANCES PRIVÉES",
+        'photo.format.private.item1': "+ Direction artistique personnalisée",
+        'photo.format.private.item2': "+ Sélection et retouche soignée",
+        'photo.format.private.item3': "+ Galerie privée en ligne",
+        'photo.format.private.item4': "+ Tirages d'art disponibles",
+        'photo.format.collab.title': "COLLABORATIONS",
+        'photo.format.collab.desc': `- Photographie d'événement de vie
+- Communication professionnelle
+- Pour créateur de contenu ou voyageur
+- Pour marquer un changement de vie ou une page qui se tourne
+- Pour projet artistique ou artisanal
+
+Parlons ensemble du caractère unique de votre projet.`,
+        'photo.gallery.title': "Portfolio & Instants",
+        'photo.gallery.subtitle': "Une fenêtre sur mon univers et les histoires que j'ai eu l'honneur de raconter.",
+        // Breathwork Page
+        'therapie.hero.title': 'Breathwork',
+        'therapie.hero.subtitle': "Ressentir. Respirer. Se retrouver.",
+        'therapie.hero.desc': "Breathwork et accompagnement corps-émotions pour celles et ceux qui veulent se reconnecter en profondeur.",
+        'therapie.hero.cta': "Découvrir l'accompagnement",
+        'therapie.vision.title': "Ma Vision",
+        'therapie.vision.p1': "Je propose un accompagnement centré sur la parole, le souffle et la régulation émotionnelle.",
+        'therapie.vision.p2': "J’accompagne les personnes qui souhaitent un espace d’écoute, de compréhension dans un contexte parfois mouvant.\n\nÀ Playa Del Carmen ou en visio",
+        'therapie.vision.p3': "",
+        'therapie.breathwork.title': "Le breathwork",
+        'therapie.breathwork.subtitle': "Séances de respiration consciente",
+        'therapie.breathwork.content': `En complément des séances individuelles, j’anime des ateliers hebdomadaires de breathwork à Playa del Carmen.
+
+La respiration devient ici un outil de :
+- Régulation émotionnelle
+- Exploration intérieure
+- Présence corporelle`,
+        'therapie.accomp.title': "Un Accompagnement Holistique",
+        'therapie.accomp.p1': "Mon accompagnement ne se limite pas au souffle. Il intègre la globalité de votre être :\n\nLa parole reste l’outil le plus puissant et le plus concret pour tous. Par la verbalisation de vos besoins, de certaines de vos problématiques ou encore plus simplement de certains de vos désirs d’approfondissement et d’épanouissement personnel.",
+        'therapie.accomp.p2': "Puisque votre vie est unique, je m’engage pleinement à vos côtés dans la révélation de votre singularité pour que chaque séance soit personnalisée et vous donne toutes les clefs pour intégrer durablement les fruits de nos séances.",
+        'therapie.who.title': "Pour Qui ?",
+        'therapie.who.stress.title': "Surcharge sensorielle",
+        'therapie.who.stress.desc': "Anxiété, ruminations, fatigue émotionnelle, difficulté à se concentrer.\n\nVous souhaitez retrouver stabilité, clarté et capacité d’action.",
+        'therapie.who.explorers.title': "Transition de vie",
+        'therapie.who.explorers.desc': "Rupture, deuil, changement de pays, reconversion, perte de sens.\n\nVous traversez une période de réorganisation et avez besoin d’un cadre solide pour clarifier et avancer.",
+        'therapie.who.goals.title': "Schémas relationnels répétitifs",
+        'therapie.who.goals.desc': "Manque de confiance, difficulté à poser des limites, peur du rejet, tendance à trop porter pour les autres.\n\nVous voulez sortir des répétitions et construire une posture plus affirmée.",
+        'therapie.posture.title': "Une approche humaniste et intégrative",
+        'therapie.posture.intro': "Mon travail s’appuie sur :",
+        'therapie.posture.p1.title': "L’écoute active et la présence",
+        'therapie.posture.p2.title': "Le questionnement philosophique et existentiel",
+        'therapie.posture.p3.title': "L’exploration des émotions",
+        'therapie.posture.p4.title': "Des outils simples de régulation du système nerveux",
+        'therapie.posture.details': "La parole est centrale.\nC’est par elle que nous explorons vos émotions, vos questionnements et vos blocages.\n\nJ’intègre également des outils simples de régulation du système nerveux, lorsque cela est pertinent.\n\nChaque accompagnement est ajusté à votre situation.\nLe cadre reste clair, le travail progressif, et l’objectif est toujours le même : vous permettre de mieux comprendre ce que vous vivez et d’agir avec plus de cohérence.",
+        'therapie.posture.conclusion': "",
+        'therapie.offers.title': "Mes Prestations",
+        'therapie.offers.individual.title': "Séances individuelles",
+        'therapie.offers.individual.desc': "Accompagnement par la parole, exploration émotionnelle et régulation du système nerveux.",
+        'therapie.offers.individual.details': "📍 En présentiel à Playa del Carmen\n💻 En ligne pour francophones partout dans le monde\n⏳ 60 minutes\n💰 1000 mxn / 50 euros",
+        'therapie.offers.group_breathwork.title': "Beach-breathwork - en groupe",
+        'therapie.offers.group_breathwork.subtitle': "Groupe",
+        'therapie.offers.group_breathwork.desc': "Atelier de respiration, reveil et Sadhana les pieds dans le sable devant le lever du Soleil",
+        'therapie.offers.group_breathwork.details': "📍 Playa Mamacitas\n⏳ 40 minutes\n💰 150 mxn",
+        'therapie.offers.solo_breathwork.title': "Séance individuelle de breathwork",
+        'therapie.offers.solo_breathwork.subtitle': "Format 1:1 exploration approfondie",
+        'therapie.offers.solo_breathwork.desc': "Travail ciblé sur : blocages émotionnels, relation au stress, régulation du système nerveux.",
+        'therapie.offers.solo_breathwork.details': "📍 À Playa Del Carmen\n⏳ 60 minutes\n💰 1000 mxn / 50 euros",
+        'therapie.offers.special.title': "Interventions & formats spécifiques",
+        'therapie.offers.special.desc': "Groupes privés, Entreprises, Gestion du stress (incluant respiration et exposition au froid).",
+        'therapie.offers.special.details': "Contactez-moi pour définir ensemble vos besoins",
+        'therapie.offers.special.cta': "Me contacter",
+        'therapie.contact_cta.title': "Si vous souhaitez échanger pour savoir si cet accompagnement vous correspond :",
+        'therapie.contact_cta.button': "Prendre un premier contact",
+    },
+    en: {
+        'site.title': 'Simon Gindre - Breathwork & Photography',
+        'nav.home': 'Home',
+        'nav.photographie': 'Photography',
+        'nav.breathwork': 'Breathwork',
+        'nav.therapie': 'Breathwork',
+        'nav.articles': 'Articles',
+        'nav.about': 'About',
+        'nav.contact': 'Contact',
+        'footer.rights': 'All rights reserved.',
+        'footer.location': 'Playa Del Carmen, Mexico',
+        'hero.title': 'Simon Gindre',
+        'hero.subtitle': 'Exploring what lives within, revealing what radiates without',
+        'hero.cta': 'I want to be contacted',
+        'about.title': 'Who am I?',
+        'about.name': 'Simon',
+        'about.content': "I am a curious man, fascinated by Mystery. This quest led me to travel and explore human nature even further. As sensitive as I am sensible, I dedicate my time to the service of others.",
+        'about.cta': 'About Me',
+        'contact.title': 'Get in Touch',
+        'contact.subtitle': 'A message, a question? Feel free to contact me.',
+        'contact.send': 'Send Message',
+        'form.name': 'Name',
+        'form.email': 'Email',
+        'form.whatsapp': 'WhatsApp Number (optional)',
+        'form.message': 'Message',
+        'form.submit': 'Send',
+        'form.success': 'Thank you! Your message has been sent.',
+        // Home Page Sections
+        'home.photo.title': 'Photography',
+        'home.photo.subtitle': 'Immortalize the beauty of the ephemeral',
+        'home.photo.content': "Time passes, nothing is eternal, so I invite you to prolong these sublime moments in memory, through photography.",
+        'home.therapy.title': 'Breathwork',
+        'home.therapy.subtitle': 'Blooming in depth',
+        'home.therapy.content': "I respond to the call of a quest for meaning through breathwork and personalized support sessions. By working with the breath and the body, we explore your path to fulfillment.",
+        'home.articles.title': 'Articles',
+        'home.articles.subtitle': 'Thoughts and Shares',
+        'home.articles.content': "Find my reflections and shares on well-being, breathwork, and the art of capturing life through my blog articles.",
+        // Dedicated About Page
+        'about.page.title': 'About',
+        'about.page.desc': "Discover the journey and philosophy of Simon Gindre in Playa del Carmen.",
+        'about.intro.p1': "Simplicity and authenticity are my keywords.",
+        'about.intro.p2': "My work consists of creating a space where one can slow down enough to see more clearly.",
+        'about.intro.p3': "Within oneself. Around oneself.",
+        'about.identity.title': "My name is Simon",
+        'about.identity.content': "I live in the city of Playa Del Carmen in Mexico.\n\nI support essentially through speech, but depending on the situation, I can also propose breathing or psycho-bodily practices during in-person sessions. It is also possible to work together remotely, via videoconference from France or anywhere else in the world.",
+        'about.journey.title': "A path built by openness",
+        'about.journey.p1': "My path has taken shape through experiences and encounters. Doubt and fear were active in my life for a long time. Understanding their functioning is today an incredible tool to be able to support people through this world that is full of them.",
+        'about.journey.p2': "Travel played an important role in this. It taught me to observe, to listen, and to question my certainties.",
+        'about.journey.p3': "I notably studied traditional yoga, its philosophy, and the body-mind relationship in ashrams in Nepal and India.",
+        'about.journey.p4': "These teachings brought me rigor, discipline, and understanding of the link between breathing, the mind, and inner stability.\n\nToday, I keep the essential: the simplicity of practices, consistency, and respect for everyone's rhythm.",
+        'about.exploration.p4': "Support only makes sense when it goes beyond the mind to settle in the body.\nIntegration is the necessary passage for knowledge to become transformation.",
+        'about.exploration.p5': "That is why I give a central place to the body and the nervous system in my accompaniment.\n\nFurthermore, the understanding and acceptance of my neurodivergence played an important role in my fulfillment. Today, they give me a particular sensitivity to atypical profiles, to the feeling of discrepancy or misunderstanding.",
+        'about.vision.title': "My approach",
+        'about.vision.p1': "I favor a structured approach adapted to each person.",
+        'about.vision.list_title': "Depending on your needs, the support may include:",
+        'about.vision.item1': "Individual sessions",
+        'about.vision.item2': "Breathwork (individual or collective)",
+        'about.vision.item3': "Nervous system regulation work",
+        'about.vision.item4': "Supervised cold exposure*",
+        'about.vision.footer': "Speech allows understanding.\nBreathing helps regulate.\nThe body allows integration.\n\n*particularly adapted to work on concentration, managing addictions, anxiety",
+        'about.playa.title': "For whom?",
+        'about.playa.p1': "This accompaniment can be relevant if you are going through:",
+        'about.playa.p2': `– A sense of discrepancy
+– A loss of meaning
+– Attention difficulties
+– Complicated stress or emotion management
+– Fear of the future
+– An existential crisis
+– Addictive behaviors
+– Low self-esteem
+– The need to fully become an actor in your life again`,
+        'about.playa.title2': "Supporting in Playa del Carmen",
+        'about.playa.p3': "Moving to or living in Playa often represents a significant change. New environment, new pace, new perspectives.",
+        'about.playa.p4': "These transitions can be exciting but also destabilizing.\nI offer support to navigate these periods with more stability, clarity, and presence.",
+        'about.conclusion.title': "If you feel it's the right time",
+        'about.conclusion.p1': "I propose an initial exchange.",
+        'photo.hero.title': 'Photography',
+        'photo.hero.subtitle': "Capture the moment, reveal the invisible.",
+        'photo.hero.desc': "Sincere photography, imbued with calm and accuracy, to immortalize your most precious stories.",
+        'photo.hero.cta': "Learn more",
+        'photo.vision.title': "My relationship with the image",
+        'photo.vision.p1': "Beyond the shapes fixed by the camera, it's about preserving emotion, passion, and the thrill. During a shoot, the subject becomes a work of art; the photographer is only there so it recognizes itself as such.",
+        'photo.vision.quote': "Like an alchemist seeking to transmute lead into gold, starting from a raw image I seek to give this impression of the sublime in the immobile.",
+        'photo.vision.p2': "My approach is characterized by gentleness and calm. My keywords are spontaneity and connection as much as lightness and freshness.",
+        'photo.who.title': "For Whom?",
+        'photo.who.couples.title': "Couples",
+        'photo.who.couples.desc': "To celebrate love, commitment and complicity through intimate and poetic sessions.",
+        'photo.who.portraits.title': "Portraits",
+        'photo.who.portraits.desc': "For travelers, expatriates, or those in the midst of a life change. A session to mark a milestone, reconnect with oneself, and anchor this new chapter.",
+        'photo.who.artisans.title': "Entrepreneurs & Freelancers",
+        'photo.who.artisans.desc': "In a digital world, your image is your first signature. Polish your communication with visuals that reflect your professionalism and authenticity.",
+        'photo.format.title': "Format & Support",
+        'photo.format.p1': "Each collaboration begins with an exchange, a meeting to understand your needs and desires. I accompany you throughout the process, from preparation to the final delivery of the images.",
+        'photo.format.private.title': "PRIVATE SESSIONS",
+        'photo.format.private.item1': "+ Custom artistic direction",
+        'photo.format.private.item2': "+ Careful selection and retouching",
+        'photo.format.private.item3': "+ Private online gallery",
+        'photo.format.private.item4': "+ Fine art prints available",
+        'photo.format.collab.title': "COLLABORATIONS",
+        'photo.format.collab.desc': `- Life event photography
+- Professional communication
+- For content creators or travelers
+- To mark a life change or a turning page
+- For artistic or artisanal projects
+
+Let's talk together about your unique project.`,
+        'photo.gallery.title': "Portfolio & Moments",
+        'photo.gallery.subtitle': "A window into my universe and the stories I have had the honor of telling.",
+        // Breathwork Page
+        'therapie.hero.title': 'Breathwork',
+        'therapie.hero.subtitle': "Feel. Breathe. Find yourself.",
+        'therapie.hero.desc': "Breathwork and body-emotion support for those who want to reconnect deeply.",
+        'therapie.hero.cta': "Discover the support",
+        'therapie.vision.title': "My Vision",
+        'therapie.vision.p1': "I offer therapeutic support centered on speech, breath, and emotional regulation.",
+        'therapie.vision.p2': "I support people who wish for a space of listening and understanding in an often shifting context.\n\nIn Playa Del Carmen or online",
+        'therapie.breathwork.title': "Breathwork",
+        'therapie.breathwork.subtitle': "Conscious Breathing Sessions",
+        'therapie.breathwork.content': `In addition to individual sessions, I lead weekly breathwork workshops in Playa del Carmen.
+
+Breathing here becomes a tool for:
+- Emotional regulation
+- Inner exploration
+- Bodily presence`,
+        'therapie.accomp.title': "Holistic Support",
+        'therapie.accomp.p1': "My support does not stop at the breath. It integrates the totality of your being. Together, we explore your thought patterns, your emotional blockages and how they are inscribed in your body.",
+        'therapie.accomp.p2': "It is a tailor-made journey, where each session is a step towards a better knowledge of yourself and greater autonomy in your process of healing and fulfillment.",
+        'therapie.who.title': "For Whom?",
+        'therapie.who.stress.title': "Sensory Overload",
+        'therapie.who.stress.desc': "Anxiety, rumination, emotional fatigue, difficulty concentrating.\n\nYou want to find stability, clarity and capacity for action.",
+        'therapie.who.explorers.title': "Life Transition",
+        'therapie.who.explorers.desc': "Breakup, grief, country change, career change, loss of meaning.\n\nYou are going through a period of reorganization and need a solid framework to clarify and move forward.",
+        'therapie.who.goals.title': "Repetitive Relationship Patterns",
+        'therapie.who.goals.desc': "Lack of confidence, difficulty setting boundaries, fear of rejection, tendency to carry too much for others.\n\nYou want to break out of repetitions and build a more assertive posture.",
+        'therapie.posture.title': "A Humanistic and Integrative Therapy",
+        'therapie.posture.intro': "My work is based on:",
+        'therapie.posture.p1.title': "Active listening and presence",
+        'therapie.posture.p2.title': "Philosophical and existential questioning",
+        'therapie.posture.p3.title': "Exploration of emotions",
+        'therapie.posture.p4.title': "Simple tools for nervous system regulation",
+        'therapie.posture.details': "Speech is central.\nThrough it, we explore your emotions, your questionings, and your blockages.\n\nI also integrate simple tools for nervous system regulation when relevant.\n\nEach accompaniment is adjusted to your situation.\nThe framework remains clear, the work progressive, and the goal is always the same: to allow you to better understand what you are experiencing and to act with more coherence.",
+        'therapie.posture.conclusion': "",
+        'therapie.offers.title': "Services",
+        'therapie.offers.individual.title': "Individual Sessions",
+        'therapie.offers.individual.desc': "Speech support, emotional exploration, and nervous system regulation.",
+        'therapie.offers.individual.details': "📍 In-person in Playa del Carmen\n💻 Online for French speakers worldwide\n⏳ 60 minutes\n💰 1000 mxn / 50 euros",
+        'therapie.offers.group_breathwork.title': "Beach-breathwork - group session",
+        'therapie.offers.group_breathwork.subtitle': "Group",
+        'therapie.offers.group_breathwork.desc': "Breathing workshop, awakening and Sadhana with feet in the sand at sunrise.",
+        'therapie.offers.group_breathwork.details': "📍 Playa Mamacitas\n⏳ 40 minutes\n💰 150 mxn",
+        'therapie.offers.solo_breathwork.title': "Individual Breathwork Session",
+        'therapie.offers.solo_breathwork.subtitle': "Format 1:1 In-depth exploration",
+        'therapie.offers.solo_breathwork.desc': "Focused work on: emotional blockages, relationship to stress, nervous system regulation.",
+        'therapie.offers.solo_breathwork.details': "📍 In Playa Del Carmen\n⏳ 60 minutes\n💰 1000 mxn / 50 euros",
+        'therapie.offers.special.title': "Specific Interventions & Formats",
+        'therapie.offers.special.desc': "Private groups, Companies, Stress management (including breath & cold exposure).",
+        'therapie.offers.special.details': "Contact me to define your needs together",
+        'therapie.offers.special.cta': "Contact me",
+        'therapie.contact_cta.title': "If you would like to discuss whether this support is right for you:",
+        'therapie.contact_cta.button': "Initial contact",
+    },
 } as const;

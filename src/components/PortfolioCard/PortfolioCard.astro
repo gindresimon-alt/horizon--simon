@@ -1,10 +1,9 @@
 ---
 /**
- * * PortfolioCard component used in lists/grids
+ * * Gallery cards for the portfolio section — Art Gallery Frame style
  */
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
-import { getLangFromUrl } from "../../i18n/utils";
 
 interface Props {
 	portfolio: CollectionEntry<"portfolios">;
@@ -12,58 +11,26 @@ interface Props {
 	noTransitions?: boolean;
 }
 
-const { portfolio, direction, noTransitions = false } = Astro.props as Props;
-const { title, description, heroImage, category } = portfolio.data;
-
-const lang = getLangFromUrl(Astro.url);
-const baseSlug = portfolio.id.split('/').pop();
-
-// Generate localized URL
-const localizedHref = lang === 'es' 
-	? `/portfolio/${baseSlug}/` 
-	: `/${lang}/portfolio/${baseSlug}/`;
+const { portfolio } = Astro.props as Props;
+const { title, heroImage } = portfolio.data;
 ---
 
-<div
-	class:list={[
-		"grid gap-4 portfolio-card-item",
-		{
-			"md:grid-cols-2": direction === "horizontal",
-		},
-	]}
-	data-category={category}
->
-	<a href={localizedHref} class="aspect-square overflow-hidden block">
-		{
-			noTransitions && (
-				<Image
-					src={heroImage}
-					alt={title}
-					width={450}
-					densities={[1.5, 2, 3]}
-					class="h-auto min-h-full w-full min-w-full object-cover transition-transform duration-500 hover:scale-105"
-					style={portfolio.id.includes('pregnancy') ? 'object-position: center 30%;' : ''}
-				/>
-			)
-		}
-		{
-			!noTransitions && (
-				<Image
-					src={heroImage}
-					alt={title}
-					width={450}
-					densities={[1.5, 2, 3]}
-					class="h-auto min-h-full w-full min-w-full object-cover transition-transform duration-500 hover:scale-105"
-					style={portfolio.id.includes('pregnancy') ? 'object-position: center 30%;' : ''}
-					transition:name={`portfolio-image-${portfolio.id}`}
-				/>
-			)
-		}
-	</a>
-	<div class="flex flex-col justify-between gap-2">
-		<div>
-			<h3 class="h3 text-primary-600 tracking-wider font-semibold">{title}</h3>
-			<p class="mt-2 text-sm text-base-700 leading-relaxed">{description}</p>
-		</div>
+<figure class="group flex flex-col gap-5">
+	<div class="relative aspect-[4/5] w-full overflow-hidden bg-base-200 shadow-md transition-shadow duration-500 group-hover:shadow-xl">
+		<Image
+			src={heroImage}
+			alt={title}
+			width={600}
+			densities={[1.5, 2]}
+			class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+			style={portfolio.id === 'pregnancy' ? 'object-position: center 30%;' : ''}
+		/>
+		<div class="pointer-events-none absolute inset-0 border border-black/5"></div>
 	</div>
-</div>
+	<figcaption class="text-center">
+		<h3 class="font-heading-1 text-xl font-normal tracking-wide text-base-900">
+			{title}
+		</h3>
+		<div class="mx-auto mt-2 h-[1px] w-8 bg-primary-400 transition-all duration-300 group-hover:w-14"></div>
+	</figcaption>
+</figure>

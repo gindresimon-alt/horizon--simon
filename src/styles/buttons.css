@@ -1,29 +1,29 @@
 /* buttons, 4 types "primary", "secondary", "outline", "ghost" */
 .button {
-	@apply font-heading-1 flex items-center justify-center rounded-none px-4 py-2 text-lg tracking-wide uppercase transition duration-200;
-	@apply active:opacity-80;
+	@apply font-heading-2 inline-flex items-center justify-center rounded-full px-8 py-4 text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300;
+	@apply active:scale-[0.99];
 	@apply disabled:pointer-events-none;
 }
 
 .button--primary {
-	@apply bg-primary-200 text-base-900;
-	@apply hover:bg-primary-200/80;
-	@apply focus-visible:ring-primary-300;
+	@apply bg-base-900 text-base-50 shadow-sm;
+	@apply hover:bg-primary-700 hover:text-white hover:shadow-md hover:-translate-y-0.5;
+	@apply focus-visible:ring-primary-400;
 }
 
 .button--secondary {
-	@apply border-2;
-	/* @apply hover:border-opacity-80; */
-	@apply focus-visible:ring-primary-200;
+	@apply border border-base-300 bg-white/80 backdrop-blur-sm text-base-900;
+	@apply hover:border-base-900 hover:bg-base-900 hover:text-base-50;
+	@apply focus-visible:ring-primary-300;
 }
 
 .button--outline {
-	@apply border-primary-200 text-base-900 border-2;
-	@apply hover:border-primary-200/80;
-	@apply focus-visible:ring-primary-200;
+	@apply border border-base-900/30 text-base-900;
+	@apply hover:border-base-900 hover:bg-base-900 hover:text-base-50;
+	@apply focus-visible:ring-primary-300;
 }
 
 .button--ghost {
-	@apply text-base-800;
+	@apply text-base-800 px-0 py-2 rounded-none border-b border-current/30 hover:border-current;
 	@apply hover:opacity-80;
 }

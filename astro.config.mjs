@@ -10,8 +10,8 @@ import icon from "astro-icon"; // https://www.astroicon.dev/guides/upgrade/v1/
 export default defineConfig({
 	site: "https://horizon.cosmicthemes.com",
 	i18n: {
-		defaultLocale: "es",
-		locales: ["es", "en", "fr"],
+		defaultLocale: "fr",
+		locales: ["fr", "en"],
 		routing: {
 			prefixDefaultLocale: false,
 		},
@@ -44,11 +44,6 @@ export default defineConfig({
 					"mail",
 					"phone",
 					"brand-whatsapp",
-					"tag",
-					"bolt",
-					"shield-check",
-					"check",
-					"circle-check",
 				],
 			},
 		}),

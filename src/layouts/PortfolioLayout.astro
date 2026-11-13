@@ -18,10 +18,9 @@ const { portfolio } = Astro.props as Props;
 const { title, description, date, images, clients, location, heroImage } = portfolio.data;
 
 // find other portfolios to show later down the page
-const langPrefix = portfolio.id.split('/')[0] + '/';
 const otherPortfolios = await getCollection("portfolios", (otherPortfolio) => {
 	// filter out draft pages
-	return otherPortfolio.data.draft !== true && otherPortfolio.id !== portfolio.id && otherPortfolio.id.startsWith(langPrefix);
+	return otherPortfolio.data.draft !== true && otherPortfolio.id !== portfolio.id;
 });
 ---
 

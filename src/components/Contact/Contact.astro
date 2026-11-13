@@ -1,7 +1,8 @@
 ---
 /**
- * * Contact section for the website
+ * * Contact section for the website (WhatsApp direct — Editorial Callout)
  */
+
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
@@ -13,43 +14,43 @@ const { class: className } = Astro.props as Props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const whatsappUrl = "https://wa.me/33651775979?text=" + encodeURIComponent(
-	lang === 'es' ? 'Hola Simon, me gustaría obtener información para un proyecto de fotografía.' :
-	lang === 'en' ? 'Hello Simon, I would like to get information for a photography project.' :
-	'Bonjour Simon, je souhaite obtenir des informations pour un projet de photographie.'
-);
-const emailUrl = "mailto:gindresimon@gmail.com";
+const phone = "529842093744";
+const whatsappUrl = `https://wa.me/${phone}`;
 ---
 
 <section
 	id="contact"
-	class="mx-auto max-w-2xl scroll-mt-10 px-4 py-8 md:py-12 text-center"
+	class="site-container scroll-mt-16 py-20 md:py-28"
 	class:list={[className]}
 >
-	<h2 class="h2 mb-4 text-center text-primary-900">{t('contact.title')}</h2>
-	<div class="mb-8 text-center">
-		<p class="description text-lg">
-			{lang === 'es' ? 'Póngase en contacto conmigo directamente por WhatsApp o por correo electrónico para hablar de su proyecto.' : 
-			 lang === 'en' ? 'Get in touch with me directly via WhatsApp or email to discuss your project.' : 
-			 'Contactez-moi directement par WhatsApp ou par e-mail pour échanger sur votre projet.'}
-		</p>
-	</div>
-	
-	<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-		<a
-			href={whatsappUrl}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="button button--primary flex items-center justify-center gap-2 px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-full sm:w-auto"
-		>
-			<Icon name="tabler:brand-whatsapp" class="h-6 w-6" /> {lang === 'es' ? 'Escribir por WhatsApp' : lang === 'en' ? 'Write on WhatsApp' : 'Écrire sur WhatsApp'}
-		</a>
-		
-		<a
-			href={emailUrl}
-			class="button button--outline border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white flex items-center justify-center gap-2 px-8 py-3.5 uppercase tracking-wider font-semibold text-sm w-full sm:w-auto"
-		>
-			<Icon name="tabler:mail" class="h-6 w-6" /> {lang === 'es' ? 'Enviar un correo' : lang === 'en' ? 'Send an email' : 'Envoyer un e-mail'}
-		</a>
+	<div class="relative overflow-hidden bg-base-900 px-6 py-16 text-center text-base-50 shadow-2xl sm:px-12 md:py-24">
+		<!-- Subtle decorative glow -->
+		<div class="pointer-events-none absolute -top-24 left-1/2 -z-0 h-64 w-64 -translate-x-1/2 rounded-full bg-primary-500/15 blur-3xl"></div>
+
+		<div class="relative z-10 mx-auto max-w-2xl">
+			<div class="mb-4 inline-flex items-center gap-3">
+				<span class="h-[1px] w-6 bg-primary-400"></span>
+				<span class="font-heading-2 text-xs font-semibold tracking-[0.28em] uppercase text-primary-300">
+					{t('contact.title')}
+				</span>
+				<span class="h-[1px] w-6 bg-primary-400"></span>
+			</div>
+
+			<h2 class="font-heading-1 text-3xl font-normal italic text-white sm:text-4xl md:text-5xl leading-tight">
+				{t('contact.subtitle')}
+			</h2>
+
+			<div class="mt-10 flex flex-col items-center justify-center gap-4">
+				<a
+					href={whatsappUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 font-heading-2 text-xs font-semibold tracking-[0.2em] uppercase text-base-950 shadow-lg transition-all duration-300 hover:bg-primary-500 hover:text-white hover:-translate-y-0.5"
+				>
+					<Icon name="tabler:brand-whatsapp" class="h-5 w-5 text-emerald-600 transition-colors group-hover:text-white" />
+					<span>WhatsApp · +52 984 209 3744</span>
+				</a>
+			</div>
+		</div>
 	</div>
 </section>

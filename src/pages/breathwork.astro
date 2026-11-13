@@ -1,0 +1,235 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SideSection from "@components/Feature/SideSection.astro";
+import Contact from "@components/Contact/Contact.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import whoOverload from "../assets/images/who-overload.jpg";
+import whoTransition from "../assets/images/who-transition.jpg";
+import whoPatterns from "../assets/images/who-patterns.jpg";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// images
+import heroImage from "@assets/images/home-hero-2026-v2.jpg";
+import breathworkImage from "@assets/images/breathwork-beach.jpg";
+
+const title = t('therapie.hero.title') + " | Simon Gindre";
+const description = t('therapie.hero.desc');
+---
+
+<BaseLayout {title} {description} navStartStyle="white">
+	{/* 1. Header & Atmosphere */}
+	<section class="relative flex min-h-[75lvh] w-full items-center justify-center overflow-hidden bg-base-950 pt-24 pb-16">
+		<Image
+			src={heroImage}
+			alt="Breathwork"
+			class="absolute inset-0 h-full w-full object-cover object-center opacity-50 scale-[1.02]"
+			loading="eager"
+		/>
+		<div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/75"></div>
+
+		<div class="site-container relative z-10 text-center text-white">
+			<div class="mx-auto max-w-3xl">
+				<div class="mb-6 inline-flex items-center gap-3">
+					<span class="h-[1px] w-8 bg-primary-300"></span>
+					<span class="font-heading-2 text-xs font-medium tracking-[0.3em] uppercase text-primary-200">
+						Playa del Carmen · En ligne
+					</span>
+					<span class="h-[1px] w-8 bg-primary-300"></span>
+				</div>
+
+				<h1 class="font-heading-1 text-5xl font-normal tracking-tight text-white sm:text-6xl md:text-7xl">
+					{t('therapie.hero.title')}
+				</h1>
+
+				<p class="mt-6 font-heading-1 text-2xl italic font-light text-white/90 md:text-3xl">
+					« {t('therapie.hero.subtitle')} »
+				</p>
+
+				<p class="mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-white/80 md:text-lg">
+					{t('therapie.hero.desc')}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 2. Ma Vision — Editorial Statement */}
+	<section id="vision" class="site-container py-24 md:py-32">
+		<div class="mx-auto max-w-3xl text-center">
+			<div class="eyebrow mb-4 justify-center">
+				<span class="h-[1px] w-6 bg-primary-500"></span>
+				<span>{t('therapie.vision.title')}</span>
+				<span class="h-[1px] w-6 bg-primary-500"></span>
+			</div>
+
+			<p class="font-heading-1 text-2xl leading-relaxed text-base-900 md:text-3xl lg:text-4xl">
+				{t('therapie.vision.p1')}
+			</p>
+
+			<div class="mx-auto my-8 h-[1px] w-16 bg-primary-300"></div>
+
+			<p class="whitespace-pre-line text-lg font-light leading-relaxed text-base-700 md:text-xl">
+				{t('therapie.vision.p2')}
+			</p>
+		</div>
+	</section>
+
+	{/* 3. Le Breathwork */}
+	<SideSection
+		title={t('therapie.breathwork.title')}
+		subtitle={t('therapie.breathwork.subtitle')}
+		content={t('therapie.breathwork.content')}
+		imageSrc={breathworkImage}
+		imageAlt="Breathwork"
+		reversed={true}
+	/>
+
+	{/* 4. Pour Qui */}
+	<section class="border-y border-base-200/70 bg-base-100/60 py-24 md:py-32">
+		<div class="site-container">
+			<div class="mx-auto max-w-2xl text-center mb-16">
+				<div class="eyebrow mb-3 justify-center">
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+					<span>Accompagnement</span>
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+				</div>
+				<h2 class="h2 text-base-950">{t('therapie.who.title')}</h2>
+			</div>
+
+			<div class="grid gap-10 md:grid-cols-3">
+				<div class="group bg-base-50 border border-base-200/80 p-8 shadow-sm transition-all duration-500 hover:shadow-xl">
+					<div class="mb-6 aspect-[4/3] w-full overflow-hidden bg-base-200">
+						<Image src={whoOverload} alt="" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+					</div>
+					<h3 class="font-heading-1 text-2xl text-base-950 mb-4">{t('therapie.who.stress.title')}</h3>
+					<p class="text-base-700 font-light leading-relaxed whitespace-pre-line">{t('therapie.who.stress.desc')}</p>
+				</div>
+
+				<div class="group bg-base-50 border border-base-200/80 p-8 shadow-sm transition-all duration-500 hover:shadow-xl">
+					<div class="mb-6 aspect-[4/3] w-full overflow-hidden bg-base-200">
+						<Image src={whoTransition} alt="" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+					</div>
+					<h3 class="font-heading-1 text-2xl text-base-950 mb-4">{t('therapie.who.explorers.title')}</h3>
+					<p class="text-base-700 font-light leading-relaxed whitespace-pre-line">{t('therapie.who.explorers.desc')}</p>
+				</div>
+
+				<div class="group bg-base-50 border border-base-200/80 p-8 shadow-sm transition-all duration-500 hover:shadow-xl">
+					<div class="mb-6 aspect-[4/3] w-full overflow-hidden bg-base-200">
+						<Image src={whoPatterns} alt="" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+					</div>
+					<h3 class="font-heading-1 text-2xl text-base-950 mb-4">{t('therapie.who.goals.title')}</h3>
+					<p class="text-base-700 font-light leading-relaxed whitespace-pre-line">{t('therapie.who.goals.desc')}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 5. Approche humaniste et intégrative */}
+	<section class="site-container py-24 md:py-32">
+		<div class="mx-auto max-w-5xl">
+			<div class="text-center mb-14">
+				<div class="eyebrow mb-3 justify-center">
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+					<span>Philosophie</span>
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+				</div>
+				<h2 class="h2 text-base-950">{t('therapie.posture.title')}</h2>
+				<p class="mt-4 font-heading-1 text-xl italic text-base-600">{t('therapie.posture.intro')}</p>
+			</div>
+
+			<div class="grid gap-6 sm:grid-cols-2">
+				<div class="flex items-start gap-5 border border-base-200 bg-white/80 p-7 shadow-xs">
+					<span class="font-heading-1 text-3xl italic text-primary-400">01</span>
+					<h3 class="font-heading-1 text-xl text-base-900 pt-1">{t('therapie.posture.p1.title')}</h3>
+				</div>
+				<div class="flex items-start gap-5 border border-base-200 bg-white/80 p-7 shadow-xs">
+					<span class="font-heading-1 text-3xl italic text-primary-400">02</span>
+					<h3 class="font-heading-1 text-xl text-base-900 pt-1">{t('therapie.posture.p2.title')}</h3>
+				</div>
+				<div class="flex items-start gap-5 border border-base-200 bg-white/80 p-7 shadow-xs">
+					<span class="font-heading-1 text-3xl italic text-primary-400">03</span>
+					<h3 class="font-heading-1 text-xl text-base-900 pt-1">{t('therapie.posture.p3.title')}</h3>
+				</div>
+				<div class="flex items-start gap-5 border border-base-200 bg-white/80 p-7 shadow-xs">
+					<span class="font-heading-1 text-3xl italic text-primary-400">04</span>
+					<h3 class="font-heading-1 text-xl text-base-900 pt-1">{t('therapie.posture.p4.title')}</h3>
+				</div>
+			</div>
+
+			<div class="mx-auto mt-14 max-w-3xl border-l-2 border-primary-300 pl-6 md:pl-8 text-lg font-light leading-relaxed text-base-700 whitespace-pre-line">
+				<p>{t('therapie.posture.details')}</p>
+			</div>
+		</div>
+	</section>
+
+	{/* 6. Prestations */}
+	<section class="border-t border-base-200/70 bg-base-100/70 py-24 md:py-32">
+		<div class="site-container">
+			<div class="text-center mb-16">
+				<div class="eyebrow mb-3 justify-center">
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+					<span>Séances & Formats</span>
+					<span class="h-[1px] w-6 bg-primary-500"></span>
+				</div>
+				<h2 class="h2 text-base-950">{t('therapie.offers.title')}</h2>
+			</div>
+
+			<div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-3 items-stretch">
+				{/* individual session */}
+				<div class="bg-base-50 border border-base-200 p-10 flex flex-col justify-between shadow-sm transition-all duration-300 hover:shadow-xl">
+					<div>
+						<span class="font-heading-2 text-xs font-semibold tracking-[0.22em] uppercase text-primary-600">Accompagnement</span>
+						<h3 class="font-heading-1 text-2xl text-base-950 mt-2">{t('therapie.offers.individual.title')}</h3>
+						<div class="my-6 h-[1px] w-12 bg-primary-300"></div>
+						<p class="text-base-700 font-light leading-relaxed">{t('therapie.offers.individual.desc')}</p>
+					</div>
+					<ul class="mt-8 pt-6 border-t border-base-200/80 text-sm text-base-700 font-light leading-relaxed space-y-2.5">
+						{t('therapie.offers.individual.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
+				</div>
+
+				{/* 1:1 breathwork — Featured dark card */}
+				<div class="bg-base-900 text-base-50 p-10 flex flex-col justify-between shadow-xl relative lg:-my-4 z-10">
+					<div>
+						<div class="inline-flex items-center gap-2 bg-primary-500/20 border border-primary-400/30 text-primary-300 px-3 py-1 text-[11px] font-heading-2 font-semibold uppercase tracking-[0.2em] mb-4">
+							Approfondi · 1:1
+						</div>
+						<h3 class="font-heading-1 text-2xl text-white">{t('therapie.offers.solo_breathwork.title')}</h3>
+						<div class="my-6 h-[1px] w-12 bg-primary-400"></div>
+						<p class="text-base-200 font-light leading-relaxed">{t('therapie.offers.solo_breathwork.desc')}</p>
+					</div>
+					<ul class="mt-8 pt-6 border-t border-white/15 text-sm text-base-200 font-light leading-relaxed space-y-2.5">
+						{t('therapie.offers.solo_breathwork.details').split('\n').filter((line: string) => line.trim() !== '').map((line: string) => (
+							<li>{line}</li>
+						))}
+					</ul>
+				</div>
+
+				{/* specific interventions */}
+				<div class="bg-base-50 border border-base-200 p-10 flex flex-col justify-between shadow-sm transition-all duration-300 hover:shadow-xl">
+					<div>
+						<span class="font-heading-2 text-xs font-semibold tracking-[0.22em] uppercase text-primary-600">Sur mesure</span>
+						<h3 class="font-heading-1 text-2xl text-base-950 mt-2">{t('therapie.offers.special.title')}</h3>
+						<div class="my-6 h-[1px] w-12 bg-primary-300"></div>
+						<p class="text-base-700 font-light leading-relaxed">{t('therapie.offers.special.desc')}</p>
+					</div>
+					<div class="mt-8 pt-6 border-t border-base-200/80">
+						<p class="text-sm text-base-600 mb-5 italic font-light">{t('therapie.offers.special.details')}</p>
+						<a href="#contact" class="group inline-flex items-center gap-2 font-heading-2 text-xs font-semibold tracking-[0.2em] uppercase text-primary-600 hover:text-base-950 transition-colors">
+							<span>{t('therapie.offers.special.cta')}</span>
+							<Icon name="tabler:arrow-narrow-right" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{/* 7. Contact section */}
+	<Contact />
+</BaseLayout>

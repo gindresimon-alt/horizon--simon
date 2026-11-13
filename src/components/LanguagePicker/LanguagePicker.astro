@@ -2,97 +2,42 @@
 const pathname = Astro.url.pathname;
 
 const languages = [
-  { code: 'es', label: 'ES' },
-  { code: 'en', label: 'EN' },
   { code: 'fr', label: 'FR' },
+  { code: 'en', label: 'EN' },
 ];
 
-const localizedLinksMap: Record<string, Record<string, string>> = {
-    es: {
-        "/": "/",
-        "/immobilier/": "/inmobiliario/",
-        "/pros-events/": "/profesionales-eventos/",
-        "/portfolio/": "/portfolio/",
-        "/about/": "/sobre-mi/",
-        "/contact/": "/contacto/"
-    },
-    en: {
-        "/": "/en/",
-        "/immobilier/": "/en/real-estate/",
-        "/pros-events/": "/en/pros-events/",
-        "/portfolio/": "/en/portfolio/",
-        "/about/": "/en/about/",
-        "/contact/": "/en/contact/"
-    },
-    fr: {
-        "/": "/fr/",
-        "/immobilier/": "/fr/immobilier/",
-        "/pros-events/": "/fr/pros-evenements/",
-        "/portfolio/": "/fr/portfolio/",
-        "/about/": "/fr/about/",
-        "/contact/": "/fr/contact/"
-    }
-};
-
-function getLangUrl(targetLang: string) {
-  let currentPath = pathname;
-  if (!currentPath.endsWith('/') && !currentPath.includes('.')) {
-    currentPath += '/';
-  }
-
-  // Find the canonical link key
-  let canonicalLink: string | null = null;
-  for (const langKey of Object.keys(localizedLinksMap)) {
-    const langMap = localizedLinksMap[langKey];
-    for (const [key, val] of Object.entries(langMap)) {
-      if (val === currentPath) {
-        canonicalLink = key;
-        break;
-      }
-    }
-    if (canonicalLink) break;
-  }
-
-  if (canonicalLink) {
-    const targetMap = localizedLinksMap[targetLang] || localizedLinksMap.es;
-    return targetMap[canonicalLink] || canonicalLink;
-  }
-
-  // Fallback for portfolio slugs / custom pages
+function getLangUrl(code: string) {
   let segments = pathname.split('/').filter(Boolean);
-  if (segments.length > 0 && ['en', 'fr', 'es'].includes(segments[0])) {
-    segments.shift();
-  }
   
-  const base = segments.join('/');
-  if (targetLang === 'es') {
-    return '/' + (base ? base + '/' : '');
+  if (code === 'fr') {
+    if (segments[0] === 'en' || segments[0] === 'fr') {
+      segments.shift();
+    }
+    return '/' + (segments.length ? segments.join('/') + '/' : '');
   } else {
-    return `/${targetLang}/` + (base ? base + '/' : '');
+    if (segments[0] === 'en' || segments[0] === 'fr') {
+      segments.shift();
+    }
+    return '/en/' + (segments.length ? segments.join('/') + '/' : '');
   }
-}
-
-function isActive(code: string) {
-  const segments = pathname.split('/').filter(Boolean);
-  if (code === 'es') {
-    return segments.length === 0 || !['en', 'fr'].includes(segments[0]);
-  }
-  return segments.length > 0 && segments[0] === code;
 }
 ---
 
-<div class="flex items-center gap-3 px-2 text-sm font-medium">
-  {languages.map((l) => (
-    <a
-      href={getLangUrl(l.code)}
-      class:list={[
-        "transition-colors hover:text-primary-500 tracking-wider font-semibold",
-        isActive(l.code)
-          ? "text-primary-600 underline underline-offset-4"
-          : "text-base-600 opacity-60 hover:opacity-100"
-      ]}
-    >
-      {l.label}
-    </a>
+<div class="flex items-center gap-3 font-heading-2 text-xs tracking-[0.2em]">
+  {languages.map((l, idx) => (
+    <>
+      <a
+        href={getLangUrl(l.code)}
+        class:list={[
+          "transition-all duration-300 hover:text-primary-500",
+          Astro.url.pathname.startsWith(`/${l.code}`) || (l.code === 'fr' && !Astro.url.pathname.startsWith('/en'))
+            ? "font-bold underline underline-offset-4 decoration-primary-500"
+            : "opacity-60 hover:opacity-100"
+        ]}
+      >
+        {l.label}
+      </a>
+      {idx === 0 && <span class="opacity-30">·</span>}
+    </>
   ))}
 </div>
